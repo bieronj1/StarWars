@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/PlayerShip.dir/bin/PlayerShip.cpp.o  -o PlayerShip -rdynamic /home/f85/msnelsen/SFML/lib/libsfml-graphics.so /home/f85/msnelsen/SFML/lib/libsfml-window.so /home/f85/msnelsen/SFML/lib/libsfml-system.so /home/f85/msnelsen/SFML/lib/libsfml-audio.so /home/f85/msnelsen/SFML/lib/libsfml-network.so -Wl,-rpath,/home/f85/msnelsen/SFML/lib 

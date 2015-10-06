@@ -110,6 +110,100 @@ depend:
 	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+#=============================================================================
+# Target rules for targets named helloworld
+
+# Build rule for target.
+helloworld: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 helloworld
+.PHONY : helloworld
+
+# fast build rule for target.
+helloworld/fast:
+	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/build
+.PHONY : helloworld/fast
+
+bin/helloworld.o: bin/helloworld.cpp.o
+
+.PHONY : bin/helloworld.o
+
+# target to build an object file
+bin/helloworld.cpp.o:
+	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/bin/helloworld.cpp.o
+.PHONY : bin/helloworld.cpp.o
+
+bin/helloworld.i: bin/helloworld.cpp.i
+
+.PHONY : bin/helloworld.i
+
+# target to preprocess a source file
+bin/helloworld.cpp.i:
+	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/bin/helloworld.cpp.i
+.PHONY : bin/helloworld.cpp.i
+
+bin/helloworld.s: bin/helloworld.cpp.s
+
+.PHONY : bin/helloworld.s
+
+# target to generate assembly for a file
+bin/helloworld.cpp.s:
+	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/bin/helloworld.cpp.s
+.PHONY : bin/helloworld.cpp.s
+
+src/Body.o: src/Body.cpp.o
+
+.PHONY : src/Body.o
+
+# target to build an object file
+src/Body.cpp.o:
+	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/src/Body.cpp.o
+.PHONY : src/Body.cpp.o
+
+src/Body.i: src/Body.cpp.i
+
+.PHONY : src/Body.i
+
+# target to preprocess a source file
+src/Body.cpp.i:
+	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/src/Body.cpp.i
+.PHONY : src/Body.cpp.i
+
+src/Body.s: src/Body.cpp.s
+
+.PHONY : src/Body.s
+
+# target to generate assembly for a file
+src/Body.cpp.s:
+	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/src/Body.cpp.s
+.PHONY : src/Body.cpp.s
+
+src/PlayerShip.o: src/PlayerShip.cpp.o
+
+.PHONY : src/PlayerShip.o
+
+# target to build an object file
+src/PlayerShip.cpp.o:
+	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/src/PlayerShip.cpp.o
+.PHONY : src/PlayerShip.cpp.o
+
+src/PlayerShip.i: src/PlayerShip.cpp.i
+
+.PHONY : src/PlayerShip.i
+
+# target to preprocess a source file
+src/PlayerShip.cpp.i:
+	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/src/PlayerShip.cpp.i
+.PHONY : src/PlayerShip.cpp.i
+
+src/PlayerShip.s: src/PlayerShip.cpp.s
+
+.PHONY : src/PlayerShip.s
+
+# target to generate assembly for a file
+src/PlayerShip.cpp.s:
+	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/src/PlayerShip.cpp.s
+.PHONY : src/PlayerShip.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -118,6 +212,16 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... helloworld"
+	@echo "... bin/helloworld.o"
+	@echo "... bin/helloworld.i"
+	@echo "... bin/helloworld.s"
+	@echo "... src/Body.o"
+	@echo "... src/Body.i"
+	@echo "... src/Body.s"
+	@echo "... src/PlayerShip.o"
+	@echo "... src/PlayerShip.i"
+	@echo "... src/PlayerShip.s"
 .PHONY : help
 
 

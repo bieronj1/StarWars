@@ -1,10 +1,28 @@
 #include <SFML/Graphics.hpp>
+#include <SFML/System.hpp>
+#include <string>
+#include <math.h>
+#include <cmath>
+#include "PlayerShip.hpp"
 
 int main(int argc, char** argv)
 {
   // create main window
-  sf::RenderWindow App(sf::VideoMode(800,600,32), "Hello World - SFML");
-
+  sf::RenderWindow App(sf::VideoMode(800,600,32), "Astro-Loot");
+	int FPS=60;
+	App.setFramerateLimit(FPS);
+	sf::Font font;
+	if (!font.loadFromFile("lucon.ttf"))
+	{
+		std::cout<<"FONT FAILURE"<<std::endl;
+	}
+	
+	PlayerShip pc(200, 300,0.1,0.05,0.05);
+	Body green("default");
+	pc.setBody(green);
+	
+	
+	pc.setOrientation(3* M_PI / 2);
   // start main loop
   while(App.isOpen())
   {
@@ -18,9 +36,10 @@ int main(int argc, char** argv)
     }
 
     // clear screen and fill with blue
-    App.clear(sf::Color::Blue);
+    App.clear(sf::Color::Black);
 
-    // display
+		pc.update();
+		App.draw(pc);
     App.display();
   }
 
