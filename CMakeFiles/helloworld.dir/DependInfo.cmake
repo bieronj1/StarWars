@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/f85/msnelsen/CS420/StarWars/bin/helloworld.cpp" "/home/f85/msnelsen/CS420/StarWars/CMakeFiles/helloworld.dir/bin/helloworld.cpp.o"
   "/home/f85/msnelsen/CS420/StarWars/src/Body.cpp" "/home/f85/msnelsen/CS420/StarWars/CMakeFiles/helloworld.dir/src/Body.cpp.o"
+  "/home/f85/msnelsen/CS420/StarWars/src/Flipper.cpp" "/home/f85/msnelsen/CS420/StarWars/CMakeFiles/helloworld.dir/src/Flipper.cpp.o"
   "/home/f85/msnelsen/CS420/StarWars/src/PlayerShip.cpp" "/home/f85/msnelsen/CS420/StarWars/CMakeFiles/helloworld.dir/src/PlayerShip.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

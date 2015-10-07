@@ -19,10 +19,16 @@ cmath
 -
 PlayerShip.hpp
 /home/f85/msnelsen/CS420/StarWars/bin/PlayerShip.hpp
+Flipper.hpp
+/home/f85/msnelsen/CS420/StarWars/bin/Flipper.hpp
 
 /home/f85/msnelsen/CS420/StarWars/src/Body.cpp
 Body.hpp
 /home/f85/msnelsen/CS420/StarWars/src/Body.hpp
+
+/home/f85/msnelsen/CS420/StarWars/src/Flipper.cpp
+Flipper.hpp
+/home/f85/msnelsen/CS420/StarWars/src/Flipper.hpp
 
 /home/f85/msnelsen/CS420/StarWars/src/PlayerShip.cpp
 PlayerShip.hpp
@@ -658,6 +664,22 @@ SFML/System.hpp
 math.h
 -
 cmath
+-
+
+include/Flipper.hpp
+iostream
+-
+string
+-
+SFML/Graphics.hpp
+-
+SFML/System.hpp
+-
+math.h
+-
+cmath
+-
+deque
 -
 
 include/PlayerShip.hpp

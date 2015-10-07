@@ -177,6 +177,33 @@ src/Body.cpp.s:
 	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/src/Body.cpp.s
 .PHONY : src/Body.cpp.s
 
+src/Flipper.o: src/Flipper.cpp.o
+
+.PHONY : src/Flipper.o
+
+# target to build an object file
+src/Flipper.cpp.o:
+	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/src/Flipper.cpp.o
+.PHONY : src/Flipper.cpp.o
+
+src/Flipper.i: src/Flipper.cpp.i
+
+.PHONY : src/Flipper.i
+
+# target to preprocess a source file
+src/Flipper.cpp.i:
+	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/src/Flipper.cpp.i
+.PHONY : src/Flipper.cpp.i
+
+src/Flipper.s: src/Flipper.cpp.s
+
+.PHONY : src/Flipper.s
+
+# target to generate assembly for a file
+src/Flipper.cpp.s:
+	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/src/Flipper.cpp.s
+.PHONY : src/Flipper.cpp.s
+
 src/PlayerShip.o: src/PlayerShip.cpp.o
 
 .PHONY : src/PlayerShip.o
@@ -219,6 +246,9 @@ help:
 	@echo "... src/Body.o"
 	@echo "... src/Body.i"
 	@echo "... src/Body.s"
+	@echo "... src/Flipper.o"
+	@echo "... src/Flipper.i"
+	@echo "... src/Flipper.s"
 	@echo "... src/PlayerShip.o"
 	@echo "... src/PlayerShip.i"
 	@echo "... src/PlayerShip.s"
