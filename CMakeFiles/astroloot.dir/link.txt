@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/astroloot.dir/bin/astroloot.cpp.o  -o astroloot -rdynamic /home/keyvin/SFML/lib/libsfml-graphics.so /home/keyvin/SFML/lib/libsfml-window.so /home/keyvin/SFML/lib/libsfml-system.so /home/keyvin/SFML/lib/libsfml-audio.so /home/keyvin/SFML/lib/libsfml-network.so -Wl,-rpath,/home/keyvin/SFML/lib 
