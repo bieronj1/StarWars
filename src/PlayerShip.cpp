@@ -22,10 +22,27 @@ void PlayerShip::faster(){
 		vy+=fthrust*(std::sin(orientation));
 	}
 	
+	
 void PlayerShip::reverse(){
 		vx-=lthrust*(std::cos(orientation));
 		vy-=lthrust*(std::sin(orientation));
 	}
+	
+void PlayerShip::chooseBody(std::string bodyName){
+	if(bodyName.compare( "Red")){
+		Body red("Red");
+		red.setColor(sf::Color::Red);
+		setBody(red);
+	}else if(bodyName.compare("White")){
+		Body white("White");
+		white.setColor(sf::Color::White);
+		setBody(white);
+	}else if(bodyName.compare("Blue")){
+		Body blue("Blue");
+		blue.setColor(sf::Color::Blue);
+		setBody(blue);
+	}
+}
 	
 void PlayerShip::slower(){
 

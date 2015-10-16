@@ -15,8 +15,11 @@ class Flipper : public sf::Drawable{
 		void addToList(std::string added);
 		bool getHilighted();
 		void setHilighted(bool thilighted);
+		std::string returnText();
 		sf::Font font;
 	  std::deque<std::string> names;
+		void next();
+		void previous();
 		
 	private:
 		virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;

@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/helloworld.dir/src/PlayerShip.cpp.o"
   "CMakeFiles/helloworld.dir/src/Body.cpp.o"
   "CMakeFiles/helloworld.dir/src/Flipper.cpp.o"
+  "CMakeFiles/helloworld.dir/src/Menu.cpp.o"
   "CMakeFiles/helloworld.dir/bin/helloworld.cpp.o"
   "helloworld.pdb"
   "helloworld"

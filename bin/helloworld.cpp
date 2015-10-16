@@ -4,7 +4,10 @@
 #include <math.h>
 #include <cmath>
 #include "PlayerShip.hpp"
-#include "Flipper.hpp"
+#include "Menu.hpp" 
+
+
+static bool QWEASD[6];
 
 int main(int argc, char** argv)
 {
@@ -18,12 +21,19 @@ int main(int argc, char** argv)
 		std::cout<<"FONT FAILURE"<<std::endl;
 	}
 	
+	
 	PlayerShip pc(200, 300,0.1,0.05,0.05);
 	Body green("default");
 	pc.setBody(green);
 	pc.setOrientation(3* M_PI / 2);
-	Flipper bodyFlipper(400, 400);
-	bodyFlipper.addToList("Red");
+	Flipper noseFlipper(450, 150);
+	Flipper bodyFlipper(450, 250);
+	Flipper tailFlipper(450, 350);
+	tailFlipper.addToList("Blue");
+	noseFlipper.addToList("Green");
+	bodyFlipper.addToList("Red"); bodyFlipper.addToList("White"); bodyFlipper.addToList("Blue");
+	Menu menu;
+	menu.addFlipper(tailFlipper); 	menu.addFlipper(noseFlipper); 	menu.addFlipper(bodyFlipper);
 	
   // start main loop
   while(App.isOpen())
@@ -35,13 +45,32 @@ int main(int argc, char** argv)
       // Exit
       if(Event.type == sf::Event::Closed)
         App.close();
+
+	    if((Event.type == sf::Event::KeyPressed) && (Event.key.code == sf::Keyboard::Down)){
+				menu.next();
+				std::cerr<<"down\n";
+	    }
+			if((Event.type == sf::Event::KeyPressed) && (Event.key.code == sf::Keyboard::Up)){
+				menu.previous();
+				std::cerr<<"up\n";
+			}
+			if((Event.type == sf::Event::KeyPressed) && (Event.key.code == sf::Keyboard::Left)){
+				menu.flipperPrevious();
+			}
+			if((Event.type == sf::Event::KeyPressed) && (Event.key.code == sf::Keyboard::Right)){
+				menu.flipperNext();
+			}
     }
+
+		pc.chooseBody(menu.currentFlipper().returnText());
+
+
 
     // clear screen and fill with blue
     App.clear(sf::Color::Black);
-
+  
 		pc.update();
-		App.draw(bodyFlipper); 
+		App.draw(menu);
 		App.draw(pc);
     App.display();
   }

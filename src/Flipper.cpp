@@ -3,7 +3,6 @@
 Flipper::Flipper(float tx, float ty){
 	x = tx;
 	y = ty;
-	font;
 	index = 0;
 	hilighted = false;
 	if(!font.loadFromFile("lucon.ttf"))
@@ -12,6 +11,7 @@ Flipper::Flipper(float tx, float ty){
 	}
 }
 
+
 void Flipper::changeIndex(int change)
 {
 	index = index + change;
@@ -19,6 +19,7 @@ void Flipper::changeIndex(int change)
 
 void Flipper::setHilighted(bool thilighted)
 {
+
 	hilighted = thilighted;
 }
 
@@ -37,12 +38,38 @@ void Flipper::addToList(std::string added)
 	names.push_back(added);
 }
 
+std::string Flipper::returnText()
+{
+	return names.at(index);
+}
+
+void Flipper::previous()
+{
+	index--;
+	if(index == -1)
+	{
+		index = names.size() - 1;
+	}else
+	{
+	index = index % names.size();
+  }
+}
+void Flipper::next()
+{
+	index++;
+	index = index % names.size();
+
+	std::cerr <<"next" ;
+	std::cerr << index;
+}
+
 void Flipper::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	sf::Text text;
 	text.setFont(font);
 	text.setPosition(x, y);
 	text.setString(names.at(index));
+	
 	if(hilighted)
 	{
 		text.setColor(sf::Color::Yellow);

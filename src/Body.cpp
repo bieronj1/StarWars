@@ -9,13 +9,18 @@ Body::Body(std::string tname){
 	name = tname;
 }
 
+void Body::setColor(sf::Color tColor)
+{
+	color = tColor;
+}
+
 sf::ConvexShape Body::returnShape() const{
 	sf::ConvexShape polygon;
 	polygon.setPointCount(3);
 	polygon.setPoint(0, sf::Vector2f(30,0));
 	polygon.setPoint(1, sf::Vector2f(-15, -15));
 	polygon.setPoint(2, sf::Vector2f(-15, 15));
-	polygon.setFillColor(sf::Color::Green);
+	polygon.setFillColor(color);
 
 	return polygon;
 }

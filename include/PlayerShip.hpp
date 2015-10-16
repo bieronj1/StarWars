@@ -32,6 +32,7 @@ class PlayerShip : public sf::Drawable{
 		void magicTurn();
 		void setOrientation(float newOrientation); 
 		void setBody(Body tbody);
+		void chooseBody(std::string bodyName);
 	private:
 		virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 	
