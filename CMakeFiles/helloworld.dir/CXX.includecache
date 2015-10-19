@@ -34,6 +34,10 @@ Flipper.hpp
 Menu.hpp
 /home/f85/msnelsen/CS420/StarWars/src/Menu.hpp
 
+/home/f85/msnelsen/CS420/StarWars/src/Nose.cpp
+Nose.hpp
+/home/f85/msnelsen/CS420/StarWars/src/Nose.hpp
+
 /home/f85/msnelsen/CS420/StarWars/src/PlayerShip.cpp
 PlayerShip.hpp
 /home/f85/msnelsen/CS420/StarWars/src/PlayerShip.hpp
@@ -704,6 +708,20 @@ deque
 Flipper.hpp
 include/Flipper.hpp
 
+include/Nose.hpp
+iostream
+-
+string
+-
+SFML/Graphics.hpp
+-
+SFML/System.hpp
+-
+math.h
+-
+cmath
+-
+
 include/PlayerShip.hpp
 iostream
 -
@@ -718,5 +736,7 @@ math.h
 cmath
 -
 Body.hpp
+-
+Nose.hpp
 -
 

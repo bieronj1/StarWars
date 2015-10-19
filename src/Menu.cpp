@@ -38,7 +38,7 @@ void Menu::previous()
 		currentIndex = currentIndex % flippers.size();
 	}
 	flippers.at(currentIndex).setHilighted(true);
-	std::cerr<<flippers.at(currentIndex).returnText();
+	
 }
 
 Flipper Menu::currentFlipper()

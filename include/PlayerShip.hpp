@@ -5,6 +5,7 @@
 #include <math.h>
 #include <cmath>
 #include <Body.hpp>
+#include <Nose.hpp>
 
 class PlayerShip : public sf::Drawable{
   public:
@@ -19,6 +20,7 @@ class PlayerShip : public sf::Drawable{
 		float trate;//turnrate, in rotations per frame
 		
 		Body body;
+		Nose nose;
 		
 		PlayerShip(float tlx, float tly, float tft, float tlt, float tr);
 		void update();
@@ -33,6 +35,9 @@ class PlayerShip : public sf::Drawable{
 		void setOrientation(float newOrientation); 
 		void setBody(Body tbody);
 		void chooseBody(std::string bodyName);
+		
+		void setNose(Nose tnose);
+		void chooseNose(std::string noseName);
 	private:
 		virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 	

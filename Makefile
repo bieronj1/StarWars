@@ -231,6 +231,33 @@ src/Menu.cpp.s:
 	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/src/Menu.cpp.s
 .PHONY : src/Menu.cpp.s
 
+src/Nose.o: src/Nose.cpp.o
+
+.PHONY : src/Nose.o
+
+# target to build an object file
+src/Nose.cpp.o:
+	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/src/Nose.cpp.o
+.PHONY : src/Nose.cpp.o
+
+src/Nose.i: src/Nose.cpp.i
+
+.PHONY : src/Nose.i
+
+# target to preprocess a source file
+src/Nose.cpp.i:
+	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/src/Nose.cpp.i
+.PHONY : src/Nose.cpp.i
+
+src/Nose.s: src/Nose.cpp.s
+
+.PHONY : src/Nose.s
+
+# target to generate assembly for a file
+src/Nose.cpp.s:
+	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/src/Nose.cpp.s
+.PHONY : src/Nose.cpp.s
+
 src/PlayerShip.o: src/PlayerShip.cpp.o
 
 .PHONY : src/PlayerShip.o
@@ -279,6 +306,9 @@ help:
 	@echo "... src/Menu.o"
 	@echo "... src/Menu.i"
 	@echo "... src/Menu.s"
+	@echo "... src/Nose.o"
+	@echo "... src/Nose.i"
+	@echo "... src/Nose.s"
 	@echo "... src/PlayerShip.o"
 	@echo "... src/PlayerShip.i"
 	@echo "... src/PlayerShip.s"

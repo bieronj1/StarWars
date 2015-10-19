@@ -28,16 +28,35 @@ void PlayerShip::reverse(){
 		vy-=lthrust*(std::sin(orientation));
 	}
 	
+void PlayerShip::chooseNose(std::string noseName){
+	std::cerr << noseName;
+	std::cerr << "\n";
+	if(!noseName.compare("Red")){
+		Nose red("Red");
+		red.setColor(sf::Color::Red);
+		setNose(red);
+	}else if(!noseName.compare("White")){
+		Nose white("White");
+		white.setColor(sf::Color::White);
+		setNose(white);
+	}else if(!noseName.compare("Blue")){
+		Nose blue("Blue");
+		blue.setColor(sf::Color::Blue);
+		setNose(blue);
+	}
+}
+	
 void PlayerShip::chooseBody(std::string bodyName){
-	if(bodyName.compare( "Red")){
+
+	if(!bodyName.compare("Red")){
 		Body red("Red");
 		red.setColor(sf::Color::Red);
 		setBody(red);
-	}else if(bodyName.compare("White")){
+	}else if(!bodyName.compare("White")){
 		Body white("White");
 		white.setColor(sf::Color::White);
 		setBody(white);
-	}else if(bodyName.compare("Blue")){
+	}else if(!bodyName.compare("Blue")){
 		Body blue("Blue");
 		blue.setColor(sf::Color::Blue);
 		setBody(blue);
@@ -88,10 +107,15 @@ void PlayerShip::magicTurn(){
 void PlayerShip::draw(sf::RenderTarget& target, sf::RenderStates states) const
     {
         // You can draw other high-level objects
-		sf::ConvexShape polygon = body.returnShape();
-		polygon.setPosition(lx,ly);
-		polygon.rotate(orientation*180/M_PI);
-        target.draw(polygon);
+		sf::ConvexShape bodyPolygon = body.returnShape();
+		bodyPolygon.setPosition(lx,ly);
+		bodyPolygon.rotate(orientation*180/M_PI);
+    target.draw(bodyPolygon);
+
+		sf::ConvexShape nosePolygon = nose.returnShape();
+		nosePolygon.setPosition(lx, ly -20);
+		nosePolygon.rotate(orientation*180/M_PI);
+		target.draw(nosePolygon);
     }
 
 /**
@@ -104,4 +128,8 @@ void PlayerShip::setOrientation(float newOrientation){
 
 void PlayerShip::setBody(Body tbody){
 	body = tbody;
+}
+
+void PlayerShip::setNose(Nose tnose){
+	nose = tnose;
 }

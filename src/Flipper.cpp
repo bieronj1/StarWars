@@ -59,8 +59,7 @@ void Flipper::next()
 	index++;
 	index = index % names.size();
 
-	std::cerr <<"next" ;
-	std::cerr << index;
+
 }
 
 void Flipper::draw(sf::RenderTarget& target, sf::RenderStates states) const
