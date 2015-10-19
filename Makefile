@@ -285,6 +285,33 @@ src/PlayerShip.cpp.s:
 	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/src/PlayerShip.cpp.s
 .PHONY : src/PlayerShip.cpp.s
 
+src/Tail.o: src/Tail.cpp.o
+
+.PHONY : src/Tail.o
+
+# target to build an object file
+src/Tail.cpp.o:
+	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/src/Tail.cpp.o
+.PHONY : src/Tail.cpp.o
+
+src/Tail.i: src/Tail.cpp.i
+
+.PHONY : src/Tail.i
+
+# target to preprocess a source file
+src/Tail.cpp.i:
+	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/src/Tail.cpp.i
+.PHONY : src/Tail.cpp.i
+
+src/Tail.s: src/Tail.cpp.s
+
+.PHONY : src/Tail.s
+
+# target to generate assembly for a file
+src/Tail.cpp.s:
+	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/src/Tail.cpp.s
+.PHONY : src/Tail.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -312,6 +339,9 @@ help:
 	@echo "... src/PlayerShip.o"
 	@echo "... src/PlayerShip.i"
 	@echo "... src/PlayerShip.s"
+	@echo "... src/Tail.o"
+	@echo "... src/Tail.i"
+	@echo "... src/Tail.s"
 .PHONY : help
 
 

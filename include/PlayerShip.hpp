@@ -6,6 +6,7 @@
 #include <cmath>
 #include <Body.hpp>
 #include <Nose.hpp>
+#include <Tail.hpp>
 
 class PlayerShip : public sf::Drawable{
   public:
@@ -21,6 +22,7 @@ class PlayerShip : public sf::Drawable{
 		
 		Body body;
 		Nose nose;
+		Tail tail;
 		
 		PlayerShip(float tlx, float tly, float tft, float tlt, float tr);
 		void update();
@@ -35,6 +37,9 @@ class PlayerShip : public sf::Drawable{
 		void setOrientation(float newOrientation); 
 		void setBody(Body tbody);
 		void chooseBody(std::string bodyName);
+		
+		void setTail(Tail ttail);
+		void chooseTail(std::string tailName);
 		
 		void setNose(Nose tnose);
 		void chooseNose(std::string noseName);

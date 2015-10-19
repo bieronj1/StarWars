@@ -29,13 +29,15 @@ int main(int argc, char** argv)
 	Flipper noseFlipper(450, 150);
 	Flipper bodyFlipper(450, 250);
 	Flipper tailFlipper(450, 350);
-	tailFlipper.addToList("Blue");
+	tailFlipper.addToList("Red"); tailFlipper.addToList("White"); tailFlipper.addToList("Blue");
 	noseFlipper.addToList("Red"); noseFlipper.addToList("White"); noseFlipper.addToList("Blue"); 
 	bodyFlipper.addToList("Red"); bodyFlipper.addToList("White"); bodyFlipper.addToList("Blue");
+	
 	Menu menu;
 	menu.addFlipper(noseFlipper); 	menu.addFlipper(bodyFlipper); menu.addFlipper(tailFlipper);
 	pc.chooseNose(menu.flippers.at(0).returnText());
 	pc.chooseBody(menu.flippers.at(1).returnText());
+	pc.chooseTail(menu.flippers.at(2).returnText());
 	
   // start main loop
   while(App.isOpen())
@@ -58,11 +60,13 @@ int main(int argc, char** argv)
 				menu.flipperPrevious();
 				pc.chooseBody(menu.flippers.at(1).returnText());
 				pc.chooseNose(menu.flippers.at(0).returnText());
+				pc.chooseTail(menu.flippers.at(2).returnText());
 			}
 			if((Event.type == sf::Event::KeyPressed) && (Event.key.code == sf::Keyboard::Right)){
 				menu.flipperNext();
 				pc.chooseBody(menu.flippers.at(1).returnText());
 				pc.chooseNose(menu.flippers.at(0).returnText());
+				pc.chooseTail(menu.flippers.at(2).returnText());
 			}
     }
 

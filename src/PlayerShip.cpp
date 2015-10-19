@@ -62,6 +62,23 @@ void PlayerShip::chooseBody(std::string bodyName){
 		setBody(blue);
 	}
 }
+
+void PlayerShip::chooseTail(std::string tailName){
+
+	if(!tailName.compare("Red")){
+		Tail red("Red");
+		red.setColor(sf::Color::Red);
+		setTail(red);
+	}else if(!tailName.compare("White")){
+		Tail white("White");
+		white.setColor(sf::Color::White);
+		setTail(white);
+	}else if(!tailName.compare("Blue")){
+		Tail blue("Blue");
+		blue.setColor(sf::Color::Blue);
+		setTail(blue);
+	}
+}
 	
 void PlayerShip::slower(){
 
@@ -116,6 +133,16 @@ void PlayerShip::draw(sf::RenderTarget& target, sf::RenderStates states) const
 		nosePolygon.setPosition(lx, ly -20);
 		nosePolygon.rotate(orientation*180/M_PI);
 		target.draw(nosePolygon);
+		
+		sf::ConvexShape lefttailPolygon = tail.returnLeftShape();
+		lefttailPolygon.setPosition(lx -13, ly +17);
+		lefttailPolygon.rotate(orientation*180/M_PI);
+		target.draw(lefttailPolygon);
+		
+		sf::ConvexShape righttailPolygon = tail.returnRightShape();
+		righttailPolygon.setPosition(lx  +11, ly +13);
+		righttailPolygon.rotate(orientation*180/M_PI);
+		target.draw(righttailPolygon);
     }
 
 /**
@@ -124,6 +151,10 @@ void PlayerShip::draw(sf::RenderTarget& target, sf::RenderStates states) const
 */
 void PlayerShip::setOrientation(float newOrientation){
 	orientation = newOrientation; 
+}
+
+void PlayerShip::setTail(Tail ttail){
+	tail = ttail;
 }
 
 void PlayerShip::setBody(Body tbody){

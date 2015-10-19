@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/f85/msnelsen/CS420/StarWars/src/Menu.cpp" "/home/f85/msnelsen/CS420/StarWars/CMakeFiles/helloworld.dir/src/Menu.cpp.o"
   "/home/f85/msnelsen/CS420/StarWars/src/Nose.cpp" "/home/f85/msnelsen/CS420/StarWars/CMakeFiles/helloworld.dir/src/Nose.cpp.o"
   "/home/f85/msnelsen/CS420/StarWars/src/PlayerShip.cpp" "/home/f85/msnelsen/CS420/StarWars/CMakeFiles/helloworld.dir/src/PlayerShip.cpp.o"
+  "/home/f85/msnelsen/CS420/StarWars/src/Tail.cpp" "/home/f85/msnelsen/CS420/StarWars/CMakeFiles/helloworld.dir/src/Tail.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
