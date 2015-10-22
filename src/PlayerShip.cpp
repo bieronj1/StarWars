@@ -121,6 +121,10 @@ void PlayerShip::magicTurn(){
 	vy=speed*std::sin(orientation);
 }
 
+void setRenderOffset(float x, float y){
+	offx=x;
+	offy=y;
+}
 void PlayerShip::draw(sf::RenderTarget& target, sf::RenderStates states) const
     {
         // You can draw other high-level objects

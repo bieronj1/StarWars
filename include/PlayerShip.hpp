@@ -17,6 +17,8 @@ class PlayerShip : public sf::Drawable{
  		float orientation;//0 is straight towards (1.0)
 		float fthrust;//forward thrust
 		float sthrust;//stopping thrust
+		float offx=0;
+		float offy=0;
 		float lthrust;//lateral thrust
 		float trate;//turnrate, in rotations per frame
 		
@@ -37,6 +39,7 @@ class PlayerShip : public sf::Drawable{
 		void setOrientation(float newOrientation); 
 		void setBody(Body tbody);
 		void chooseBody(std::string bodyName);
+		void setRenderOffset(float x, float y);
 		
 		void setTail(Tail ttail);
 		void chooseTail(std::string tailName);
