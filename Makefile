@@ -111,44 +111,44 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named helloworld
+# Target rules for targets named shipBuilder
 
 # Build rule for target.
-helloworld: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 helloworld
-.PHONY : helloworld
+shipBuilder: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 shipBuilder
+.PHONY : shipBuilder
 
 # fast build rule for target.
-helloworld/fast:
-	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/build
-.PHONY : helloworld/fast
+shipBuilder/fast:
+	$(MAKE) -f CMakeFiles/shipBuilder.dir/build.make CMakeFiles/shipBuilder.dir/build
+.PHONY : shipBuilder/fast
 
-bin/helloworld.o: bin/helloworld.cpp.o
+bin/shipBuilder.o: bin/shipBuilder.cpp.o
 
-.PHONY : bin/helloworld.o
+.PHONY : bin/shipBuilder.o
 
 # target to build an object file
-bin/helloworld.cpp.o:
-	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/bin/helloworld.cpp.o
-.PHONY : bin/helloworld.cpp.o
+bin/shipBuilder.cpp.o:
+	$(MAKE) -f CMakeFiles/shipBuilder.dir/build.make CMakeFiles/shipBuilder.dir/bin/shipBuilder.cpp.o
+.PHONY : bin/shipBuilder.cpp.o
 
-bin/helloworld.i: bin/helloworld.cpp.i
+bin/shipBuilder.i: bin/shipBuilder.cpp.i
 
-.PHONY : bin/helloworld.i
+.PHONY : bin/shipBuilder.i
 
 # target to preprocess a source file
-bin/helloworld.cpp.i:
-	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/bin/helloworld.cpp.i
-.PHONY : bin/helloworld.cpp.i
+bin/shipBuilder.cpp.i:
+	$(MAKE) -f CMakeFiles/shipBuilder.dir/build.make CMakeFiles/shipBuilder.dir/bin/shipBuilder.cpp.i
+.PHONY : bin/shipBuilder.cpp.i
 
-bin/helloworld.s: bin/helloworld.cpp.s
+bin/shipBuilder.s: bin/shipBuilder.cpp.s
 
-.PHONY : bin/helloworld.s
+.PHONY : bin/shipBuilder.s
 
 # target to generate assembly for a file
-bin/helloworld.cpp.s:
-	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/bin/helloworld.cpp.s
-.PHONY : bin/helloworld.cpp.s
+bin/shipBuilder.cpp.s:
+	$(MAKE) -f CMakeFiles/shipBuilder.dir/build.make CMakeFiles/shipBuilder.dir/bin/shipBuilder.cpp.s
+.PHONY : bin/shipBuilder.cpp.s
 
 src/Body.o: src/Body.cpp.o
 
@@ -156,7 +156,7 @@ src/Body.o: src/Body.cpp.o
 
 # target to build an object file
 src/Body.cpp.o:
-	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/src/Body.cpp.o
+	$(MAKE) -f CMakeFiles/shipBuilder.dir/build.make CMakeFiles/shipBuilder.dir/src/Body.cpp.o
 .PHONY : src/Body.cpp.o
 
 src/Body.i: src/Body.cpp.i
@@ -165,7 +165,7 @@ src/Body.i: src/Body.cpp.i
 
 # target to preprocess a source file
 src/Body.cpp.i:
-	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/src/Body.cpp.i
+	$(MAKE) -f CMakeFiles/shipBuilder.dir/build.make CMakeFiles/shipBuilder.dir/src/Body.cpp.i
 .PHONY : src/Body.cpp.i
 
 src/Body.s: src/Body.cpp.s
@@ -174,7 +174,7 @@ src/Body.s: src/Body.cpp.s
 
 # target to generate assembly for a file
 src/Body.cpp.s:
-	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/src/Body.cpp.s
+	$(MAKE) -f CMakeFiles/shipBuilder.dir/build.make CMakeFiles/shipBuilder.dir/src/Body.cpp.s
 .PHONY : src/Body.cpp.s
 
 src/Flipper.o: src/Flipper.cpp.o
@@ -183,7 +183,7 @@ src/Flipper.o: src/Flipper.cpp.o
 
 # target to build an object file
 src/Flipper.cpp.o:
-	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/src/Flipper.cpp.o
+	$(MAKE) -f CMakeFiles/shipBuilder.dir/build.make CMakeFiles/shipBuilder.dir/src/Flipper.cpp.o
 .PHONY : src/Flipper.cpp.o
 
 src/Flipper.i: src/Flipper.cpp.i
@@ -192,7 +192,7 @@ src/Flipper.i: src/Flipper.cpp.i
 
 # target to preprocess a source file
 src/Flipper.cpp.i:
-	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/src/Flipper.cpp.i
+	$(MAKE) -f CMakeFiles/shipBuilder.dir/build.make CMakeFiles/shipBuilder.dir/src/Flipper.cpp.i
 .PHONY : src/Flipper.cpp.i
 
 src/Flipper.s: src/Flipper.cpp.s
@@ -201,7 +201,7 @@ src/Flipper.s: src/Flipper.cpp.s
 
 # target to generate assembly for a file
 src/Flipper.cpp.s:
-	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/src/Flipper.cpp.s
+	$(MAKE) -f CMakeFiles/shipBuilder.dir/build.make CMakeFiles/shipBuilder.dir/src/Flipper.cpp.s
 .PHONY : src/Flipper.cpp.s
 
 src/Menu.o: src/Menu.cpp.o
@@ -210,7 +210,7 @@ src/Menu.o: src/Menu.cpp.o
 
 # target to build an object file
 src/Menu.cpp.o:
-	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/src/Menu.cpp.o
+	$(MAKE) -f CMakeFiles/shipBuilder.dir/build.make CMakeFiles/shipBuilder.dir/src/Menu.cpp.o
 .PHONY : src/Menu.cpp.o
 
 src/Menu.i: src/Menu.cpp.i
@@ -219,7 +219,7 @@ src/Menu.i: src/Menu.cpp.i
 
 # target to preprocess a source file
 src/Menu.cpp.i:
-	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/src/Menu.cpp.i
+	$(MAKE) -f CMakeFiles/shipBuilder.dir/build.make CMakeFiles/shipBuilder.dir/src/Menu.cpp.i
 .PHONY : src/Menu.cpp.i
 
 src/Menu.s: src/Menu.cpp.s
@@ -228,7 +228,7 @@ src/Menu.s: src/Menu.cpp.s
 
 # target to generate assembly for a file
 src/Menu.cpp.s:
-	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/src/Menu.cpp.s
+	$(MAKE) -f CMakeFiles/shipBuilder.dir/build.make CMakeFiles/shipBuilder.dir/src/Menu.cpp.s
 .PHONY : src/Menu.cpp.s
 
 src/Nose.o: src/Nose.cpp.o
@@ -237,7 +237,7 @@ src/Nose.o: src/Nose.cpp.o
 
 # target to build an object file
 src/Nose.cpp.o:
-	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/src/Nose.cpp.o
+	$(MAKE) -f CMakeFiles/shipBuilder.dir/build.make CMakeFiles/shipBuilder.dir/src/Nose.cpp.o
 .PHONY : src/Nose.cpp.o
 
 src/Nose.i: src/Nose.cpp.i
@@ -246,7 +246,7 @@ src/Nose.i: src/Nose.cpp.i
 
 # target to preprocess a source file
 src/Nose.cpp.i:
-	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/src/Nose.cpp.i
+	$(MAKE) -f CMakeFiles/shipBuilder.dir/build.make CMakeFiles/shipBuilder.dir/src/Nose.cpp.i
 .PHONY : src/Nose.cpp.i
 
 src/Nose.s: src/Nose.cpp.s
@@ -255,7 +255,7 @@ src/Nose.s: src/Nose.cpp.s
 
 # target to generate assembly for a file
 src/Nose.cpp.s:
-	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/src/Nose.cpp.s
+	$(MAKE) -f CMakeFiles/shipBuilder.dir/build.make CMakeFiles/shipBuilder.dir/src/Nose.cpp.s
 .PHONY : src/Nose.cpp.s
 
 src/PlayerShip.o: src/PlayerShip.cpp.o
@@ -264,7 +264,7 @@ src/PlayerShip.o: src/PlayerShip.cpp.o
 
 # target to build an object file
 src/PlayerShip.cpp.o:
-	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/src/PlayerShip.cpp.o
+	$(MAKE) -f CMakeFiles/shipBuilder.dir/build.make CMakeFiles/shipBuilder.dir/src/PlayerShip.cpp.o
 .PHONY : src/PlayerShip.cpp.o
 
 src/PlayerShip.i: src/PlayerShip.cpp.i
@@ -273,7 +273,7 @@ src/PlayerShip.i: src/PlayerShip.cpp.i
 
 # target to preprocess a source file
 src/PlayerShip.cpp.i:
-	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/src/PlayerShip.cpp.i
+	$(MAKE) -f CMakeFiles/shipBuilder.dir/build.make CMakeFiles/shipBuilder.dir/src/PlayerShip.cpp.i
 .PHONY : src/PlayerShip.cpp.i
 
 src/PlayerShip.s: src/PlayerShip.cpp.s
@@ -282,7 +282,7 @@ src/PlayerShip.s: src/PlayerShip.cpp.s
 
 # target to generate assembly for a file
 src/PlayerShip.cpp.s:
-	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/src/PlayerShip.cpp.s
+	$(MAKE) -f CMakeFiles/shipBuilder.dir/build.make CMakeFiles/shipBuilder.dir/src/PlayerShip.cpp.s
 .PHONY : src/PlayerShip.cpp.s
 
 src/Tail.o: src/Tail.cpp.o
@@ -291,7 +291,7 @@ src/Tail.o: src/Tail.cpp.o
 
 # target to build an object file
 src/Tail.cpp.o:
-	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/src/Tail.cpp.o
+	$(MAKE) -f CMakeFiles/shipBuilder.dir/build.make CMakeFiles/shipBuilder.dir/src/Tail.cpp.o
 .PHONY : src/Tail.cpp.o
 
 src/Tail.i: src/Tail.cpp.i
@@ -300,7 +300,7 @@ src/Tail.i: src/Tail.cpp.i
 
 # target to preprocess a source file
 src/Tail.cpp.i:
-	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/src/Tail.cpp.i
+	$(MAKE) -f CMakeFiles/shipBuilder.dir/build.make CMakeFiles/shipBuilder.dir/src/Tail.cpp.i
 .PHONY : src/Tail.cpp.i
 
 src/Tail.s: src/Tail.cpp.s
@@ -309,7 +309,7 @@ src/Tail.s: src/Tail.cpp.s
 
 # target to generate assembly for a file
 src/Tail.cpp.s:
-	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/src/Tail.cpp.s
+	$(MAKE) -f CMakeFiles/shipBuilder.dir/build.make CMakeFiles/shipBuilder.dir/src/Tail.cpp.s
 .PHONY : src/Tail.cpp.s
 
 # Help Target
@@ -320,10 +320,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... helloworld"
-	@echo "... bin/helloworld.o"
-	@echo "... bin/helloworld.i"
-	@echo "... bin/helloworld.s"
+	@echo "... shipBuilder"
+	@echo "... bin/shipBuilder.o"
+	@echo "... bin/shipBuilder.i"
+	@echo "... bin/shipBuilder.s"
 	@echo "... src/Body.o"
 	@echo "... src/Body.i"
 	@echo "... src/Body.s"

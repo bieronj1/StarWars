@@ -121,7 +121,7 @@ void PlayerShip::magicTurn(){
 	vy=speed*std::sin(orientation);
 }
 
-void setRenderOffset(float x, float y){
+void PlayerShip::setRenderOffset(float x, float y){
 	offx=x;
 	offy=y;
 }
