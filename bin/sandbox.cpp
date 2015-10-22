@@ -6,6 +6,7 @@
 #include <math.h>
 #include <cmath>
 #include <vector>
+#include "PlayerShip.hpp"
 /*
 Astro-Loot Proof of Concept
 */
@@ -66,7 +67,7 @@ class Asteroid : public sf::Drawable{
 
 };
 
-
+/*
 class PlayerShip : public sf::Drawable{
   public:
 	float lx;
@@ -168,7 +169,7 @@ class PlayerShip : public sf::Drawable{
     }
 
 };
-
+*/
 
 class GridSquare{
 	public:
