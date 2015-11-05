@@ -10,6 +10,12 @@ PlayerShip::PlayerShip(float tlx, float tly, float tft, float tlt, float tr){
 		sthrust= tft;
 		trate=tr;
 		orientation=0.0;
+		Body defaultBody("default");
+		defaultBody.setColor(sf::Color::Green);
+		setBody(defaultBody);
+		Nose defaultNose("default");
+		defaultNose.setColor(sf::Color::White);
+		setNose(defaultNose);
 	}
 	
 void PlayerShip::update(){
@@ -129,12 +135,15 @@ void PlayerShip::draw(sf::RenderTarget& target, sf::RenderStates states) const
     {
         // You can draw other high-level objects
 		sf::ConvexShape bodyPolygon = body.returnShape();
-		bodyPolygon.setPosition(lx,ly);
+		bodyPolygon.setPosition(offx+ lx, offy + ly);
 		bodyPolygon.rotate(orientation*180/M_PI);
     target.draw(bodyPolygon);
 
 		sf::ConvexShape nosePolygon = nose.returnShape();
-		nosePolygon.setPosition(lx, ly -20);
+
+		nosePolygon.setOrigin(offx, offy);
+
+	//	nosePolygon.setPosition(lx,ly);
 		nosePolygon.rotate(orientation*180/M_PI);
 		target.draw(nosePolygon);
 		
