@@ -1,0 +1,3 @@
+/home/f85/msnelsen/CS420/StarWars/CMakeFiles/shipBuilder.dir
+/home/f85/msnelsen/CS420/StarWars/CMakeFiles/sandbox.dir
+/home/f85/msnelsen/CS420/StarWars/CMakeFiles/astroloot.dir

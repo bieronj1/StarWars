@@ -12,11 +12,15 @@
 Astro-Loot Proof of Concept
 */
 
+class Asteroid;
+class Item;
+class Enemy;
+
 class LocalScan {
 	public:
-	vector<Asteroid> asteroids;
-	vector<Item> items;
-	vector<Enemy> enemies;
+	std::vector<Asteroid> asteroids;
+	std::vector<Item> items;
+	std::vector<Enemy> enemies;
 };
 
 
