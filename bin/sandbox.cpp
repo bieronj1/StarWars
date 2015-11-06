@@ -12,12 +12,7 @@
 Astro-Loot Proof of Concept
 */
 
-class LocalScan {
-	public:
-	vector<Asteroid> asteroids;
-	vector<Item> items;
-	vector<Enemy> enemies;
-};
+
 
 
 
@@ -173,7 +168,7 @@ bool collisionAsteroidPlayer(float pslx, float psly, float pso, float alx, float
 		return collide;
 	}
 
-
+//LEGACY DEBUG METHOD, DO NOT USE!
 sf::ConvexShape collisionAsteroidPlayerBox(float pslx, float psly, float pso, float alx, float aly, float ar){
 		//Expand the player ship hitbox so that it considers the whole asteroid,
 		//not just the center point.
@@ -563,106 +558,106 @@ class GridSquare{
 		
 	//collision detection
 	//player - asteroid
-	if(playerIsHere){
-		//local asteroids
-		for(int i=0; i<asteroids.size(); i++){
-			float ar = asteroids[i].r;
-			float ax = asteroids[i].lx;
-			float ay = asteroids[i].ly;
-			if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax, ay, ar)){
-				asteroids[i].collide();
+		if(playerIsHere){
+			//local asteroids
+			for(int i=0; i<asteroids.size(); i++){
+				float ar = asteroids[i].r;
+				float ax = asteroids[i].lx;
+				float ay = asteroids[i].ly;
+				if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax, ay, ar)){
+					asteroids[i].collide();
+				}
 			}
-		}
-		
+			
 
-		if(UL!=NULL){
-			for(int i=0; i<UL->asteroids.size(); i++){
-				float ar = UL->asteroids[i].r;
-				float ax = UL->asteroids[i].lx;
-		float ay = UL->asteroids[i].ly;
-				if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax-100, ay-100, ar)){
-					UL->asteroids[i].collide();
+			if(UL!=NULL){
+				for(int i=0; i<UL->asteroids.size(); i++){
+					float ar = UL->asteroids[i].r;
+					float ax = UL->asteroids[i].lx;
+			float ay = UL->asteroids[i].ly;
+					if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax-100, ay-100, ar)){
+						UL->asteroids[i].collide();
+					}
 				}
 			}
-		}
-		
-		if(U!=NULL){
-			for(int i=0; i<U->asteroids.size(); i++){
-				float ar = U->asteroids[i].r;
-				float ax = U->asteroids[i].lx;
-				float ay = U->asteroids[i].ly;
-				if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax-100, ay, ar)){
-					U->asteroids[i].collide();
+			
+			if(U!=NULL){
+				for(int i=0; i<U->asteroids.size(); i++){
+					float ar = U->asteroids[i].r;
+					float ax = U->asteroids[i].lx;
+					float ay = U->asteroids[i].ly;
+					if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax-100, ay, ar)){
+						U->asteroids[i].collide();
+					}
 				}
 			}
-		}
-		
-		if(UR!=NULL){
-			for(int i=0; i<UR->asteroids.size(); i++){
-				float ar = UR->asteroids[i].r;
-				float ax = UR->asteroids[i].lx;
-				float ay = UR->asteroids[i].ly;
-				if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax-100, ay+100, ar)){
-					UR->asteroids[i].collide();
+			
+			if(UR!=NULL){
+				for(int i=0; i<UR->asteroids.size(); i++){
+					float ar = UR->asteroids[i].r;
+					float ax = UR->asteroids[i].lx;
+					float ay = UR->asteroids[i].ly;
+					if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax-100, ay+100, ar)){
+						UR->asteroids[i].collide();
+					}
 				}
 			}
-		}
-		
-		if(L!=NULL){
-			for(int i=0; i<L->asteroids.size(); i++){
-				float ar = L->asteroids[i].r;
-				float ax = L->asteroids[i].lx;
-				float ay = L->asteroids[i].ly;
-				if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax, ay-100, ar)){
-					L->asteroids[i].collide();
+			
+			if(L!=NULL){
+				for(int i=0; i<L->asteroids.size(); i++){
+					float ar = L->asteroids[i].r;
+					float ax = L->asteroids[i].lx;
+					float ay = L->asteroids[i].ly;
+					if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax, ay-100, ar)){
+						L->asteroids[i].collide();
+					}
 				}
 			}
-		}
-		if(R!=NULL){
-			for(int i=0; i<R->asteroids.size(); i++){
-				float ar = R->asteroids[i].r;
-				float ax = R->asteroids[i].lx;
-				float ay = R->asteroids[i].ly;
-				if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax, ay+100, ar)){
-					R->asteroids[i].collide();
+			if(R!=NULL){
+				for(int i=0; i<R->asteroids.size(); i++){
+					float ar = R->asteroids[i].r;
+					float ax = R->asteroids[i].lx;
+					float ay = R->asteroids[i].ly;
+					if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax, ay+100, ar)){
+						R->asteroids[i].collide();
+					}
 				}
 			}
-		}
-		
-		if(DL!=NULL){
-			for(int i=0; i<DL->asteroids.size(); i++){
-				float ar = DL->asteroids[i].r;
-				float ax = DL->asteroids[i].lx;
-				float ay = DL->asteroids[i].ly;
-				if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax+100, ay-100, ar)){
-					DL->asteroids[i].collide();
+			
+			if(DL!=NULL){
+				for(int i=0; i<DL->asteroids.size(); i++){
+					float ar = DL->asteroids[i].r;
+					float ax = DL->asteroids[i].lx;
+					float ay = DL->asteroids[i].ly;
+					if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax+100, ay-100, ar)){
+						DL->asteroids[i].collide();
+					}
 				}
 			}
-		}
-		
-		if(D!=NULL){
-			for(int i=0; i<D->asteroids.size(); i++){
-				float ar = D->asteroids[i].r;
-				float ax = D->asteroids[i].lx;
-				float ay = D->asteroids[i].ly;
-				if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax+100, ay, ar)){
-					D->asteroids[i].collide();
+			
+			if(D!=NULL){
+				for(int i=0; i<D->asteroids.size(); i++){
+					float ar = D->asteroids[i].r;
+					float ax = D->asteroids[i].lx;
+					float ay = D->asteroids[i].ly;
+					if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax+100, ay, ar)){
+						D->asteroids[i].collide();
+					}
 				}
 			}
-		}
-		
-		if(DR!=NULL){
-			for(int i=0; i<DR->asteroids.size(); i++){
-				float ar = DR->asteroids[i].r;
-				float ax = DR->asteroids[i].lx;
-				float ay = DR->asteroids[i].ly;
-				if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax+100, ay+100, ar)){
-					DR->asteroids[i].collide();
+			
+			if(DR!=NULL){
+				for(int i=0; i<DR->asteroids.size(); i++){
+					float ar = DR->asteroids[i].r;
+					float ax = DR->asteroids[i].lx;
+					float ay = DR->asteroids[i].ly;
+					if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax+100, ay+100, ar)){
+						DR->asteroids[i].collide();
+					}
 				}
 			}
+			
 		}
-		
-	}
 	
 	
 	}
@@ -734,6 +729,38 @@ class GameWorld {
 			}
 		}
 		
+	}
+	
+	void addItem(Item* item, float x, float y){
+		int i = (int) x;
+		i /= 100;
+		int j = (int) y;
+		j/=100;
+		
+		//Sanity check (In honor of Professor Peers)
+		if(i<0 || i>24 || j<0 || j>24){
+			std::cout<<"Attempted to add an item in invalid position."<<std::endl;
+			return;
+		}
+		item->lx = x-i;
+		item->ly = y-j;
+		board[i][j]->addItem(item);
+	}
+	
+	void addEnemy(Enemy* enemy, float x, float y){
+		int i = (int) x;
+		i /= 100;
+		int j = (int) y;
+		j/=100;
+		
+		//Sanity check (In honor of Professor Peers)
+		if(i<0 || i>24 || j<0 || j>24){
+			std::cout<<"Attempted to add an enemy in invalid position."<<std::endl;
+			return;
+		}
+		enemy->lx = x-i;
+		enemy->ly = y-j;
+		board[i][j]->addEnemy(enemy);
 	}
 	
 	//This method draws everything on the board into the 2500X2500 RenderWindow
@@ -1093,12 +1120,7 @@ int main(int argc, char** argv)
 	App.setView(minimap);
 	App.draw(minimapback);
 	world.drawOnWindow(&App);
-	
-	
-	//all code before is legacy
-	//draw scores
-App.display();
-
+	App.display();
   }
   // Done.
   return 0;
