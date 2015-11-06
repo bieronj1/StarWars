@@ -10,16 +10,31 @@ PlayerShip::PlayerShip(float tlx, float tly, float tft, float tlt, float tr){
 		sthrust= tft;
 		trate=tr;
 		orientation=0.0;
+		
+		if(!texture.loadFromFile("Thruster.png")){
+			std::cerr<<"Couldn't load the thruster image\n";
+		}
+		
+		if(!lefttexture.loadFromFile("LeftThruster.png")){
+			std::cerr<<"Couldn't load the thruster image\n";
+		}
+		if(!righttexture.loadFromFile("RightThruster.png")){
+			std::cerr<<"Couldn't load the thruster image\n";
+		}
+		
 		Body defaultBody("default");
-		defaultBody.setColor(sf::Color::Green);
+		defaultBody.setColor(sf::Color::Blue);
 		setBody(defaultBody);
 		Nose defaultNose("default");
 		defaultNose.setColor(sf::Color::White);
 		setNose(defaultNose);
 		
 		Tail defaultTail("default");
-		defaultTail.setColor(sf::Color::Green);
+		defaultTail.setColor(sf::Color::Red);
 		setTail(defaultTail);
+		thrustersOn = false;
+		leftOn = false;
+		rightOn = false;
 	}
 	
 void PlayerShip::update(){
@@ -30,8 +45,19 @@ void PlayerShip::update(){
 void PlayerShip::faster(){
 		vx+=fthrust*(std::cos(orientation));
 		vy+=fthrust*(std::sin(orientation));
+		thrustersOn = true;
 	}
 	
+void PlayerShip::stopThruster(){
+	thrustersOn = false;
+}
+
+void PlayerShip::stopLeft(){
+	rightOn = false;
+}
+void PlayerShip::stopRight(){
+	leftOn = false;
+}
 	
 void PlayerShip::reverse(){
 		vx-=lthrust*(std::cos(orientation));
@@ -118,11 +144,13 @@ void PlayerShip::turnLeft(){
 void PlayerShip::latRight(){
 	vx+=fthrust*(std::cos(orientation+M_PI/2));
 	vy+=fthrust*(std::sin(orientation+M_PI/2));
+	leftOn = true;
 }
 
 void PlayerShip::latLeft(){
 	vx+=fthrust*(std::cos(orientation-M_PI/2));
 	vy+=fthrust*(std::sin(orientation-M_PI/2));
+	rightOn = true;
 }
 
 void PlayerShip::magicTurn(){
@@ -167,6 +195,41 @@ void PlayerShip::draw(sf::RenderTarget& target, sf::RenderStates states) const
 		righttailPolygon.setPosition(lx  +offx, ly +offy);
 		righttailPolygon.rotate(orientation*180/M_PI);
 		target.draw(righttailPolygon);
+		
+		
+		if(thrustersOn){
+			sf::RectangleShape thrusterRectangle;
+			thrusterRectangle.setSize(sf::Vector2f(15,15));
+
+			thrusterRectangle.setTexture(&texture);
+			
+			thrusterRectangle.setOrigin(30,8);
+			thrusterRectangle.setPosition(lx+offx, ly+offy);
+			thrusterRectangle.rotate(orientation*180/M_PI);
+			target.draw(thrusterRectangle);
+		}
+		
+		if(leftOn){
+			sf::RectangleShape leftRectangle;
+			leftRectangle.setSize(sf::Vector2f(15,15));
+			
+			leftRectangle.setTexture(&lefttexture);
+			leftRectangle.setOrigin(0, 24);
+			leftRectangle.setPosition(lx+offx, ly+offy);
+			leftRectangle.rotate(orientation*180/M_PI);
+			target.draw(leftRectangle);
+		}
+		
+		if(rightOn){
+			sf::RectangleShape rightRectangle;
+			rightRectangle.setSize(sf::Vector2f(15,15));
+			
+			rightRectangle.setTexture(&righttexture);
+			rightRectangle.setOrigin(0, -10);
+			rightRectangle.setPosition(lx+offx, ly+offy);
+			rightRectangle.rotate(orientation*180/M_PI);
+			target.draw(rightRectangle);
+		}
     }
 
 /**

@@ -1056,7 +1056,7 @@ int main(int argc, char** argv)
 	QWEASD[5]=sf::Keyboard::isKeyPressed(sf::Keyboard::D);
 	bool SHIFT =sf::Keyboard::isKeyPressed(sf::Keyboard::LShift);
 	
-	if(QWEASD[1]){pc.faster();}
+	if(QWEASD[1]){pc.faster();}else{pc.stopThruster();}
 	if(QWEASD[4]){
 		if(SHIFT)
 			pc.slower();
@@ -1065,8 +1065,8 @@ int main(int argc, char** argv)
 	}
 	if(QWEASD[3]){pc.turnLeft();}
 	if(QWEASD[5]){pc.turnRight();}
-	if(QWEASD[0]){pc.latLeft();}
-	if(QWEASD[2]){pc.latRight();}
+	if(QWEASD[0]){pc.latLeft();}else{pc.stopLeft();}
+	if(QWEASD[2]){pc.latRight();}else{pc.stopRight();}
 	bool zoom = false;
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
 		zoom=true;

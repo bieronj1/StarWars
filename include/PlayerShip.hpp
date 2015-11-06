@@ -21,6 +21,12 @@ class PlayerShip : public sf::Drawable{
 		float offy=0;
 		float lthrust;//lateral thrust
 		float trate;//turnrate, in rotations per frame
+		bool thrustersOn;
+		bool leftOn;
+		bool rightOn;
+		sf::Texture texture;
+		sf::Texture lefttexture;
+		sf::Texture righttexture;
 		
 		Body body;
 		Nose nose;
@@ -29,6 +35,9 @@ class PlayerShip : public sf::Drawable{
 		PlayerShip(float tlx, float tly, float tft, float tlt, float tr);
 		void update();
 		void faster();
+		void stopThruster();
+		void stopLeft();
+		void stopRight();
 		void reverse();
 		void slower();
 		void turnRight();
