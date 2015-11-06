@@ -16,6 +16,10 @@ PlayerShip::PlayerShip(float tlx, float tly, float tft, float tlt, float tr){
 		Nose defaultNose("default");
 		defaultNose.setColor(sf::Color::White);
 		setNose(defaultNose);
+		
+		Tail defaultTail("default");
+		defaultTail.setColor(sf::Color::Green);
+		setTail(defaultTail);
 	}
 	
 void PlayerShip::update(){
@@ -141,19 +145,26 @@ void PlayerShip::draw(sf::RenderTarget& target, sf::RenderStates states) const
 
 		sf::ConvexShape nosePolygon = nose.returnShape();
 
-		nosePolygon.setOrigin(offx, offy);
+		nosePolygon.setOrigin(-20, 0);
 
-	//	nosePolygon.setPosition(lx,ly);
+		nosePolygon.setPosition(lx + offx,ly + offy);
 		nosePolygon.rotate(orientation*180/M_PI);
 		target.draw(nosePolygon);
 		
+		
+		
 		sf::ConvexShape lefttailPolygon = tail.returnLeftShape();
-		lefttailPolygon.setPosition(lx -13, ly +17);
+		
+		lefttailPolygon.setOrigin(17,13);
+		lefttailPolygon.setPosition(lx + offx, ly +offy);
 		lefttailPolygon.rotate(orientation*180/M_PI);
 		target.draw(lefttailPolygon);
 		
+		
 		sf::ConvexShape righttailPolygon = tail.returnRightShape();
-		righttailPolygon.setPosition(lx  +11, ly +13);
+		
+		righttailPolygon.setOrigin(13,-11);
+		righttailPolygon.setPosition(lx  +offx, ly +offy);
 		righttailPolygon.rotate(orientation*180/M_PI);
 		target.draw(righttailPolygon);
     }
