@@ -273,8 +273,8 @@ class GridSquare{
 	GridSquare* DR = NULL;
 	
 	GridSquare(){
-		if(std::rand()%4==0){
-		Asteroid a(std::rand()%100,std::rand()%100,std::rand()%100/100.0f - 0.5,std::rand()%100/100.0f - 0.5,20);
+		if(std::rand()%8==0){
+		Asteroid a(std::rand()%100,std::rand()%100,std::rand()%100/100.0f - 0.5,std::rand()%100/100.0f - 0.5,40);
 		asteroids.push_back(a);}
 	}
 	
@@ -576,6 +576,7 @@ class GridSquare{
 				float ay = asteroids[i].ly;
 				if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax, ay, ar)){
 					asteroids[i].collide();
+					
 				}
 			}
 			
@@ -1132,7 +1133,7 @@ int main(int argc, char** argv)
 	
 	if(zoom){
 	camera.zoom(5);}
-	minimap.zoom(1.7);
+	minimap.zoom(3);
 	camera.setViewport(sf::FloatRect(0,0,1,1));
 	minimap.setViewport(sf::FloatRect(0.77f,0.6866f,0.21,0.2933));
 	mmOverlay.setViewport(sf::FloatRect(0.75f,0.6666f,0.25,0.3333));
