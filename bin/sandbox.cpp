@@ -12,9 +12,7 @@
 Astro-Loot Proof of Concept
 */
 
-<<<<<<< HEAD
 
-=======
 class Asteroid;
 class Item;
 class Enemy;
@@ -25,7 +23,6 @@ class LocalScan {
 	std::vector<Item> items;
 	std::vector<Enemy> enemies;
 };
->>>>>>> origin/master
 
 
 
@@ -1039,7 +1036,7 @@ static bool QWEASD[6]; //stores keypressed values
 int main(int argc, char** argv)
 {
   // create main window
-  sf::RenderWindow App(sf::VideoMode(800,600,32), "Hello World - SFML");
+  sf::RenderWindow App(sf::VideoMode(1200,900,32), "Hello World - SFML");
   int FPS=30;
   App.setFramerateLimit(FPS); 
 
@@ -1049,7 +1046,15 @@ int main(int argc, char** argv)
 	{
 		std::cout<<"FONT FAILURE"<<std::endl;
 	}
-
+  sf::Sprite mmoverlay;
+  sf::Texture mmText;
+    if (!mmText.loadFromFile("img/mmcover.png"))
+    {
+        std::cerr << "mode00.png" << std::endl;
+        return (-1);
+    }
+  mmoverlay.setTexture(mmText);
+  mmoverlay.setPosition(0,0);
 
 	
 	App.clear(sf::Color::Black);
@@ -1113,26 +1118,36 @@ int main(int argc, char** argv)
 	}
 	App.clear(sf::Color::Black);
 	pc.update();
-	sf::View camera(sf::FloatRect(0,0,800,600));
-	sf::View minimap(sf::FloatRect(0,0,800,600));
+	sf::View camera(sf::FloatRect(0,0,1200,900));
+	sf::View minimap(sf::FloatRect(0,0,600,600));
+	sf::View mmOverlay(sf::FloatRect(0,0,300,300));
 	world.update();
-	camera.move(1250-450+pc.lx,1250-350+pc.ly);
-	minimap.move(1250-450+pc.lx,1250-350+pc.ly);
+
+	camera.setCenter(1200+pc.lx, 1200+pc.ly);
+	
+	//camera.move(1250-650+pc.lx,1250-500+pc.ly);
+	minimap.move(1250-350+pc.lx,1250-350+pc.ly);
 	camera.setRotation((pc.orientation+3.14/2.0)*180.0/M_PI);
 	minimap.setRotation((pc.orientation+3.14/2.0)*180.0/M_PI);
+	
 	if(zoom){
 	camera.zoom(5);}
-	minimap.zoom(1.5);
+	minimap.zoom(1.7);
 	camera.setViewport(sf::FloatRect(0,0,1,1));
-	minimap.setViewport(sf::FloatRect(0.3333f,0.6666f,0.3333,0.3333));
+	minimap.setViewport(sf::FloatRect(0.77f,0.6866f,0.21,0.2933));
+	mmOverlay.setViewport(sf::FloatRect(0.75f,0.6666f,0.25,0.3333));
 	App.setView(camera);
 	world.drawOnWindow(&App);
 	
 	sf::RectangleShape minimapback(sf::Vector2f(2500,2500));
-	minimapback.setFillColor(sf::Color(25,25,25));
+	minimapback.setFillColor(sf::Color(25,45,25));
 	App.setView(minimap);
 	App.draw(minimapback);
 	world.drawOnWindow(&App);
+	
+	
+	App.setView(mmOverlay);
+	App.draw(mmoverlay);
 	App.display();
   }
   // Done.

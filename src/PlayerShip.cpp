@@ -11,14 +11,14 @@ PlayerShip::PlayerShip(float tlx, float tly, float tft, float tlt, float tr){
 		trate=tr;
 		orientation=0.0;
 		
-		if(!texture.loadFromFile("Thruster.png")){
+		if(!texture.loadFromFile("img/thruster0.png")){
 			std::cerr<<"Couldn't load the thruster image\n";
 		}
 		
-		if(!lefttexture.loadFromFile("LeftThruster.png")){
+		if(!lefttexture.loadFromFile("img/thruster1.png")){
 			std::cerr<<"Couldn't load the thruster image\n";
 		}
-		if(!righttexture.loadFromFile("RightThruster.png")){
+		if(!righttexture.loadFromFile("img/thruster2.png")){
 			std::cerr<<"Couldn't load the thruster image\n";
 		}
 		

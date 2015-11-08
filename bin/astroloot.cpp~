@@ -9,7 +9,7 @@ int main(int argc, char** argv)
     int screen = 0;
 
     //Window creation
-    sf::RenderWindow App(sf::VideoMode(800, 600, 32), "Astro-Loot");
+    sf::RenderWindow App(sf::VideoMode(1200, 900, 32), "Astro-Loot");
 
     //Mouse cursor no more visible
     //App.setMouseCursorVisible(false);
