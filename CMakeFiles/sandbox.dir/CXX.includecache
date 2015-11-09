@@ -815,6 +815,8 @@ vector
 -
 PlayerShip.hpp
 /home/keyvin/StarWars/bin/PlayerShip.hpp
+Weapon.hpp
+/home/keyvin/StarWars/bin/Weapon.hpp
 
 /home/keyvin/StarWars/src/Body.cpp
 Body.hpp
@@ -839,6 +841,10 @@ PlayerShip.hpp
 /home/keyvin/StarWars/src/Tail.cpp
 Tail.hpp
 /home/keyvin/StarWars/src/Tail.hpp
+
+/home/keyvin/StarWars/src/Weapon.cpp
+Weapon.hpp
+/home/keyvin/StarWars/src/Weapon.hpp
 
 include/Body.hpp
 iostream
@@ -923,6 +929,20 @@ Tail.hpp
 -
 
 include/Tail.hpp
+iostream
+-
+string
+-
+SFML/Graphics.hpp
+-
+SFML/System.hpp
+-
+math.h
+-
+cmath
+-
+
+include/Weapon.hpp
 iostream
 -
 string

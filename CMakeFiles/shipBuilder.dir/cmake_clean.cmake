@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/shipBuilder.dir/src/Menu.cpp.o"
+  "CMakeFiles/shipBuilder.dir/src/Weapon.cpp.o"
   "CMakeFiles/shipBuilder.dir/src/Tail.cpp.o"
   "CMakeFiles/shipBuilder.dir/src/Nose.cpp.o"
   "CMakeFiles/shipBuilder.dir/src/Flipper.cpp.o"

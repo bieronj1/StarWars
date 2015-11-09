@@ -428,6 +428,39 @@ src/Tail.cpp.s:
 	$(MAKE) -f CMakeFiles/shipBuilder.dir/build.make CMakeFiles/shipBuilder.dir/src/Tail.cpp.s
 .PHONY : src/Tail.cpp.s
 
+src/Weapon.o: src/Weapon.cpp.o
+
+.PHONY : src/Weapon.o
+
+# target to build an object file
+src/Weapon.cpp.o:
+	$(MAKE) -f CMakeFiles/astroloot.dir/build.make CMakeFiles/astroloot.dir/src/Weapon.cpp.o
+	$(MAKE) -f CMakeFiles/sandbox.dir/build.make CMakeFiles/sandbox.dir/src/Weapon.cpp.o
+	$(MAKE) -f CMakeFiles/shipBuilder.dir/build.make CMakeFiles/shipBuilder.dir/src/Weapon.cpp.o
+.PHONY : src/Weapon.cpp.o
+
+src/Weapon.i: src/Weapon.cpp.i
+
+.PHONY : src/Weapon.i
+
+# target to preprocess a source file
+src/Weapon.cpp.i:
+	$(MAKE) -f CMakeFiles/astroloot.dir/build.make CMakeFiles/astroloot.dir/src/Weapon.cpp.i
+	$(MAKE) -f CMakeFiles/sandbox.dir/build.make CMakeFiles/sandbox.dir/src/Weapon.cpp.i
+	$(MAKE) -f CMakeFiles/shipBuilder.dir/build.make CMakeFiles/shipBuilder.dir/src/Weapon.cpp.i
+.PHONY : src/Weapon.cpp.i
+
+src/Weapon.s: src/Weapon.cpp.s
+
+.PHONY : src/Weapon.s
+
+# target to generate assembly for a file
+src/Weapon.cpp.s:
+	$(MAKE) -f CMakeFiles/astroloot.dir/build.make CMakeFiles/astroloot.dir/src/Weapon.cpp.s
+	$(MAKE) -f CMakeFiles/sandbox.dir/build.make CMakeFiles/sandbox.dir/src/Weapon.cpp.s
+	$(MAKE) -f CMakeFiles/shipBuilder.dir/build.make CMakeFiles/shipBuilder.dir/src/Weapon.cpp.s
+.PHONY : src/Weapon.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -466,6 +499,9 @@ help:
 	@echo "... src/Tail.o"
 	@echo "... src/Tail.i"
 	@echo "... src/Tail.s"
+	@echo "... src/Weapon.o"
+	@echo "... src/Weapon.i"
+	@echo "... src/Weapon.s"
 .PHONY : help
 
 

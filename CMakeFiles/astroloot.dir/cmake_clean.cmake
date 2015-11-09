@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/astroloot.dir/src/Menu.cpp.o"
+  "CMakeFiles/astroloot.dir/src/Weapon.cpp.o"
   "CMakeFiles/astroloot.dir/src/Tail.cpp.o"
   "CMakeFiles/astroloot.dir/src/Nose.cpp.o"
   "CMakeFiles/astroloot.dir/src/Flipper.cpp.o"

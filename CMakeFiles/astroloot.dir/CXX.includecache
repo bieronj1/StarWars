@@ -684,6 +684,10 @@ PlayerShip.hpp
 Tail.hpp
 /home/keyvin/StarWars/src/Tail.hpp
 
+/home/keyvin/StarWars/src/Weapon.cpp
+Weapon.hpp
+/home/keyvin/StarWars/src/Weapon.hpp
+
 include/Body.hpp
 iostream
 -
@@ -767,6 +771,20 @@ Tail.hpp
 -
 
 include/Tail.hpp
+iostream
+-
+string
+-
+SFML/Graphics.hpp
+-
+SFML/System.hpp
+-
+math.h
+-
+cmath
+-
+
+include/Weapon.hpp
 iostream
 -
 string

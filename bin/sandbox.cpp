@@ -7,6 +7,7 @@
 #include <cmath>
 #include <vector>
 #include "PlayerShip.hpp"
+#include "Weapon.hpp"
 
 /*
 Astro-Loot Proof of Concept
@@ -1065,7 +1066,10 @@ int main(int argc, char** argv)
 	int ActiveAsteroidPtr=0;
 	int DeadAsteroidPtr=0;
 	Asteroid* Asteroids[512];
+	Weapon* Weapons[3];
   
+//Test Weapon 0
+	Weapon exlaser(0, 2, 2, 10, 0);
   
   PlayerShip pc(50,50,0.1,0.1,0.05);
   
@@ -1116,6 +1120,14 @@ int main(int argc, char** argv)
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::T)){
 		world.checkLinks();
 		std::cout<<"Check Complete"<<std::endl;
+	}
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	{
+    	// left click...
+		if(exlaser.fire())
+			{
+				world.addItem(new Item(0, 0, 0,20,3), 1250-350+pc.lx, 1250-350+pc.ly);
+			}
 	}
 	App.clear(sf::Color::Black);
 	pc.update();

@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/keyvin/StarWars/src/Nose.cpp" "/home/keyvin/StarWars/CMakeFiles/astroloot.dir/src/Nose.cpp.o"
   "/home/keyvin/StarWars/src/PlayerShip.cpp" "/home/keyvin/StarWars/CMakeFiles/astroloot.dir/src/PlayerShip.cpp.o"
   "/home/keyvin/StarWars/src/Tail.cpp" "/home/keyvin/StarWars/CMakeFiles/astroloot.dir/src/Tail.cpp.o"
+  "/home/keyvin/StarWars/src/Weapon.cpp" "/home/keyvin/StarWars/CMakeFiles/astroloot.dir/src/Weapon.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
