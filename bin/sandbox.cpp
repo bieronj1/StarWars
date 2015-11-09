@@ -1126,7 +1126,7 @@ int main(int argc, char** argv)
     	// left click...
 		if(exlaser.fire())
 			{
-				world.addItem(new Item(0, 0, 0,20,3), 1250-350+pc.lx, 1250-350+pc.ly);
+				world.addItem(new Item(0, 0, 0,20,3), 1250-650+pc.lx, 1250-650+pc.ly);
 			}
 	}
 	App.clear(sf::Color::Black);
@@ -1135,6 +1135,7 @@ int main(int argc, char** argv)
 	sf::View minimap(sf::FloatRect(0,0,600,600));
 	sf::View mmOverlay(sf::FloatRect(0,0,300,300));
 	world.update();
+	exlaser.updateCD();
 
 	camera.setCenter(1200+pc.lx, 1200+pc.ly);
 	
