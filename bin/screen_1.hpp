@@ -106,7 +106,7 @@ int screen_1::Run(sf::RenderWindow &App)
     {
       // Exit
       if(Event.type == sf::Event::Closed)
-        App.close();
+	  {App.close();exit(0);}
     }
 	
 	
