@@ -817,6 +817,14 @@ PlayerShip.hpp
 /home/keyvin/StarWars/bin/PlayerShip.hpp
 Weapon.hpp
 /home/keyvin/StarWars/bin/Weapon.hpp
+CDetect.hpp
+/home/keyvin/StarWars/bin/CDetect.hpp
+Item.hpp
+/home/keyvin/StarWars/bin/Item.hpp
+Asteroid.hpp
+/home/keyvin/StarWars/bin/Asteroid.hpp
+GameWorld.hpp
+/home/keyvin/StarWars/bin/GameWorld.hpp
 
 /home/keyvin/StarWars/src/Body.cpp
 Body.hpp
@@ -846,6 +854,8 @@ Tail.hpp
 Weapon.hpp
 /home/keyvin/StarWars/src/Weapon.hpp
 
+include/Asteroid.hpp
+
 include/Body.hpp
 iostream
 -
@@ -859,6 +869,10 @@ math.h
 -
 cmath
 -
+
+include/CDetect.hpp
+
+include/Enemy.hpp
 
 include/Flipper.hpp
 iostream
@@ -875,6 +889,26 @@ cmath
 -
 deque
 -
+
+include/GameWorld.hpp
+GridSquare.hpp
+include/GridSquare.hpp
+
+include/GridSquare.hpp
+PlayerShip.hpp
+include/PlayerShip.hpp
+Weapon.hpp
+include/Weapon.hpp
+CDetect.hpp
+include/CDetect.hpp
+Item.hpp
+include/Item.hpp
+Enemy.hpp
+include/Enemy.hpp
+Asteroid.hpp
+include/Asteroid.hpp
+
+include/Item.hpp
 
 include/Menu.hpp
 iostream

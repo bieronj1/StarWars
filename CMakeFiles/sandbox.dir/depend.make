@@ -88,7 +88,13 @@ CMakeFiles/sandbox.dir/bin/sandbox.cpp.o: /home/keyvin/SFML/include/SFML/Window/
 CMakeFiles/sandbox.dir/bin/sandbox.cpp.o: /home/keyvin/SFML/include/SFML/Window/WindowHandle.hpp
 CMakeFiles/sandbox.dir/bin/sandbox.cpp.o: /home/keyvin/SFML/include/SFML/Window/WindowStyle.hpp
 CMakeFiles/sandbox.dir/bin/sandbox.cpp.o: bin/sandbox.cpp
+CMakeFiles/sandbox.dir/bin/sandbox.cpp.o: include/Asteroid.hpp
 CMakeFiles/sandbox.dir/bin/sandbox.cpp.o: include/Body.hpp
+CMakeFiles/sandbox.dir/bin/sandbox.cpp.o: include/CDetect.hpp
+CMakeFiles/sandbox.dir/bin/sandbox.cpp.o: include/Enemy.hpp
+CMakeFiles/sandbox.dir/bin/sandbox.cpp.o: include/GameWorld.hpp
+CMakeFiles/sandbox.dir/bin/sandbox.cpp.o: include/GridSquare.hpp
+CMakeFiles/sandbox.dir/bin/sandbox.cpp.o: include/Item.hpp
 CMakeFiles/sandbox.dir/bin/sandbox.cpp.o: include/Nose.hpp
 CMakeFiles/sandbox.dir/bin/sandbox.cpp.o: include/PlayerShip.hpp
 CMakeFiles/sandbox.dir/bin/sandbox.cpp.o: include/Tail.hpp

@@ -164,6 +164,26 @@ int screen_0::Run(sf::RenderWindow &App)
         return (-1);
     }
 
+    sf::Texture m9;
+    sf::Sprite s9;
+    if (!m9.loadFromFile("img/larrow.png"))
+    {
+        std::cerr << "mode4.png" << std::endl;
+        return (-1);
+    }
+    s9.setTexture(m9);
+    s9.setPosition(GLOBAL_RES*8/3 - 60,GLOBAL_RES*11/6);
+
+    sf::Texture m10;
+    sf::Sprite s10;
+    if (!m10.loadFromFile("img/rarrow.png"))
+    {
+        std::cerr << "mode4.png" << std::endl;
+        return (-1);
+    }
+    s10.setTexture(m10);
+    s10.setPosition(GLOBAL_RES*8/3 + 200,GLOBAL_RES*11/6);
+
 
 
 
@@ -324,7 +344,8 @@ int screen_0::Run(sf::RenderWindow &App)
 	App.draw(s4);
 	App.draw(s6);
 	App.draw(s7);
-
+	App.draw(s9);
+	App.draw(s10);
         App.display();
     }
 
