@@ -45,7 +45,17 @@ int screen_0::Run(sf::RenderWindow &App)
     int alpha = 0;
     sf::Font Font;
     int menu = 0;
-
+    sf::Font font;
+    sf::Text text;
+    font.loadFromFile("LemonMilk.otf");
+    text.setFont(font);
+    text.setString("Medium");
+    text.setCharacterSize(40);
+    text.setColor(sf::Color::Black);
+    sf::FloatRect textRect = text.getLocalBounds();
+    text.setOrigin(textRect.left + textRect.width/2.0f,
+    textRect.top  + textRect.height/2.0f);
+    text.setPosition(sf::Vector2f(GLOBAL_RES*8/3+100,GLOBAL_RES*19/10+45));
     //sf::Texture m0;
     if (!modeImg[0].loadFromFile("img/mode00.png"))
     {
@@ -172,7 +182,7 @@ int screen_0::Run(sf::RenderWindow &App)
         return (-1);
     }
     s9.setTexture(m9);
-    s9.setPosition(GLOBAL_RES*8/3 - 60,GLOBAL_RES*11/6);
+    s9.setPosition(GLOBAL_RES*8/3 - 60,GLOBAL_RES*19/10);
 
     sf::Texture m10;
     sf::Sprite s10;
@@ -182,7 +192,17 @@ int screen_0::Run(sf::RenderWindow &App)
         return (-1);
     }
     s10.setTexture(m10);
-    s10.setPosition(GLOBAL_RES*8/3 + 200,GLOBAL_RES*11/6);
+    s10.setPosition(GLOBAL_RES*8/3 + 200,GLOBAL_RES*19/10);
+
+    sf::Texture m11;
+    sf::Sprite s11;
+    if (!m11.loadFromFile("img/shippre.png"))
+    {
+        std::cerr << "shippre.png" << std::endl;
+        return (-1);
+    }
+    s11.setTexture(m11);
+    s11.setPosition(GLOBAL_RES*8/3 -50,GLOBAL_RES*17/20);
 
 
 
@@ -346,6 +366,8 @@ int screen_0::Run(sf::RenderWindow &App)
 	App.draw(s7);
 	App.draw(s9);
 	App.draw(s10);
+	App.draw(s11);
+	App.draw(text);
         App.display();
     }
 
