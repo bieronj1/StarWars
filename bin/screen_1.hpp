@@ -9,7 +9,7 @@
 #include <cmath>
 #include <vector>
 
-
+using namespace std;
 /*
 these are in GridSquare: (p.s. I'll pretty this up later - Jamie)
 
@@ -54,7 +54,7 @@ int screen_1::Run(sf::RenderWindow &App)
     //sf::Sprite Sprite;
     int alpha = 0;
     // create main window
-  int FPS=30;
+  int FPS=60;
   App.setFramerateLimit(FPS); 
 
 	//taken from SFML official site
@@ -85,7 +85,7 @@ int screen_1::Run(sf::RenderWindow &App)
   
 //Test Weapon 0
 	Weapon exlaser(0, 2, 2, 5, 0);
-  
+  	cout << exlaser.getData(); 
   PlayerShip pc(50,50,0.1,0.1,0.05);
   
   GameWorld world(&pc);

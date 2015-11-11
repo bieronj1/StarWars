@@ -1,6 +1,6 @@
 #include <iostream>
 //#include "cScreen.hpp"
-
+#include <string>
 #include <SFML/Graphics.hpp>
 #include <math.h>  
 class screen_0 : public cScreen
@@ -12,11 +12,19 @@ private:
     bool playing;
     bool hoverCustom = false;
     bool hoverPlay = false;
+    bool hoverL = false;
+    bool hoverR = false;
     int selMode = 0;
     int hoverMode = -1;
     int newHover = -1;
+    int diff = 1;
     sf::Texture modeImg [12];
     sf::Sprite modeSprite [4];
+    std::string diffStr[3];
+    diffStr[0] = "Easy";
+    diffStr[1] = "Medium";
+    diffStr[2] = "Difficult";
+    
 public:
     screen_0(void);
     virtual int Run(sf::RenderWindow &App);
@@ -42,6 +50,7 @@ int screen_0::Run(sf::RenderWindow &App)
     bool Running = true;
     //sf::Texture Texture;
     //sf::Sprite Sprite;
+    
     int alpha = 0;
     sf::Font Font;
     int menu = 0;
@@ -245,6 +254,22 @@ int screen_0::Run(sf::RenderWindow &App)
 			s4.setTexture(m4);
 			hoverPlay = false;
 			}
+		if(Event.mouseMove.x  > GLOBAL_RES*8/3 - 60 && Event.mouseMove.x < (GLOBAL_RES*8/3) && Event.mouseMove.y > GLOBAL_RES*19/10 && Event.mouseMove.y < (GLOBAL_RES*19/10 + 90))
+			{
+			hoverL = true;
+			}
+		else
+			{
+			hoverL = false;
+			}
+		if(Event.mouseMove.x  > GLOBAL_RES*8/3 +200 && Event.mouseMove.x < (GLOBAL_RES*8/3 + 260) && Event.mouseMove.y > GLOBAL_RES*19/10 && Event.mouseMove.y < (GLOBAL_RES*19/10 + 90))
+			{
+			hoverR = true;
+			}
+		else
+			{
+			hoverR = false;
+			}
 		if(Event.mouseMove.x  > GLOBAL_RES*8/3-25 && Event.mouseMove.x < (GLOBAL_RES*8/3+225) && Event.mouseMove.y > 0 && Event.mouseMove.y < 50)
 			{
 			hoverCustom = true;			
@@ -298,7 +323,7 @@ int screen_0::Run(sf::RenderWindow &App)
 				modeSprite[hoverMode].setTexture(modeImg[hoverMode]);
 				selMode = hoverMode;
 			}
-    		}
+    		
 		if (hoverPlay)
 		{
 		switch (selMode)
@@ -321,6 +346,32 @@ int screen_0::Run(sf::RenderWindow &App)
 		}
 		if (hoverCustom)
 			return (1);
+		if (hoverL)
+		{
+			if(diff > 0)
+			{
+			diff--;
+			text.setString(diffStr[diff]);
+    			sf::FloatRect textRect = text.getLocalBounds();
+    			text.setOrigin(textRect.left + textRect.width/2.0f,
+    			textRect.top  + textRect.height/2.0f);
+    			text.setPosition(sf::Vector2f(GLOBAL_RES*8/3+100,GLOBAL_RES*19/10+45));
+			}		
+		}
+		if (hoverR)
+		{
+			if(diff < 2)
+			{
+			diff++;
+			text.setString(diffStr[diff]);
+    			sf::FloatRect textRect = text.getLocalBounds();
+    			text.setOrigin(textRect.left + textRect.width/2.0f,
+    			textRect.top  + textRect.height/2.0f);
+    			text.setPosition(sf::Vector2f(GLOBAL_RES*8/3+100,GLOBAL_RES*19/10+45));
+			}
+		}
+		
+		}
 	    }
             //Key pressed
             if (Event.type == sf::Event::KeyPressed)

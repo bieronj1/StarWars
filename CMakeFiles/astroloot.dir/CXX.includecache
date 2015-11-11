@@ -813,6 +813,8 @@ SFML/Graphics.hpp
 /home/keyvin/StarWars/bin/screen_0.hpp
 iostream
 -
+string
+-
 SFML/Graphics.hpp
 -
 math.h
@@ -1020,5 +1022,9 @@ SFML/System.hpp
 math.h
 -
 cmath
+-
+sstream
+-
+iomanip
 -
 
