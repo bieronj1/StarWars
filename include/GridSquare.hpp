@@ -8,6 +8,46 @@ ANY CHANGES TO THIS FILE AFTER 11/9 SHOULD BE LOGGED HERE.  NO CHANGES WITHOUT C
 #include "Enemy.hpp"
 #include "Asteroid.hpp"
 
+float dotProduct(float x1, float x2, float y1, float y2){
+	return x1*y1 + x2*y2;
+}
+
+float distance(float x1, float y1, float x2, float y2){
+	return std::sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
+}
+
+
+void asteroidBounce(Asteroid* a, Asteroid* b, float ax, float ay, float bx, float by){
+	float am = a->r * a->r * M_PI;
+	float bm = b->r * b->r * M_PI;
+	float avx = a->vx;
+	float avy = a->vy;
+	float bvx = b->vx;
+	float bvy = b->vy;
+	a->vx = avx - (2*bm/(am+bm))*dotProduct(avx-bvx, avy-bvy, ax-bx, ay-by)/((ax-bx)*(ax-bx)+(ay-by)*(ay-by))*(ax-bx);
+	a->vy = avy - (2*bm/(am+bm))*dotProduct(avx-bvx, avy-bvy, ax-bx, ay-by)/((ax-bx)*(ax-bx)+(ay-by)*(ay-by))*(ay-by);
+	b->vx = bvx - (2*am/(am+bm))*dotProduct(bvx-avx, bvy-avy, bx-ax, by-ay)/((bx-ax)*(bx-ax)+(by-ay)*(by-ay))*(bx-ax);
+	b->vy = bvy - (2*am/(am+bm))*dotProduct(bvx-avx, bvy-avy, bx-ax, by-ay)/((bx-ax)*(bx-ax)+(by-ay)*(by-ay))*(by-ay);
+	
+	if(distance(ax,ay,bx,by)+1<a->r+b->r){
+		float e = a->r+b->r-distance(ax,ay,bx,by);
+		a->r-=e;
+	}
+	
+	/*
+	float ao = std::arccos(a->vx / std::sqrt(a->vx*a->vx+a->vy*a->vy));
+	if(a->vy < 0){ao*=-1};
+	float bo = std::arccos(b->vx / std::sqrt(b->vx*b->vx+b->vy*b->vy));
+	if(b->vy < 0){bo*=-1};
+	
+	float am = a->r * a->r * M_PI;
+	float bm = b->r * b->r * M_PI;
+	
+	float phi = 
+*/
+}
+
+
 class GridSquare{
 	public:
 	bool playerIsHere = false;
@@ -423,7 +463,73 @@ class GridSquare{
 				}
 			}
 			
-		}
+		}	
+			
+			//Collision Detection: Asteroid - Asteroid
+			
+			for(int j=0;j<asteroids.size();j++){
+				Asteroid* b = &asteroids[j];
+				float bx = b->lx;
+				float by = b->ly;
+				float br = b->r;
+				for(int i=j+1; i<asteroids.size(); i++){
+					float ar = asteroids[i].r;
+					float ax = asteroids[i].lx;
+					float ay = asteroids[i].ly;
+					if(distance(ax,ay,bx,by)<=ar+br){
+						asteroidBounce(&asteroids[i],&asteroids[j],ax,ay,bx,by);
+					}
+				}
+				
+				if(UR!=NULL){
+					for(int i=0; i<UR->asteroids.size(); i++){
+						float ar = UR->asteroids[i].r;
+						float ax = UR->asteroids[i].lx-100;
+						float ay = UR->asteroids[i].ly+100;
+						if(distance(ax,ay,bx,by)<=ar+br){
+							asteroidBounce(&(UR->asteroids[i]),&asteroids[j],ax,ay,bx,by);
+						}
+					}
+				}
+				
+				if(R!=NULL){
+					for(int i=0; i<R->asteroids.size(); i++){
+						float ar = R->asteroids[i].r;
+						float ax = R->asteroids[i].lx;
+						float ay = R->asteroids[i].ly+100;
+						if(distance(ax,ay,bx,by)<=ar+br){
+							asteroidBounce(&(R->asteroids[i]),&asteroids[j],ax,ay,bx,by);
+						}
+					}
+				}
+				
+				if(D!=NULL){
+					for(int i=0; i<D->asteroids.size(); i++){
+						float ar = D->asteroids[i].r;
+						float ax = D->asteroids[i].lx+100;
+						float ay = D->asteroids[i].ly;
+						if(distance(ax,ay,bx,by)<=ar+br){
+							asteroidBounce(&(D->asteroids[i]),&asteroids[j],ax,ay,bx,by);
+						}
+					}
+				}
+				
+				if(DR!=NULL){
+					for(int i=0; i<DR->asteroids.size(); i++){
+						float ar = DR->asteroids[i].r;
+						float ax = DR->asteroids[i].lx+100;
+						float ay = DR->asteroids[i].ly+100;
+						if(distance(ax,ay,bx,by)<=ar+br){
+							asteroidBounce(&(DR->asteroids[i]),&asteroids[j],ax,ay,bx,by);
+						}
+					}
+				}
+				
+				if(b->r<10){asteroids.erase(asteroids.begin()+j);}
+			}
+			
+			
+		
 	
 	
 	}
