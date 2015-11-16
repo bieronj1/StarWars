@@ -1,5 +1,6 @@
 #include "PlayerShip.hpp"
 
+
 std::vector<std::string> &split(const std::string &s, char delim, std::vector<std::string> &elems) {
     std::stringstream ss(s);
     std::string item;
@@ -21,32 +22,16 @@ void PlayerShip::loadFromFile(){
 	std::string line;
 	if(!myfile.is_open())
 	{
-		std::cerr<<"Could not open the playership file";
+		std::cerr<<"Could not open the playership file\n";
 	}
 	getline (myfile, line);
-	std::vector<std::string> splitLine = split(line, ',');
-	Nose nose(splitLine.at(0));
-	sf::Color noseColor(std::atoi(splitLine.at(1).c_str()), 
-	  std::atoi(splitLine.at(2).c_str()), std::atoi(splitLine.at(3).c_str()));
-	nose.setColor(noseColor);
-	setNose(nose);
+	chooseNose(line);
 	
 	getline(myfile, line);
-	splitLine = split(line, ',');
-	Body body(splitLine.at(0));
-	sf::Color bodyColor(std::atoi(splitLine.at(1).c_str()), 
-	  std::atoi(splitLine.at(2).c_str()), std::atoi(splitLine.at(3).c_str()));
-	body.setColor(bodyColor);
-	setBody(body);	
+	chooseBody(line);	
 	
 	getline(myfile, line);
-	splitLine = split(line, ',');
-	Tail tail(splitLine.at(0));
-	sf::Color tailColor(std::atoi(splitLine.at(1).c_str()), 
-	  std::atoi(splitLine.at(2).c_str()), std::atoi(splitLine.at(3).c_str()));
-	tail.setColor(tailColor);
-	setTail(tail);
-	
+	chooseTail(line);
 
 	
 }
@@ -107,56 +92,32 @@ void PlayerShip::reverse(){
 		vy-=lthrust*(std::sin(orientation));
 	}
 	
-void PlayerShip::chooseNose(std::string noseName){
-	std::cerr << noseName;
-	std::cerr << "\n";
-	if(!noseName.compare("Red")){
-		Nose red("Red");
-		red.setColor(sf::Color::Red);
-		setNose(red);
-	}else if(!noseName.compare("White")){
-		Nose white("White");
-		white.setColor(sf::Color::White);
-		setNose(white);
-	}else if(!noseName.compare("Blue")){
-		Nose blue("Blue");
-		blue.setColor(sf::Color::Blue);
-		setNose(blue);
-	}
+void PlayerShip::chooseNose(std::string line){
+  std::vector<std::string> splitLine = split(line, ',');
+	Nose nose(splitLine.at(0));
+	sf::Color noseColor(std::atoi(splitLine.at(1).c_str()), 
+	  std::atoi(splitLine.at(2).c_str()), std::atoi(splitLine.at(3).c_str()));
+	nose.setColor(noseColor);
+	setNose(nose);
 }
 	
-void PlayerShip::chooseBody(std::string bodyName){
-
-	if(!bodyName.compare("Red")){
-		Body red("Red");
-		red.setColor(sf::Color::Red);
-		setBody(red);
-	}else if(!bodyName.compare("White")){
-		Body white("White");
-		white.setColor(sf::Color::White);
-		setBody(white);
-	}else if(!bodyName.compare("Blue")){
-		Body blue("Blue");
-		blue.setColor(sf::Color::Blue);
-		setBody(blue);
-	}
+void PlayerShip::chooseBody(std::string line){
+	std::vector<std::string> splitLine = split(line, ',');
+	Body body(splitLine.at(0));
+	sf::Color bodyColor(std::atoi(splitLine.at(1).c_str()), 
+	  std::atoi(splitLine.at(2).c_str()), std::atoi(splitLine.at(3).c_str()));
+	body.setColor(bodyColor);
+	setBody(body);
 }
 
-void PlayerShip::chooseTail(std::string tailName){
+void PlayerShip::chooseTail(std::string line){
 
-	if(!tailName.compare("Red")){
-		Tail red("Red");
-		red.setColor(sf::Color::Red);
-		setTail(red);
-	}else if(!tailName.compare("White")){
-		Tail white("White");
-		white.setColor(sf::Color::White);
-		setTail(white);
-	}else if(!tailName.compare("Blue")){
-		Tail blue("Blue");
-		blue.setColor(sf::Color::Blue);
-		setTail(blue);
-	}
+	std::vector<std::string> splitLine = split(line, ',');
+	Tail tail(splitLine.at(0));
+	sf::Color tailColor(std::atoi(splitLine.at(1).c_str()), 
+	  std::atoi(splitLine.at(2).c_str()), std::atoi(splitLine.at(3).c_str()));
+	tail.setColor(tailColor);
+	setTail(tail);
 }
 	
 void PlayerShip::slower(){
