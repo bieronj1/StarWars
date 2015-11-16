@@ -25,7 +25,7 @@ std::map<std::string, std::string> loadNoses(){
 		std::string name = line.substr(0, found);
 		dict.insert(std::pair<std::string, std::string> (name, line));	
 	}
-	
+	myfile.close();
 	return dict;
 	
 }
@@ -45,7 +45,7 @@ std::map<std::string, std::string> loadBodies(){
 			std::string name = line.substr(0, found);
 			dict.insert(std::pair<std::string, std::string> (name, line));	
 		}
-
+		myfile.close();
 		return dict;
 	
 }
@@ -64,8 +64,15 @@ std::map<std::string, std::string> loadTails(){
 		std::string name = line.substr(0, found);
 		dict.insert(std::pair<std::string, std::string> (name, line));	
 	}
-
+	myfile.close();
 	return dict;
+}
+
+void saveState(std::string nose, std::string body, std::string tail){
+	std::ofstream ofs;
+	ofs.open("bin/shipState.txt", std::ofstream::out| std::ofstream::trunc);
+	ofs << nose; ofs << "\n"; ofs << body; ofs << "\n"; ofs << tail; 
+	ofs.close();
 }
 
 int main(int argc, char** argv)
@@ -155,6 +162,10 @@ int main(int argc, char** argv)
 				pc.chooseBody(bodyDict.at(menu.flippers.at(1).returnText()));
 				pc.chooseNose(noseDict.at(menu.flippers.at(0).returnText()));
 				pc.chooseTail(tailDict.at(menu.flippers.at(2).returnText()));
+			}
+			if((Event.type == sf::Event::KeyPressed) && (Event.key.code == sf::Keyboard::Return)){
+				saveState(noseDict.at(menu.flippers.at(0).returnText()), bodyDict.at(menu.flippers.at(1).returnText()), 
+					tailDict.at(menu.flippers.at(2).returnText()));
 			}
     }
 
