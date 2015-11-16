@@ -1,8 +1,59 @@
 #include "PlayerShip.hpp"
 
+std::vector<std::string> &split(const std::string &s, char delim, std::vector<std::string> &elems) {
+    std::stringstream ss(s);
+    std::string item;
+    while (std::getline(ss, item, delim)) {
+        elems.push_back(item);
+    }
+    return elems;
+}
+
+
+std::vector<std::string> split(const std::string &s, char delim) {
+    std::vector<std::string> elems;
+    split(s, delim, elems);
+    return elems;
+}
+
+void PlayerShip::loadFromFile(){
+	std::ifstream myfile("bin/shipState.txt");
+	std::string line;
+	if(!myfile.is_open())
+	{
+		std::cerr<<"Could not open the playership file";
+	}
+	getline (myfile, line);
+	std::vector<std::string> splitLine = split(line, ',');
+	Nose nose(splitLine.at(0));
+	sf::Color noseColor(std::atoi(splitLine.at(1).c_str()), 
+	  std::atoi(splitLine.at(2).c_str()), std::atoi(splitLine.at(3).c_str()));
+	nose.setColor(noseColor);
+	setNose(nose);
+	
+	getline(myfile, line);
+	splitLine = split(line, ',');
+	Body body(splitLine.at(0));
+	sf::Color bodyColor(std::atoi(splitLine.at(1).c_str()), 
+	  std::atoi(splitLine.at(2).c_str()), std::atoi(splitLine.at(3).c_str()));
+	body.setColor(bodyColor);
+	setBody(body);	
+	
+	getline(myfile, line);
+	splitLine = split(line, ',');
+	Tail tail(splitLine.at(0));
+	sf::Color tailColor(std::atoi(splitLine.at(1).c_str()), 
+	  std::atoi(splitLine.at(2).c_str()), std::atoi(splitLine.at(3).c_str()));
+	tail.setColor(tailColor);
+	setTail(tail);
+	
+
+	
+}
+
 PlayerShip::PlayerShip(float tlx, float tly, float tft, float tlt, float tr){
 		lx=tlx;
-		ly=tly;
+		ly=tly; 
 		vx=0;
 		vy=0;
 		fthrust = tft;
@@ -22,16 +73,8 @@ PlayerShip::PlayerShip(float tlx, float tly, float tft, float tlt, float tr){
 			std::cerr<<"Couldn't load the thruster image\n";
 		}
 		
-		Body defaultBody("default");
-		defaultBody.setColor(sf::Color::Blue);
-		setBody(defaultBody);
-		Nose defaultNose("default");
-		defaultNose.setColor(sf::Color::White);
-		setNose(defaultNose);
-		
-		Tail defaultTail("default");
-		defaultTail.setColor(sf::Color::Red);
-		setTail(defaultTail);
+		loadFromFile();
+
 		thrustersOn = false;
 		leftOn = false;
 		rightOn = false;
@@ -166,35 +209,30 @@ void PlayerShip::setRenderOffset(float x, float y){
 void PlayerShip::draw(sf::RenderTarget& target, sf::RenderStates states) const
     {
         // You can draw other high-level objects
-		sf::ConvexShape bodyPolygon = body.returnShape();
+		sf::RectangleShape bodyPolygon = body.returnShape();
+		bodyPolygon.setOrigin(27.5, 13.5);
 		bodyPolygon.setPosition(offx+ lx, offy + ly);
 		bodyPolygon.rotate(orientation*180/M_PI);
     target.draw(bodyPolygon);
 
-		sf::ConvexShape nosePolygon = nose.returnShape();
+		sf::RectangleShape nosePolygon = nose.returnShape();
 
-		nosePolygon.setOrigin(-20, 0);
+		nosePolygon.setOrigin(nose.getXOffset(), nose.getYOffset());
 
 		nosePolygon.setPosition(lx + offx,ly + offy);
+		nosePolygon.setOrigin(27.5, 13.5);
 		nosePolygon.rotate(orientation*180/M_PI);
 		target.draw(nosePolygon);
 		
 		
 		
-		sf::ConvexShape lefttailPolygon = tail.returnLeftShape();
+		sf::RectangleShape tailPolygon = tail.returnShape();
+		tailPolygon.setOrigin(27.5, 13.5);
+		tailPolygon.setPosition(lx + offx,ly + offy);
+		tailPolygon.rotate(orientation*180/M_PI);
+		target.draw(tailPolygon);
+
 		
-		lefttailPolygon.setOrigin(17,13);
-		lefttailPolygon.setPosition(lx + offx, ly +offy);
-		lefttailPolygon.rotate(orientation*180/M_PI);
-		target.draw(lefttailPolygon);
-		
-		
-		sf::ConvexShape righttailPolygon = tail.returnRightShape();
-		
-		righttailPolygon.setOrigin(13,-11);
-		righttailPolygon.setPosition(lx  +offx, ly +offy);
-		righttailPolygon.rotate(orientation*180/M_PI);
-		target.draw(righttailPolygon);
 		
 		
 		if(thrustersOn){
@@ -214,7 +252,7 @@ void PlayerShip::draw(sf::RenderTarget& target, sf::RenderStates states) const
 			leftRectangle.setSize(sf::Vector2f(15,15));
 			
 			leftRectangle.setTexture(&lefttexture);
-			leftRectangle.setOrigin(0, 24);
+			leftRectangle.setOrigin(0, 22);
 			leftRectangle.setPosition(lx+offx, ly+offy);
 			leftRectangle.rotate(orientation*180/M_PI);
 			target.draw(leftRectangle);
@@ -225,7 +263,7 @@ void PlayerShip::draw(sf::RenderTarget& target, sf::RenderStates states) const
 			rightRectangle.setSize(sf::Vector2f(15,15));
 			
 			rightRectangle.setTexture(&righttexture);
-			rightRectangle.setOrigin(0, -10);
+			rightRectangle.setOrigin(0, -8);
 			rightRectangle.setPosition(lx+offx, ly+offy);
 			rightRectangle.rotate(orientation*180/M_PI);
 			target.draw(rightRectangle);

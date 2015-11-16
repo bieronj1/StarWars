@@ -1,4 +1,6 @@
 #include <iostream>
+#include <fstream>
+#include <sstream>
 #include <string>
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
@@ -7,6 +9,8 @@
 #include <Body.hpp>
 #include <Nose.hpp>
 #include <Tail.hpp>
+
+#include <drawableNose.hpp>
 
 class PlayerShip : public sf::Drawable{
   public:
@@ -31,7 +35,7 @@ class PlayerShip : public sf::Drawable{
 		Body body;
 		Nose nose;
 		Tail tail;
-		
+		 
 		PlayerShip(float tlx, float tly, float tft, float tlt, float tr);
 		void update();
 		void faster();
@@ -49,6 +53,7 @@ class PlayerShip : public sf::Drawable{
 		void setBody(Body tbody);
 		void chooseBody(std::string bodyName);
 		void setRenderOffset(float x, float y);
+		void loadFromFile();
 		
 		void setTail(Tail ttail);
 		void chooseTail(std::string tailName);

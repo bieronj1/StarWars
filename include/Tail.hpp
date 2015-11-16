@@ -12,9 +12,9 @@ class Tail {
 		Tail();
 		Tail(std::string tname) ;
 		void setColor(sf::Color tcolor);
+		sf::Texture texture;
 		sf::Color color;
-		sf::ConvexShape returnLeftShape() const;
-		sf::ConvexShape returnRightShape() const;
+		sf::RectangleShape returnShape() const;
 		
   private:
 	  

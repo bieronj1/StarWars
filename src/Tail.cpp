@@ -8,6 +8,9 @@ Tail::Tail(std::string tname){
 	//Eventually, we will change this constructor to instantiate various attributes(like hitpoints, shields whatever)
 	//
 	name = tname;
+	if(!texture.loadFromFile("img/basetail.png")){
+		std::cerr<<"Couldn't load the nose image\n";
+	}
 }
 
 void Tail::setColor(sf::Color tColor)
@@ -15,29 +18,9 @@ void Tail::setColor(sf::Color tColor)
 	color = tColor;
 }
 
-sf::ConvexShape Tail::returnLeftShape() const{
-	sf::ConvexShape polygon;
-	polygon.setPointCount(4);
-	polygon.setPoint(0, sf::Vector2f(8, 5));
-	polygon.setPoint(1, sf::Vector2f(5, -3));
-	polygon.setPoint(2, sf::Vector2f(-3, -3));
-	polygon.setPoint(3, sf::Vector2f(0, 5));
-	
+sf::RectangleShape Tail::returnShape() const{
+	sf::RectangleShape polygon(sf::Vector2f(55,27.5));
+  polygon.setTexture(&texture);
 	polygon.setFillColor(color);
-	
-
-	return polygon;
-}
-
-sf::ConvexShape Tail::returnRightShape() const{
-	sf::ConvexShape polygon;
-	polygon.setPointCount(4);
-	polygon.setPoint(0, sf::Vector2f(-8, 5));
-	polygon.setPoint(1, sf::Vector2f(-5, -3));
-	polygon.setPoint(2, sf::Vector2f(3, -3));
-	polygon.setPoint(3, sf::Vector2f(0, 5));
-	polygon.setFillColor(color);
-	
-
 	return polygon;
 }

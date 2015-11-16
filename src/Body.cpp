@@ -7,6 +7,9 @@ Body::Body(std::string tname){
 	//Eventually, we will change this constructor to instantiate various attributes(like hitpoints, shields whatever)
 	//
 	name = tname;
+	if(!texture.loadFromFile("img/basebody.png")){
+		std::cerr<<"Couldn't load the body image\n";
+	}
 }
 
 void Body::setColor(sf::Color tColor)
@@ -14,12 +17,9 @@ void Body::setColor(sf::Color tColor)
 	color = tColor;
 }
 
-sf::ConvexShape Body::returnShape() const{
-	sf::ConvexShape polygon;
-	polygon.setPointCount(3);
-	polygon.setPoint(0, sf::Vector2f(30,0));
-	polygon.setPoint(1, sf::Vector2f(-15, -15));
-	polygon.setPoint(2, sf::Vector2f(-15, 15));
+sf::RectangleShape Body::returnShape() const{
+	sf::RectangleShape polygon(sf::Vector2f(55,27.5));
+	polygon.setTexture(&texture);
 	polygon.setFillColor(color);
 
 	return polygon;

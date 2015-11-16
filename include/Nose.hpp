@@ -12,7 +12,12 @@ class Nose {
 		Nose(std::string tname) ;
 		void setColor(sf::Color tcolor);
 		sf::Color color;
-		sf::ConvexShape returnShape() const;
+		virtual sf::RectangleShape returnShape() const;
+		sf::Texture texture;
+		int yOffset; int xOffset;
+		int getYOffset() const; int getXOffset() const;
+		void setYOffset(int y); void setXOffset(int x);
+		
 		
   private:
 	  

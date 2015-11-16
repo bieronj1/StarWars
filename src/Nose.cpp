@@ -6,7 +6,12 @@ Nose::Nose(){
 Nose::Nose(std::string tname){
 	//Eventually, we will change this constructor to instantiate various attributes(like hitpoints, shields whatever)
 	//
+	yOffset = 0;
+	xOffset = 0;
 	name = tname;
+	if(!texture.loadFromFile("img/basenose.png")){
+		std::cerr<<"Couldn't load the nose image\n";
+	}
 }
 
 void Nose::setColor(sf::Color tColor)
@@ -15,13 +20,27 @@ void Nose::setColor(sf::Color tColor)
 	color = tColor;
 }
 
-sf::ConvexShape Nose::returnShape() const{
-	sf::ConvexShape polygon;
-	polygon.setPointCount(3);
-	polygon.setPoint(0, sf::Vector2f(10,0));
-	polygon.setPoint(1, sf::Vector2f(-5, -5));
-	polygon.setPoint(2, sf::Vector2f(-5, 5));
+sf::RectangleShape Nose::returnShape() const{
+	sf::RectangleShape polygon(sf::Vector2f(55,27.5));
+  polygon.setTexture(&texture);
 	polygon.setFillColor(color);
 
 	return polygon;
+}
+
+void Nose::setYOffset(int y){
+	yOffset = y;
+}
+
+void Nose::setXOffset(int x){
+	xOffset = x;
+}
+int Nose::getXOffset() const
+{
+	return xOffset;
+}
+
+int Nose::getYOffset() const
+{
+	return yOffset;
 }
