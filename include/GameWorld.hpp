@@ -89,10 +89,14 @@ class GameWorld {
 	void update(){
 		for(int i=0;i<25;i++){
 			for(int j=0;j<25;j++){
-				board[i][j]->update();
+				board[i][j]->update1();
 			}
 		}
-		
+		for(int i=0;i<25;i++){
+			for(int j=0;j<25;j++){
+				board[i][j]->update2();
+			}
+		}
 		
 		
 		if(board[12][12]->playerIsHere==false){

@@ -18,6 +18,7 @@ class Asteroid : public sf::Drawable{
 	void update(){
 		lx+=vx;
 		ly+=vy;
+		collision=false;
 		//collision = false;
 	}
 	
@@ -37,16 +38,17 @@ class Asteroid : public sf::Drawable{
         // You can draw other high-level objects
 		sf::CircleShape c;
 		c.setRadius(r);
+		//c.setPointCount(6);
 		c.setFillColor(sf::Color::Blue);
 		if(collision){c.setFillColor(sf::Color::Red);}
 		c.setPosition(lx+offx-r, ly+offy-r);
         target.draw(c);
-		sf::CircleShape ct;
-		ct.setRadius(5);
-		ct.setFillColor(sf::Color::Yellow);
+		//sf::CircleShape ct;
+		//ct.setRadius(5);
+		//ct.setFillColor(sf::Color::Yellow);
 		//if(collision){c.setFillColor(sf::Color::Red);}
-		ct.setPosition(lx+offx-5, ly+offy-5);
-        target.draw(ct);		
+		//ct.setPosition(lx+offx-5, ly+offy-5);
+        //target.draw(ct);		
     }
 
 };

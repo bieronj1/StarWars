@@ -8,16 +8,17 @@ ANY CHANGES TO THIS FILE AFTER 11/9 SHOULD BE LOGGED HERE.  NO CHANGES WITHOUT C
 #include "Enemy.hpp"
 #include "Asteroid.hpp"
 
-float dotProduct(float x1, float x2, float y1, float y2){
+float inline dotProduct(float x1, float x2, float y1, float y2){
 	return x1*y1 + x2*y2;
 }
 
-float distance(float x1, float y1, float x2, float y2){
+inline float distance(float x1, float y1, float x2, float y2){
 	return std::sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
 }
 
 
-void asteroidBounce(Asteroid* a, Asteroid* b, float ax, float ay, float bx, float by){
+inline void asteroidBounce(Asteroid* a, Asteroid* b, float ax, float ay, float bx, float by){
+	
 	float am = a->r * a->r * M_PI;
 	float bm = b->r * b->r * M_PI;
 	float avx = a->vx;
@@ -29,22 +30,41 @@ void asteroidBounce(Asteroid* a, Asteroid* b, float ax, float ay, float bx, floa
 	b->vx = bvx - (2*am/(am+bm))*dotProduct(bvx-avx, bvy-avy, bx-ax, by-ay)/((bx-ax)*(bx-ax)+(by-ay)*(by-ay))*(bx-ax);
 	b->vy = bvy - (2*am/(am+bm))*dotProduct(bvx-avx, bvy-avy, bx-ax, by-ay)/((bx-ax)*(bx-ax)+(by-ay)*(by-ay))*(by-ay);
 	
-	if(distance(ax,ay,bx,by)+1<a->r+b->r){
+	if(distance(ax,ay,bx,by)<a->r+b->r){
 		float e = a->r+b->r-distance(ax,ay,bx,by);
-		a->r-=e;
+		if(b->vx==0 && b->vy==0){std::cout<<"Division by zero!"<<std::endl;}
+		b->r-=e;
 	}
 	
-	/*
-	float ao = std::arccos(a->vx / std::sqrt(a->vx*a->vx+a->vy*a->vy));
-	if(a->vy < 0){ao*=-1};
-	float bo = std::arccos(b->vx / std::sqrt(b->vx*b->vx+b->vy*b->vy));
-	if(b->vy < 0){bo*=-1};
+}
+
+inline void asteroidBounce(Asteroid* a, Item* b, float ax, float ay, float bx, float by){
+	if(ax==bx && ay==by){
+		std::cout<<"Caught division by zero"<<std::endl;
+		return;
+	}
+	
 	
 	float am = a->r * a->r * M_PI;
-	float bm = b->r * b->r * M_PI;
+	float bm = b->m;
+	float avx = a->vx;
+	float avy = a->vy;
+	float bvx = b->vx;
+	float bvy = b->vy;
 	
-	float phi = 
-*/
+	a->vx = avx - (2*bm/(am+bm))*dotProduct(avx-bvx, avy-bvy, ax-bx, ay-by)/((ax-bx)*(ax-bx)+(ay-by)*(ay-by))*(ax-bx);
+	a->vy = avy - (2*bm/(am+bm))*dotProduct(avx-bvx, avy-bvy, ax-bx, ay-by)/((ax-bx)*(ax-bx)+(ay-by)*(ay-by))*(ay-by);
+	b->vx = bvx - (2*am/(am+bm))*dotProduct(bvx-avx, bvy-avy, bx-ax, by-ay)/((bx-ax)*(bx-ax)+(by-ay)*(by-ay))*(bx-ax);
+	b->vy = bvy - (2*am/(am+bm))*dotProduct(bvx-avx, bvy-avy, bx-ax, by-ay)/((bx-ax)*(bx-ax)+(by-ay)*(by-ay))*(by-ay);
+
+	
+	while(distance(ax,ay,bx,by)<a->r+b->r){
+		float e = a->r+b->r-distance(ax,ay,bx,by)+1;
+		if(b->vx==0 && b->vy==0){std::cout<<"Division by zero!"<<std::endl;}
+		b->lx+=(e)*(b->vx/std::sqrt(b->vx*b->vx + b->vy*b->vy));
+		b->ly+=(e)*(b->vy/std::sqrt(b->vx*b->vx + b->vy*b->vy));
+	}
+	
 }
 
 
@@ -64,7 +84,8 @@ class GridSquare{
 	GridSquare(){
 		if(std::rand()%8==0){
 		Asteroid a(std::rand()%100,std::rand()%100,std::rand()%100/100.0f - 0.5,std::rand()%100/100.0f - 0.5,40);
-		asteroids.push_back(a);}
+		//Asteroid a(0.0,0.0,0.0,0.0,40.0);
+		asteroids.push_back(a);} 
 	}
 	
 	void addAsteroid(float lx, float ly, float vx, float vy, float r){
@@ -81,7 +102,10 @@ class GridSquare{
 		return;
 	}
 	
-	void update(){
+	//Update had to be redone as two methods, because an object could be caught in multiple updates otherwise
+	void update1(){
+		if(playerIsHere){ps->update();}
+		
 		for(int i = 0; i<asteroids.size(); i++){
 			asteroids[i].update();
 		}
@@ -91,6 +115,9 @@ class GridSquare{
 		for(int i = 0; i<enemies.size(); i++){
 			enemies[i]->update();
 		}
+	}
+	
+	void update2(){
 
 		if(playerIsHere){
 		//std::cout<<ps->lx<<","<<ps->ly<<std::endl;
@@ -296,7 +323,7 @@ class GridSquare{
 				continue;
 			}
 		}
-		
+		//{std::cout<<"Items Moved"<<std::endl;}
 		for(int i=0; i<enemies.size(); i++){
 			if(enemies[i]->lx<0&&enemies[i]->ly<0){
 				enemies[i]->lx+=100;
@@ -363,6 +390,8 @@ class GridSquare{
 		
 	//collision detection
 	//player - asteroid
+	
+	
 		if(playerIsHere){
 			//local asteroids
 			for(int i=0; i<asteroids.size(); i++){
@@ -520,18 +549,160 @@ class GridSquare{
 						float ax = DR->asteroids[i].lx+100;
 						float ay = DR->asteroids[i].ly+100;
 						if(distance(ax,ay,bx,by)<=ar+br){
+							
 							asteroidBounce(&(DR->asteroids[i]),&asteroids[j],ax,ay,bx,by);
+
 						}
 					}
 				}
 				
-				if(b->r<10){asteroids.erase(asteroids.begin()+j);}
+				if(b->r<5){asteroids.erase(asteroids.begin()+j);}
 			}
 			
-			
-		
-	
-	
+			//{std::cout<<"A-A CD Done"<<std::endl;}
+			//collision detection: item - asteroids
+			for(int j=0;j<items.size();j++){
+				//std::cout<<"Defining b"<<std::endl;
+				Item* b = items[j];
+				float bx = b->lx;
+				float by = b->ly;
+				float br = b->r;
+				//std::cout<<"b Defined"<<std::endl;
+				//FIXED? error is in below loop
+				for(int i=0; i<asteroids.size(); i++){
+					float ar = asteroids[i].r;
+					float ax = asteroids[i].lx;
+					float ay = asteroids[i].ly;
+					if(distance(ax,ay,bx,by)<=ar+br){
+						if(b->m>0)//apply physical collision
+						{	//std::cout<<"Collide"<<std::endl;
+							asteroids[i].collide();
+							asteroidBounce(&asteroids[i],b,ax,ay,bx,by);
+							//std::cout<<"Collided"<<std::endl;
+							}
+						if(b->damage>0)//apply damage (reduction in radius)
+						{asteroids[i].r-=b->damage;b->tag_for_delete=true;}
+					}
+				}
+						//std::cout<<"X"<<std::endl;
+				if(1){//does not help
+				if(UL!=NULL){
+					for(int i=0; i<UL->asteroids.size(); i++){
+						float ar = UL->asteroids[i].r;
+						float ax = UL->asteroids[i].lx-100;
+						float ay = UL->asteroids[i].ly-100;
+						if(distance(ax,ay,bx,by)<=ar+br){
+							if(b->m>0)//apply physical collision
+							{asteroidBounce(&(UL->asteroids[i]),b,ax,ay,bx,by);}
+							if(b->damage>0)//apply damage (reduction in radius)
+							{UL->asteroids[i].r-=b->damage;b->tag_for_delete=true;}
+						}
+					}
+				}
+				
+				if(U!=NULL){
+					for(int i=0; i<U->asteroids.size(); i++){
+						float ar = U->asteroids[i].r;
+						float ax = U->asteroids[i].lx-100;
+						float ay = U->asteroids[i].ly;
+						if(distance(ax,ay,bx,by)<=ar+br){
+							if(b->m>0)//apply physical collision
+							{asteroidBounce(&(U->asteroids[i]),b,ax,ay,bx,by);}
+							if(b->damage>0)//apply damage (reduction in radius)
+							{U->asteroids[i].r-=b->damage;b->tag_for_delete=true;}
+						}
+					}
+				}				
+				
+				if(UR!=NULL){
+					for(int i=0; i<UR->asteroids.size(); i++){
+						float ar = UR->asteroids[i].r;
+						float ax = UR->asteroids[i].lx-100;
+						float ay = UR->asteroids[i].ly+100;
+						if(distance(ax,ay,bx,by)<=ar+br){
+							if(b->m>0)//apply physical collision
+							{asteroidBounce(&(UR->asteroids[i]),b,ax,ay,bx,by);}
+							if(b->damage>0)//apply damage (reduction in radius)
+							{UR->asteroids[i].r-=b->damage;b->tag_for_delete=true;}
+						}
+					}
+				}
+
+				if(L!=NULL){
+					for(int i=0; i<L->asteroids.size(); i++){
+						float ar = L->asteroids[i].r;
+						float ax = L->asteroids[i].lx;
+						float ay = L->asteroids[i].ly-100;
+						if(distance(ax,ay,bx,by)<=ar+br){
+							if(b->m>0)//apply physical collision
+							{asteroidBounce(&(L->asteroids[i]),b,ax,ay,bx,by);}
+							if(b->damage>0)//apply damage (reduction in radius)
+							{L->asteroids[i].r-=b->damage;b->tag_for_delete=true;}
+						}
+					}
+				}
+								}
+								if(1){//does not help
+				if(R!=NULL){
+					for(int i=0; i<R->asteroids.size(); i++){
+						float ar = R->asteroids[i].r;
+						float ax = R->asteroids[i].lx;
+						float ay = R->asteroids[i].ly+100;
+						if(distance(ax,ay,bx,by)<=ar+br){
+							if(b->m>0)//apply physical collision
+							{asteroidBounce(&(R->asteroids[i]),b,ax,ay,bx,by);}
+							if(b->damage>0)//apply damage (reduction in radius)
+							{R->asteroids[i].r-=b->damage;b->tag_for_delete=true;}
+						}
+					}
+				}
+
+				if(DL!=NULL){
+					for(int i=0; i<DL->asteroids.size(); i++){
+						float ar = DL->asteroids[i].r;
+						float ax = DL->asteroids[i].lx-100;
+						float ay = DL->asteroids[i].ly+100;
+						if(distance(ax,ay,bx,by)<=ar+br){
+							if(b->m>0)//apply physical collision
+							{asteroidBounce(&(DL->asteroids[i]),b,ax,ay,bx,by);}
+							if(b->damage>0)//apply damage (reduction in radius)
+							{DL->asteroids[i].r-=b->damage;b->tag_for_delete=true;}
+						}
+					}
+				}
+				
+				if(D!=NULL){
+					for(int i=0; i<D->asteroids.size(); i++){
+						float ar = D->asteroids[i].r;
+						float ax = D->asteroids[i].lx+100;
+						float ay = D->asteroids[i].ly;
+						if(distance(ax,ay,bx,by)<=ar+br){
+							if(b->m>0)//apply physical collision
+							{asteroidBounce(&(D->asteroids[i]),b,ax,ay,bx,by);}
+							if(b->damage>0)//apply damage (reduction in radius)
+							{D->asteroids[i].r-=b->damage;b->tag_for_delete=true;}
+						}
+					}
+				}
+				
+				if(DR!=NULL){
+					for(int i=0; i<DR->asteroids.size(); i++){
+						float ar = DR->asteroids[i].r;
+						float ax = DR->asteroids[i].lx+100;
+						float ay = DR->asteroids[i].ly+100;
+						if(distance(ax,ay,bx,by)<=ar+br){
+							if(b->m>0)//apply physical collision
+							{asteroidBounce(&(DR->asteroids[i]),b,ax,ay,bx,by);}
+							if(b->damage>0)//apply damage (reduction in radius)
+							{DR->asteroids[i].r-=b->damage;b->tag_for_delete=true;}
+						}
+					}
+				}
+								}
+				
+				if(b->tag_for_delete){items.erase(items.begin()+j);j--;}
+			}//{std::cout<<"A-I CD Done"<<std::endl;}
+
 	}
 	
 

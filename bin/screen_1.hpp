@@ -54,7 +54,7 @@ int screen_1::Run(sf::RenderWindow &App)
     //sf::Sprite Sprite;
     int alpha = 0;
     // create main window
-  int FPS=60;
+  int FPS=120;
   App.setFramerateLimit(FPS); 
 
 	//taken from SFML official site
@@ -86,7 +86,7 @@ int screen_1::Run(sf::RenderWindow &App)
 //Test Weapon 0
 	Weapon exlaser(0, 2, 2, 5, 0);
   	cout << exlaser.getData(); 
-  PlayerShip pc(50,50,0.1,0.1,0.05);
+  PlayerShip pc(50,50,0.05,0.05,0.025);
   
   GameWorld world(&pc);
 
@@ -144,11 +144,10 @@ int screen_1::Run(sf::RenderWindow &App)
     	// left click...
 		if(exlaser.fire())
 			{
-				world.addItem(new Item(0, 0, exlaser.spd * sin(pc.orientation/2.0f+3.14/2.0),exlaser.spd * cos(pc.orientation/2.0f+3.14/2.0),3), 1250-650+pc.lx, 1250-650+pc.ly);
+				world.addItem(new Item(0, 0, exlaser.spd * cos(pc.orientation)+pc.vx,exlaser.spd * sin(pc.orientation)+pc.vy,3), 600+pc.lx,600+pc.ly);
 			}
 	}
 	App.clear(sf::Color::Black);
-	pc.update();
 	sf::View camera(sf::FloatRect(0,0,1200,900));
 	sf::View minimap(sf::FloatRect(0,0,600,600));
 	sf::View mmOverlay(sf::FloatRect(0,0,300,300));

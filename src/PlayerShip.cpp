@@ -192,7 +192,15 @@ void PlayerShip::draw(sf::RenderTarget& target, sf::RenderStates states) const
 		tailPolygon.setPosition(lx + offx,ly + offy);
 		tailPolygon.rotate(orientation*180/M_PI);
 		target.draw(tailPolygon);
-
+		
+/*
+		sf::CircleShape centerpoint;
+		centerpoint.setOrigin(2,2);
+		centerpoint.setPosition(offx+lx,offy+ly);
+		centerpoint.setRadius(2);
+		centerpoint.setFillColor(sf::Color::White);
+		target.draw(centerpoint);
+*/		
 		
 		
 		
