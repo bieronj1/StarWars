@@ -58,8 +58,8 @@ inline void asteroidBounce(Asteroid* a, Item* b, float ax, float ay, float bx, f
 	b->vy = bvy - (2*am/(am+bm))*dotProduct(bvx-avx, bvy-avy, bx-ax, by-ay)/((bx-ax)*(bx-ax)+(by-ay)*(by-ay))*(by-ay);
 
 	
-	while(distance(ax,ay,bx,by)<a->r+b->r){
-		float e = a->r+b->r-distance(ax,ay,bx,by)+1;
+	if(distance(a->lx,a->ly,b->lx,b->ly)<a->r+b->r){
+		float e = a->r+b->r-distance(ax,ay,bx,by);
 		if(b->vx==0 && b->vy==0){std::cout<<"Division by zero!"<<std::endl;}
 		b->lx+=(e)*(b->vx/std::sqrt(b->vx*b->vx + b->vy*b->vy));
 		b->ly+=(e)*(b->vy/std::sqrt(b->vx*b->vx + b->vy*b->vy));
