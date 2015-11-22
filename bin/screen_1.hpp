@@ -50,6 +50,12 @@ int screen_1::Run(sf::RenderWindow &App)
 {
     sf::Event Event;
     bool Running = true;
+    sf::RectangleShape rectangle(sf::Vector2f(90, 40));
+    rectangle.setFillColor(sf::Color(255, 202, 54));
+    rectangle.setPosition(10,5);
+    sf::RectangleShape rectangleBG(sf::Vector2f(280, 40));
+    rectangleBG.setFillColor(sf::Color(115, 72, 24));
+    rectangleBG.setPosition(10,5);
     //sf::Texture Texture;
     //sf::Sprite Sprite;
     int alpha = 0;
@@ -67,12 +73,20 @@ int screen_1::Run(sf::RenderWindow &App)
   sf::Texture mmText;
     if (!mmText.loadFromFile("img/mmcover.png"))
     {
-        std::cerr << "mode00.png" << std::endl;
+        std::cerr << "mmcover.png" << std::endl;
         return (-1);
     }
   mmoverlay.setTexture(mmText);
   mmoverlay.setPosition(0,0);
-
+  sf::Sprite healthOverlay;
+  sf::Texture healthText;
+    if (!healthText.loadFromFile("img/healthbar.png"))
+    {
+        std::cerr << "healthbar.png" << std::endl;
+        return (-1);
+    }
+  healthOverlay.setTexture(healthText);
+  healthOverlay.setPosition(0,0);
 	
 	App.clear(sf::Color::Black);
   // start main loop
@@ -148,12 +162,13 @@ int screen_1::Run(sf::RenderWindow &App)
 			}
 	}
 	App.clear(sf::Color::Black);
-	sf::View camera(sf::FloatRect(0,0,1200,900));
-	sf::View minimap(sf::FloatRect(0,0,600,600));
-	sf::View mmOverlay(sf::FloatRect(0,0,300,300));
+	sf::View camera(sf::FloatRect(0,0,1200,800));
+    	sf::View minimap(sf::FloatRect(0,0,600,600));
+    	sf::View mmOverlay(sf::FloatRect(0,0,300,300));
+	sf::View hOverlay(sf::FloatRect(0,0,300,50));
 	world.update();
 	exlaser.updateCD();
-
+	
 	camera.setCenter(1200+pc.lx, 1200+pc.ly);
 	
 	//camera.move(1250-650+pc.lx,1250-500+pc.ly);
@@ -167,18 +182,25 @@ int screen_1::Run(sf::RenderWindow &App)
 	camera.setViewport(sf::FloatRect(0,0,1,1));
 	minimap.setViewport(sf::FloatRect(0.77f,0.6866f,0.21,0.2933));
 	mmOverlay.setViewport(sf::FloatRect(0.75f,0.6666f,0.25,0.3333));
+	hOverlay.setViewport(sf::FloatRect(0.375f,0.85f,0.25,0.0625));
 	App.setView(camera);
+		
 	world.drawOnWindow(&App);
 	
+	rectangle.setSize(sf::Vector2f((int)(pc.returnDisplayHealth()*2.8f), 40));
 	sf::RectangleShape minimapback(sf::Vector2f(2500,2500));
 	minimapback.setFillColor(sf::Color(25,45,25));
 	App.setView(minimap);
 	App.draw(minimapback);
 	world.drawOnWindow(&App);
-	
+	App.setView(hOverlay);
+	App.draw(rectangleBG);
+	App.draw(rectangle);
+	App.draw(healthOverlay);
 	
 	App.setView(mmOverlay);
 	App.draw(mmoverlay);
+	
 	App.display();
     }
 

@@ -31,7 +31,8 @@ class PlayerShip : public sf::Drawable{
 		sf::Texture texture;
 		sf::Texture lefttexture;
 		sf::Texture righttexture;
-		
+		int health = 100;
+		int displayHealth = 100;
 		Body body;
 		Nose nose;
 		Tail tail;
@@ -54,7 +55,9 @@ class PlayerShip : public sf::Drawable{
 		void chooseBody(std::string bodyName);
 		void setRenderOffset(float x, float y);
 		void loadFromFile();
-		
+		void editHealth(int dmg);
+		int returnHealth();
+		int returnDisplayHealth();
 		void setTail(Tail ttail);
 		void chooseTail(std::string tailName);
 		

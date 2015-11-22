@@ -7,7 +7,7 @@ class Item : public sf::Drawable{
 	float vy;
 	float r;
 	float m=1;
-	float damage=0;
+	float damage=5;
 	bool tag_for_delete = false;
 	Item(float tlx, float tly, float tvx, float tvy, float tr){
 		lx=tlx;

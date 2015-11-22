@@ -60,7 +60,7 @@ int main(int argc, char** argv)
 	Weapon* Weapons[3];
   
 //Test Weapon 0
-	Weapon exlaser(0, 2, 2, 10, 0);
+	Weapon exlaser(2, 2, 2, 10, 2);
   
   PlayerShip pc(50,50,0.1,0.1,0.05);
   

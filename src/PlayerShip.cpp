@@ -68,6 +68,25 @@ PlayerShip::PlayerShip(float tlx, float tly, float tft, float tlt, float tr){
 void PlayerShip::update(){
 		lx+=vx;
 		ly+=vy;
+		if(displayHealth < health)
+			displayHealth++;
+		if(displayHealth > health)
+			displayHealth--;
+}
+
+
+void PlayerShip::editHealth(int dmg){
+		health += dmg;
+		if(health < 0)
+			health = 0;
+}
+
+int PlayerShip::returnHealth(){
+		return health;
+}
+
+int PlayerShip::returnDisplayHealth(){
+		return displayHealth;
 }
 
 void PlayerShip::faster(){
