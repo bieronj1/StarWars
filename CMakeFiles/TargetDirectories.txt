@@ -1,3 +1,4 @@
-/home/keyvin/StarWars/CMakeFiles/shipBuilder.dir
-/home/keyvin/StarWars/CMakeFiles/sandbox.dir
-/home/keyvin/StarWars/CMakeFiles/astroloot.dir
+/home/f85/msnelsen/CS420/StarWars/CMakeFiles/8x8menu.dir
+/home/f85/msnelsen/CS420/StarWars/CMakeFiles/shipBuilder.dir
+/home/f85/msnelsen/CS420/StarWars/CMakeFiles/sandbox.dir
+/home/f85/msnelsen/CS420/StarWars/CMakeFiles/astroloot.dir

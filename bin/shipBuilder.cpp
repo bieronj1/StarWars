@@ -166,6 +166,7 @@ int main(int argc, char** argv)
 			if((Event.type == sf::Event::KeyPressed) && (Event.key.code == sf::Keyboard::Return)){
 				saveState(noseDict.at(menu.flippers.at(0).returnText()), bodyDict.at(menu.flippers.at(1).returnText()), 
 					tailDict.at(menu.flippers.at(2).returnText()));
+				return(1);
 			}
     }
 
