@@ -345,7 +345,7 @@ int screen_0::Run(sf::RenderWindow &App)
                 }
 		}
 		if (hoverCustom)
-			return (1);
+			return (2);
 		if (hoverL)
 		{
 			if(diff > 0)
