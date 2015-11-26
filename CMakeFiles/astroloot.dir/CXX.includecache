@@ -62,6 +62,24 @@ Asteroid.hpp
 GameWorld.hpp
 /home/f85/msnelsen/CS420/StarWars/bin/GameWorld.hpp
 
+/home/f85/msnelsen/CS420/StarWars/bin/screen_2.hpp
+SFML/Graphics.hpp
+-
+SFML/System.hpp
+-
+string
+-
+math.h
+-
+fstream
+-
+cmath
+-
+Menu.hpp
+/home/f85/msnelsen/CS420/StarWars/bin/Menu.hpp
+map
+-
+
 /home/f85/msnelsen/CS420/StarWars/bin/screens.hpp
 cScreen.hpp
 /home/f85/msnelsen/CS420/StarWars/bin/cScreen.hpp
@@ -69,6 +87,8 @@ screen_0.hpp
 /home/f85/msnelsen/CS420/StarWars/bin/screen_0.hpp
 screen_1.hpp
 /home/f85/msnelsen/CS420/StarWars/bin/screen_1.hpp
+screen_2.hpp
+/home/f85/msnelsen/CS420/StarWars/bin/screen_2.hpp
 
 /home/f85/msnelsen/CS420/StarWars/src/Body.cpp
 Body.hpp

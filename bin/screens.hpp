@@ -7,5 +7,6 @@
 //Including each screen of application
 #include "screen_0.hpp"
 #include "screen_1.hpp"
+#include "screen_2.hpp"
 
 #endif // SCREENS_HPP_INCLUDED

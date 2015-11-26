@@ -5,6 +5,7 @@ CMakeFiles/astroloot.dir/bin/astroloot.cpp.o: bin/astroloot.cpp
 CMakeFiles/astroloot.dir/bin/astroloot.cpp.o: bin/cScreen.hpp
 CMakeFiles/astroloot.dir/bin/astroloot.cpp.o: bin/screen_0.hpp
 CMakeFiles/astroloot.dir/bin/astroloot.cpp.o: bin/screen_1.hpp
+CMakeFiles/astroloot.dir/bin/astroloot.cpp.o: bin/screen_2.hpp
 CMakeFiles/astroloot.dir/bin/astroloot.cpp.o: bin/screens.hpp
 CMakeFiles/astroloot.dir/bin/astroloot.cpp.o: /home/f85/msnelsen/SFML/include/SFML/Audio.hpp
 CMakeFiles/astroloot.dir/bin/astroloot.cpp.o: /home/f85/msnelsen/SFML/include/SFML/Audio/AlResource.hpp
@@ -96,9 +97,11 @@ CMakeFiles/astroloot.dir/bin/astroloot.cpp.o: include/Asteroid.hpp
 CMakeFiles/astroloot.dir/bin/astroloot.cpp.o: include/Body.hpp
 CMakeFiles/astroloot.dir/bin/astroloot.cpp.o: include/CDetect.hpp
 CMakeFiles/astroloot.dir/bin/astroloot.cpp.o: include/Enemy.hpp
+CMakeFiles/astroloot.dir/bin/astroloot.cpp.o: include/Flipper.hpp
 CMakeFiles/astroloot.dir/bin/astroloot.cpp.o: include/GameWorld.hpp
 CMakeFiles/astroloot.dir/bin/astroloot.cpp.o: include/GridSquare.hpp
 CMakeFiles/astroloot.dir/bin/astroloot.cpp.o: include/Item.hpp
+CMakeFiles/astroloot.dir/bin/astroloot.cpp.o: include/Menu.hpp
 CMakeFiles/astroloot.dir/bin/astroloot.cpp.o: include/Nose.hpp
 CMakeFiles/astroloot.dir/bin/astroloot.cpp.o: include/PlayerShip.hpp
 CMakeFiles/astroloot.dir/bin/astroloot.cpp.o: include/Tail.hpp

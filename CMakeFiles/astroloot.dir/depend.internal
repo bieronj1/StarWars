@@ -6,6 +6,7 @@ CMakeFiles/astroloot.dir/bin/astroloot.cpp.o
  /home/f85/msnelsen/CS420/StarWars/bin/cScreen.hpp
  /home/f85/msnelsen/CS420/StarWars/bin/screen_0.hpp
  /home/f85/msnelsen/CS420/StarWars/bin/screen_1.hpp
+ /home/f85/msnelsen/CS420/StarWars/bin/screen_2.hpp
  /home/f85/msnelsen/CS420/StarWars/bin/screens.hpp
  /home/f85/msnelsen/SFML/include/SFML/Audio.hpp
  /home/f85/msnelsen/SFML/include/SFML/Audio/AlResource.hpp
@@ -97,9 +98,11 @@ CMakeFiles/astroloot.dir/bin/astroloot.cpp.o
  include/Body.hpp
  include/CDetect.hpp
  include/Enemy.hpp
+ include/Flipper.hpp
  include/GameWorld.hpp
  include/GridSquare.hpp
  include/Item.hpp
+ include/Menu.hpp
  include/Nose.hpp
  include/PlayerShip.hpp
  include/Tail.hpp

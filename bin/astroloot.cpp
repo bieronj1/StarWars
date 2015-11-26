@@ -19,6 +19,8 @@ int main(int argc, char** argv)
     Screens.push_back(&s0);
     screen_1 s1;
     Screens.push_back(&s1);
+		screen_2 s2;
+		Screens.push_back(&s2);
 
     //Main loop
     while (screen >= 0)

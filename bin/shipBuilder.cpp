@@ -78,7 +78,7 @@ void saveState(std::string nose, std::string body, std::string tail){
 int main(int argc, char** argv)
 {
   // create main window
-  sf::RenderWindow App(sf::VideoMode(800,600,32), "Astro-Loot");
+  sf::RenderWindow App(sf::VideoMode(1200,800,32), "Astro-Loot");
 	int FPS=60;
 	App.setFramerateLimit(FPS);
 	sf::Font font;
@@ -98,28 +98,28 @@ int main(int argc, char** argv)
 	std::map<std::string, std::string> tailDict = loadTails();
 	std::map<std::string, std::string>::iterator  tailIt = tailDict.begin();
 	
+		sf::Text message; message.setFont(font); message.setPosition(100, 350);  message.setString("Press Enter to\n Save and Exit"); message.setColor(sf::Color::White);
 	
 	
-	
-	PlayerShip pc(200, 300,0.1,0.05,0.05);
+	PlayerShip pc(650, 350,0.1,0.05,0.05);
 	pc.setOrientation(3* M_PI / 2);
 
 //Populate flippers
 	
-	Flipper noseFlipper(450, 150);
+	Flipper noseFlipper(850, 250);
 	for(noseIt=noseDict.begin(); noseIt!=noseDict.end(); ++noseIt)
 	{
 		noseFlipper.addToList(noseIt->first);
 	}
 
-	Flipper bodyFlipper(450, 250);
+	Flipper bodyFlipper(850, 350);
 	for(bodyIt=bodyDict.begin(); bodyIt!=bodyDict.end(); ++bodyIt)
 	{
 		bodyFlipper.addToList(bodyIt->first);
 	}
 	
 	
-	Flipper tailFlipper(450, 350);
+	Flipper tailFlipper(850, 450);
 	for(tailIt=tailDict.begin(); tailIt!=tailDict.end(); ++tailIt)
 	{
 		tailFlipper.addToList(tailIt->first);
@@ -166,7 +166,7 @@ int main(int argc, char** argv)
 			if((Event.type == sf::Event::KeyPressed) && (Event.key.code == sf::Keyboard::Return)){
 				saveState(noseDict.at(menu.flippers.at(0).returnText()), bodyDict.at(menu.flippers.at(1).returnText()), 
 					tailDict.at(menu.flippers.at(2).returnText()));
-				return(1);
+				exit(0);
 			}
     }
 
@@ -180,6 +180,7 @@ int main(int argc, char** argv)
 		pc.update();
 		App.draw(menu);
 		App.draw(pc);
+		App.draw(message);
     App.display();
   }
 
