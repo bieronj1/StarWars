@@ -58,6 +58,10 @@ PlayerShip::PlayerShip(float tlx, float tly, float tft, float tlt, float tr){
 			std::cerr<<"Couldn't load the thruster image\n";
 		}
 		
+		if(!shieldtexture.loadFromFile("img/shield.png")){
+			std::cerr<<"Couldn't load the shield image\n";
+		}
+		
 		loadFromFile();
 
 		thrustersOn = false;
@@ -104,6 +108,10 @@ void PlayerShip::stopLeft(){
 }
 void PlayerShip::stopRight(){
 	leftOn = false;
+}
+
+void PlayerShip::setShields(bool on){
+	shieldsUp = on;
 }
 	
 void PlayerShip::reverse(){
@@ -229,7 +237,7 @@ void PlayerShip::draw(sf::RenderTarget& target, sf::RenderStates states) const
 
 			thrusterRectangle.setTexture(&texture);
 			
-			thrusterRectangle.setOrigin(30,8);
+			thrusterRectangle.setOrigin(30,10);
 			thrusterRectangle.setPosition(lx+offx, ly+offy);
 			thrusterRectangle.rotate(orientation*180/M_PI);
 			target.draw(thrusterRectangle);
@@ -255,6 +263,15 @@ void PlayerShip::draw(sf::RenderTarget& target, sf::RenderStates states) const
 			rightRectangle.setPosition(lx+offx, ly+offy);
 			rightRectangle.rotate(orientation*180/M_PI);
 			target.draw(rightRectangle);
+		}
+		
+		if(shieldsUp){
+			sf::RectangleShape shieldRectangle;
+			shieldRectangle.setSize(sf::Vector2f(30,30));
+			shieldRectangle.setTexture(&shieldtexture);
+			shieldRectangle.setOrigin(27.5, 13.5);
+			target.draw(shieldRectangle);
+			
 		}
     }
 

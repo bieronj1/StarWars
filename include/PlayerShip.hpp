@@ -28,9 +28,11 @@ class PlayerShip : public sf::Drawable{
 		bool thrustersOn;
 		bool leftOn;
 		bool rightOn;
+		bool shieldsUp;
 		sf::Texture texture;
 		sf::Texture lefttexture;
 		sf::Texture righttexture;
+		sf::Texture shieldtexture;
 		int health = 100;
 		int displayHealth = 100;
 		Body body;
@@ -48,6 +50,7 @@ class PlayerShip : public sf::Drawable{
 		void turnRight();
 		void turnLeft();
 		void latRight();
+		void setShields(bool on);
 		void latLeft();
 		void magicTurn();
 		void setOrientation(float newOrientation); 
