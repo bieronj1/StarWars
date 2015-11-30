@@ -237,7 +237,7 @@ void PlayerShip::draw(sf::RenderTarget& target, sf::RenderStates states) const
 
 			thrusterRectangle.setTexture(&texture);
 			
-			thrusterRectangle.setOrigin(30,10);
+			thrusterRectangle.setOrigin(32,7.5);
 			thrusterRectangle.setPosition(lx+offx, ly+offy);
 			thrusterRectangle.rotate(orientation*180/M_PI);
 			target.draw(thrusterRectangle);

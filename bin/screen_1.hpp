@@ -23,7 +23,7 @@ these are in GridSquare: (p.s. I'll pretty this up later - Jamie)
 and gridsquare is in GameWorld
 */
 
-#include "GameWorld.hpp"
+
 
 static bool QWEASD[6]; //stores keypressed values
 

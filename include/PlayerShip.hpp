@@ -29,6 +29,7 @@ class PlayerShip : public sf::Drawable{
 		bool leftOn;
 		bool rightOn;
 		bool shieldsUp;
+		bool backThrust;
 		sf::Texture texture;
 		sf::Texture lefttexture;
 		sf::Texture righttexture;

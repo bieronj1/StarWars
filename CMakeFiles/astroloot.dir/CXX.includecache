@@ -29,6 +29,8 @@ SFML/Graphics.hpp
 -
 math.h
 -
+GameWorld.hpp
+/home/f85/msnelsen/CS420/StarWars/bin/GameWorld.hpp
 
 /home/f85/msnelsen/CS420/StarWars/bin/screen_1.hpp
 iostream
@@ -59,8 +61,6 @@ Item.hpp
 /home/f85/msnelsen/CS420/StarWars/bin/Item.hpp
 Asteroid.hpp
 /home/f85/msnelsen/CS420/StarWars/bin/Asteroid.hpp
-GameWorld.hpp
-/home/f85/msnelsen/CS420/StarWars/bin/GameWorld.hpp
 
 /home/f85/msnelsen/CS420/StarWars/bin/screen_2.hpp
 SFML/Graphics.hpp

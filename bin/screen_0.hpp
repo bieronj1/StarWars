@@ -2,7 +2,11 @@
 //#include "cScreen.hpp"
 #include <string>
 #include <SFML/Graphics.hpp>
-#include <math.h>  
+#include <math.h> 
+#include "GameWorld.hpp"
+
+
+ 
 class screen_0 : public cScreen
 {
 private:
@@ -56,6 +60,11 @@ int screen_0::Run(sf::RenderWindow &App)
     int menu = 0;
     sf::Font font;
     sf::Text text;
+
+		PlayerShip pc(900, 400,0.1,0.05,0.05);
+		pc.setOrientation(3* M_PI / 2);
+		
+		
     font.loadFromFile("LemonMilk.otf");
     text.setFont(font);
     text.setString("Medium");
@@ -422,6 +431,7 @@ int screen_0::Run(sf::RenderWindow &App)
 	App.draw(s10);
 	App.draw(s11);
 	App.draw(text);
+	App.draw(pc);
         App.display();
     }
 
