@@ -267,9 +267,11 @@ void PlayerShip::draw(sf::RenderTarget& target, sf::RenderStates states) const
 		
 		if(shieldsUp){
 			sf::RectangleShape shieldRectangle;
-			shieldRectangle.setSize(sf::Vector2f(30,30));
+			shieldRectangle.setSize(sf::Vector2f(90,90));
 			shieldRectangle.setTexture(&shieldtexture);
-			shieldRectangle.setOrigin(27.5, 13.5);
+			shieldRectangle.setPosition(lx+offx, ly+offy);
+			shieldRectangle.setOrigin(45, 45);
+			shieldRectangle.setFillColor(sf::Color::Blue);
 			target.draw(shieldRectangle);
 			
 		}

@@ -161,6 +161,11 @@ int screen_1::Run(sf::RenderWindow &App)
 				world.addItem(new Item(0, 0, exlaser.spd * cos(pc.orientation)+pc.vx,exlaser.spd * sin(pc.orientation)+pc.vy,3), 600+pc.lx,600+pc.ly);
 			}
 	}
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::R)){
+		pc.setShields(true);
+	}else{
+		pc.setShields(false);
+	}
 	App.clear(sf::Color::Black);
 	sf::View camera(sf::FloatRect(0,0,1200,800));
     	sf::View minimap(sf::FloatRect(0,0,600,600));
