@@ -5,7 +5,7 @@ Flipper::Flipper(float tx, float ty){
 	y = ty;
 	index = 0;
 	hilighted = false;
-	if(!font.loadFromFile("lucon.ttf"))
+	if(!font.loadFromFile("LemonMilk.otf"))
 	{
 		std::cout<<"FONT FAILURE"<<std::endl;
 	}
@@ -68,10 +68,10 @@ void Flipper::draw(sf::RenderTarget& target, sf::RenderStates states) const
 	text.setFont(font);
 	text.setPosition(x, y);
 	text.setString(names.at(index));
-	
+	sf::Color ptcolorl(255, 225, 100);
 	if(hilighted)
 	{
-		text.setColor(sf::Color::Yellow);
+		text.setColor(ptcolorl);
 	}else{
 		text.setColor(sf::Color::White);
 	}
