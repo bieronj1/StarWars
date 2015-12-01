@@ -9,10 +9,10 @@ class GameWorld {
 	int xshifts = 0;
 	int yshifts = 0;
 	
-	GameWorld(PlayerShip * ps){
+	GameWorld(PlayerShip * ps, int fps=120){
 		for(int i=0; i<25; i++){
 			for(int j=0; j<25; j++){
-				board[i][j] = new GridSquare();
+				board[i][j] = new GridSquare(fps);
 			}
 		}
 		board[12][12]->playerIsHere=true;
@@ -114,10 +114,10 @@ class GameWorld {
 			if(pi==-1 || pj==-1)
 				{std::cout<<"PLAYER SHIP LOST"<<std::endl; exit(1);}
 			//std::cout<<pi<<","<<pj<<std::endl;
-			while(pj<12){shiftRight();pj++;std::cout<<"RIGHT!"<<std::endl;}
-			while(pj>12){shiftLeft();pj--;std::cout<<"LEFT!"<<std::endl;}
-			while(pi<12){shiftDown();pi++;std::cout<<"DOWN!"<<std::endl;}
-			while(pi>12){shiftUp();pi--;std::cout<<"UP!"<<std::endl;}
+			while(pj<12){shiftRight();pj++;std::cout<<std::sqrt(xshifts*xshifts+yshifts*yshifts)<<std::endl;}
+			while(pj>12){shiftLeft();pj--;std::cout<<std::sqrt(xshifts*xshifts+yshifts*yshifts)<<std::endl;}
+			while(pi<12){shiftDown();pi++;std::cout<<std::sqrt(xshifts*xshifts+yshifts*yshifts)<<std::endl;}
+			while(pi>12){shiftUp();pi--;std::cout<<std::sqrt(xshifts*xshifts+yshifts*yshifts)<<std::endl;}
 			//std::cout<<pi<<","<<pj<<std::endl;
 		}
 	}

@@ -8,6 +8,8 @@ ANY CHANGES TO THIS FILE AFTER 11/9 SHOULD BE LOGGED HERE.  NO CHANGES WITHOUT C
 #include "Enemy.hpp"
 #include "Asteroid.hpp"
 
+float SHIELD_RADIUS=38;//unknown at time of coding so left to compiler to propogate the value
+
 float inline dotProduct(float x1, float x2, float y1, float y2){
 	return x1*y1 + x2*y2;
 }
@@ -58,15 +60,39 @@ inline void asteroidBounce(Asteroid* a, Item* b, float ax, float ay, float bx, f
 	b->vy = bvy - (2*am/(am+bm))*dotProduct(bvx-avx, bvy-avy, bx-ax, by-ay)/((bx-ax)*(bx-ax)+(by-ay)*(by-ay))*(by-ay);
 
 	
-	if(distance(a->lx,a->ly,b->lx,b->ly)<a->r+b->r){
-		float e = a->r+b->r-distance(ax,ay,bx,by);
-		if(b->vx==0 && b->vy==0){std::cout<<"Division by zero!"<<std::endl;}
-		b->lx+=(e)*(b->vx/std::sqrt(b->vx*b->vx + b->vy*b->vy));
-		b->ly+=(e)*(b->vy/std::sqrt(b->vx*b->vx + b->vy*b->vy));
+	if(distance(ax,ay,b->lx,b->ly)<a->r+b->r){
+		ax+=a->vx;ay+=a->vy;bx+=b->vx;by+=b->vy;}
+	if(distance(ax,ay,bx,by)<a->r+b->r){
+		b->tag_for_delete=true;}
+}
+
+inline void asteroidBounce(Asteroid* a, PlayerShip* b, float ax, float ay, float bx, float by){
+	if(ax==bx && ay==by){
+		std::cout<<"Caught division by zero"<<std::endl;
+		return;
+	}
+	
+	
+	float am = a->r * a->r * M_PI;
+	float bm = b->shieldmass;
+	float avx = a->vx;
+	float avy = a->vy;
+	float bvx = b->vx;
+	float bvy = b->vy;
+	
+	a->vx = avx - (2*bm/(am+bm))*dotProduct(avx-bvx, avy-bvy, ax-bx, ay-by)/((ax-bx)*(ax-bx)+(ay-by)*(ay-by))*(ax-bx);
+	a->vy = avy - (2*bm/(am+bm))*dotProduct(avx-bvx, avy-bvy, ax-bx, ay-by)/((ax-bx)*(ax-bx)+(ay-by)*(ay-by))*(ay-by);
+	b->vx = bvx - (2*am/(am+bm))*dotProduct(bvx-avx, bvy-avy, bx-ax, by-ay)/((bx-ax)*(bx-ax)+(by-ay)*(by-ay))*(bx-ax);
+	b->vy = bvy - (2*am/(am+bm))*dotProduct(bvx-avx, bvy-avy, bx-ax, by-ay)/((bx-ax)*(bx-ax)+(by-ay)*(by-ay))*(by-ay);
+
+	
+	if(distance(ax,ay,bx,by)<a->r+SHIELD_RADIUS){
+		float e = a->r+SHIELD_RADIUS-distance(ax,ay,bx,by);
+		//if(a->vx==0 && a->vy==0){std::cout<<"Division by zero!"<<std::endl;}
+		a->r-=e;
 	}
 	
 }
-
 
 class GridSquare{
 	public:
@@ -80,8 +106,16 @@ class GridSquare{
 	GridSquare* UR = NULL;
 	GridSquare* DL = NULL;
 	GridSquare* DR = NULL;
-	
+	int FPS;
 	GridSquare(){
+		if(std::rand()%8==0){
+		Asteroid a(std::rand()%100,std::rand()%100,std::rand()%100/100.0f - 0.5,std::rand()%100/100.0f - 0.5,40);
+		//Asteroid a(0.0,0.0,0.0,0.0,40.0);
+		asteroids.push_back(a);} 
+	}
+	
+	GridSquare(int fps){
+		FPS=fps;
 		if(std::rand()%8==0){
 		Asteroid a(std::rand()%100,std::rand()%100,std::rand()%100/100.0f - 0.5,std::rand()%100/100.0f - 0.5,40);
 		//Asteroid a(0.0,0.0,0.0,0.0,40.0);
@@ -391,16 +425,23 @@ class GridSquare{
 	//collision detection
 	//player - asteroid
 	
-	
+		
 		if(playerIsHere){
 			//local asteroids
 			for(int i=0; i<asteroids.size(); i++){
 				float ar = asteroids[i].r;
 				float ax = asteroids[i].lx;
 				float ay = asteroids[i].ly;
-				if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax, ay, ar)){
-					asteroids[i].collide();
-					
+				if(distance(ax,ay,ps->lx,ps->ly)<SHIELD_RADIUS+ar){
+					if(ps->shieldsUp){
+						asteroidBounce(&asteroids[i],ps,ax,ay,ps->lx,ps->ly);
+					}
+					else{
+						if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax, ay, ar)){
+							asteroids[i].collide();
+							ps->editHealth(-1*(FPS/120));
+						}
+					}
 				}
 			}
 			
@@ -408,33 +449,57 @@ class GridSquare{
 			if(UL!=NULL){
 				for(int i=0; i<UL->asteroids.size(); i++){
 					float ar = UL->asteroids[i].r;
-					float ax = UL->asteroids[i].lx;
-			float ay = UL->asteroids[i].ly;
-					if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax-100, ay-100, ar)){
-						UL->asteroids[i].collide();
+					float ax = UL->asteroids[i].lx-100;
+					float ay = UL->asteroids[i].ly-100;
+					if(distance(ax,ay,ps->lx,ps->ly)<SHIELD_RADIUS+ar){
+						if(ps->shieldsUp){
+							asteroidBounce(&(UL->asteroids[i]),ps,ax,ay,ps->lx,ps->ly);
+						}
+					else{
+						if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax, ay, ar)){
+							UL->asteroids[i].collide();
+							ps->editHealth(-1*(FPS/120));
+						}
 					}
+				}
 				}
 			}
 			
 			if(U!=NULL){
 				for(int i=0; i<U->asteroids.size(); i++){
 					float ar = U->asteroids[i].r;
-					float ax = U->asteroids[i].lx;
+					float ax = U->asteroids[i].lx-100;
 					float ay = U->asteroids[i].ly;
-					if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax-100, ay, ar)){
-						U->asteroids[i].collide();
+				if(distance(ax,ay,ps->lx,ps->ly)<SHIELD_RADIUS+ar){
+					if(ps->shieldsUp){
+						asteroidBounce(&(U->asteroids[i]),ps,ax,ay,ps->lx,ps->ly);
 					}
+					else{
+						if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax, ay, ar)){
+							U->asteroids[i].collide();
+							ps->editHealth(-1*(FPS/120));
+						}
+					}
+				}
 				}
 			}
 			
 			if(UR!=NULL){
 				for(int i=0; i<UR->asteroids.size(); i++){
 					float ar = UR->asteroids[i].r;
-					float ax = UR->asteroids[i].lx;
-					float ay = UR->asteroids[i].ly;
-					if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax-100, ay+100, ar)){
-						UR->asteroids[i].collide();
+					float ax = UR->asteroids[i].lx-100;
+					float ay = UR->asteroids[i].ly+100;
+				if(distance(ax,ay,ps->lx,ps->ly)<SHIELD_RADIUS+ar){
+					if(ps->shieldsUp){
+						asteroidBounce(&(UR->asteroids[i]),ps,ax,ay,ps->lx,ps->ly);
 					}
+					else{
+						if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax, ay, ar)){
+							UR->asteroids[i].collide();
+							ps->editHealth(-1*(FPS/120));
+						}
+					}
+				}
 				}
 			}
 			
@@ -442,53 +507,93 @@ class GridSquare{
 				for(int i=0; i<L->asteroids.size(); i++){
 					float ar = L->asteroids[i].r;
 					float ax = L->asteroids[i].lx;
-					float ay = L->asteroids[i].ly;
-					if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax, ay-100, ar)){
-						L->asteroids[i].collide();
+					float ay = L->asteroids[i].ly-100;
+					if(distance(ax,ay,ps->lx,ps->ly)<SHIELD_RADIUS+ar){
+					if(ps->shieldsUp){
+						asteroidBounce(&(L->asteroids[i]),ps,ax,ay,ps->lx,ps->ly);
 					}
+					else{
+						if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax, ay, ar)){
+							L->asteroids[i].collide();
+							ps->editHealth(-1*(FPS/120));
+						}
+					}
+				}
 				}
 			}
 			if(R!=NULL){
 				for(int i=0; i<R->asteroids.size(); i++){
 					float ar = R->asteroids[i].r;
 					float ax = R->asteroids[i].lx;
-					float ay = R->asteroids[i].ly;
-					if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax, ay+100, ar)){
-						R->asteroids[i].collide();
+					float ay = R->asteroids[i].ly+100;
+					if(distance(ax,ay,ps->lx,ps->ly)<SHIELD_RADIUS+ar){
+					if(ps->shieldsUp){
+						asteroidBounce(&(R->asteroids[i]),ps,ax,ay,ps->lx,ps->ly);
 					}
+					else{
+						if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax, ay, ar)){
+							R->asteroids[i].collide();
+							ps->editHealth(-1*(FPS/120));
+						}
+					}
+				}
 				}
 			}
 			
 			if(DL!=NULL){
 				for(int i=0; i<DL->asteroids.size(); i++){
 					float ar = DL->asteroids[i].r;
-					float ax = DL->asteroids[i].lx;
-					float ay = DL->asteroids[i].ly;
-					if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax+100, ay-100, ar)){
-						DL->asteroids[i].collide();
+					float ax = DL->asteroids[i].lx+100;
+					float ay = DL->asteroids[i].ly-100;
+					if(distance(ax,ay,ps->lx,ps->ly)<SHIELD_RADIUS+ar){
+					if(ps->shieldsUp){
+						asteroidBounce(&(DL->asteroids[i]),ps,ax,ay,ps->lx,ps->ly);
 					}
+					else{
+						if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax, ay, ar)){
+							DL->asteroids[i].collide();
+							ps->editHealth(-1*(FPS/120));
+						}
+					}
+				}
 				}
 			}
 			
 			if(D!=NULL){
 				for(int i=0; i<D->asteroids.size(); i++){
 					float ar = D->asteroids[i].r;
-					float ax = D->asteroids[i].lx;
+					float ax = D->asteroids[i].lx+100;
 					float ay = D->asteroids[i].ly;
-					if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax+100, ay, ar)){
-						D->asteroids[i].collide();
+					if(distance(ax,ay,ps->lx,ps->ly)<SHIELD_RADIUS+ar){
+					if(ps->shieldsUp){
+						asteroidBounce(&(D->asteroids[i]),ps,ax,ay,ps->lx,ps->ly);
 					}
+					else{
+						if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax, ay, ar)){
+							D->asteroids[i].collide();
+							ps->editHealth(-1*(FPS/120));
+						}
+					}
+				}
 				}
 			}
 			
 			if(DR!=NULL){
 				for(int i=0; i<DR->asteroids.size(); i++){
 					float ar = DR->asteroids[i].r;
-					float ax = DR->asteroids[i].lx;
-					float ay = DR->asteroids[i].ly;
-					if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax+100, ay+100, ar)){
-						DR->asteroids[i].collide();
+					float ax = DR->asteroids[i].lx+100;
+					float ay = DR->asteroids[i].ly+100;
+					if(distance(ax,ay,ps->lx,ps->ly)<SHIELD_RADIUS+ar){
+					if(ps->shieldsUp){
+						asteroidBounce(&(DR->asteroids[i]),ps,ax,ay,ps->lx,ps->ly);
 					}
+					else{
+						if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax, ay, ar)){
+							DR->asteroids[i].collide();
+							ps->editHealth(-1*(FPS/120));
+						}
+					}
+				}
 				}
 			}
 			
@@ -559,7 +664,7 @@ class GridSquare{
 				if(b->r<5){asteroids.erase(asteroids.begin()+j);}
 			}
 			
-			//{std::cout<<"A-A CD Done"<<std::endl;}
+			//{std::cout<<"A"<<std::endl;}
 			//collision detection: item - asteroids
 			for(int j=0;j<items.size();j++){
 				//std::cout<<"Defining b"<<std::endl;
@@ -701,7 +806,7 @@ class GridSquare{
 								}
 				
 				if(b->tag_for_delete){items.erase(items.begin()+j);j--;}
-			}//{std::cout<<"A-I CD Done"<<std::endl;}
+			}//{std::cout<<"B"<<std::endl;}
 
 	}
 	

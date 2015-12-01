@@ -9,12 +9,14 @@ class Item : public sf::Drawable{
 	float m=1;
 	float damage=5;
 	bool tag_for_delete = false;
-	Item(float tlx, float tly, float tvx, float tvy, float tr){
+	Item(float tlx, float tly, float tvx, float tvy, float tr, float mass=1, float dam=0){
 		lx=tlx;
 		ly=tly;
 		vx=tvx;
 		vy=tvy;
 		r=tr;
+		m=mass;
+		damage=dam;
 	}
 	
 	//update object location for new frame
@@ -39,8 +41,9 @@ class Item : public sf::Drawable{
         // You can draw other high-level objects
 		sf::CircleShape c;
 		c.setRadius(r);
-		c.setFillColor(sf::Color::Cyan);
 		
+		if(damage==0){c.setFillColor(sf::Color::Cyan);}
+		else{c.setFillColor(sf::Color::Red);}
 		c.setPosition(lx+offx, ly+offy);
         c.setOrigin(r,r);
 		target.draw(c);

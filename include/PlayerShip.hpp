@@ -36,6 +36,19 @@ class PlayerShip : public sf::Drawable{
 		sf::Texture shieldtexture;
 		int health = 100;
 		int displayHealth = 100;
+		
+		//shield stats
+		float shieldcap = 0;
+		float shieldhealth = 0;
+		float shieldmass = 31400; //100 * pi
+		float shieldrechargeactive = 0;
+		float shieldrechargepassive=0;
+		
+		//momentum manipulator (magicTurn) stats
+		bool hasMM = false;
+		int MMcooldown = 0; //MM cooldown in frames
+		int MMcd=0;
+		
 		Body body;
 		Nose nose;
 		Tail tail;

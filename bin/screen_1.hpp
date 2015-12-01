@@ -91,18 +91,15 @@ int screen_1::Run(sf::RenderWindow &App)
 	App.clear(sf::Color::Black);
   // start main loop
 
-  //all code above is legacy
-	int ActiveAsteroidPtr=0;
-	int DeadAsteroidPtr=0;
-	Asteroid* Asteroids[512];
 	Weapon* Weapons[3];
   
 //Test Weapon 0
 	Weapon exlaser(0, 2, 2, 5, 0);
+	Weapon excannon(0, 20, 2, 5, 0);
   	cout << exlaser.getData(); 
-  PlayerShip pc(50,50,0.05,0.05,0.025);
-  
-  GameWorld world(&pc);
+  PlayerShip pc(50,50,0.035,0.035,0.015);
+  	pc.setShields(true);
+  GameWorld world(&pc, FPS);
 
     if (playing)
     {
@@ -146,8 +143,10 @@ int screen_1::Run(sf::RenderWindow &App)
 	if(QWEASD[0]){pc.latLeft();}else{pc.stopLeft();}
 	if(QWEASD[2]){pc.latRight();}else{pc.stopRight();}
 	bool zoom = false;
+	pc.shieldsUp=false;
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
-		zoom=true;
+		//zoom=true;
+		pc.shieldsUp=true;
 	}
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::T)){
 		world.checkLinks();
@@ -158,14 +157,19 @@ int screen_1::Run(sf::RenderWindow &App)
     	// left click...
 		if(exlaser.fire())
 			{
-				world.addItem(new Item(0, 0, exlaser.spd * cos(pc.orientation)+pc.vx,exlaser.spd * sin(pc.orientation)+pc.vy,3), 600+pc.lx,600+pc.ly);
+				world.addItem(new Item(0, 0, exlaser.spd * cos(pc.orientation)+pc.vx,exlaser.spd * sin(pc.orientation)+pc.vy,3,0,10), 600+pc.lx,600+pc.ly);
 			}
 	}
-	if(sf::Keyboard::isKeyPressed(sf::Keyboard::R)){
-		pc.setShields(true);
-	}else{
-		pc.setShields(false);
+	
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Right))
+	{
+    	// right click...
+		if(excannon.fire())
+			{
+				world.addItem(new Item(0, 0, excannon.spd * cos(pc.orientation)+pc.vx,excannon.spd * sin(pc.orientation)+pc.vy,3,10000,0), 600+pc.lx,600+pc.ly);
+			}
 	}
+
 	App.clear(sf::Color::Black);
 	sf::View camera(sf::FloatRect(0,0,1200,800));
     	sf::View minimap(sf::FloatRect(0,0,600,600));
@@ -173,7 +177,7 @@ int screen_1::Run(sf::RenderWindow &App)
 	sf::View hOverlay(sf::FloatRect(0,0,300,50));
 	world.update();
 	exlaser.updateCD();
-	
+	excannon.updateCD();
 	camera.setCenter(1200+pc.lx, 1200+pc.ly);
 	
 	//camera.move(1250-650+pc.lx,1250-500+pc.ly);
