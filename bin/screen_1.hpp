@@ -253,13 +253,13 @@ int screen_1::Run(sf::RenderWindow &App)
     	// left click...
 		if(exlaser.fire())
 			{
-<<<<<<< HEAD
+
 				world.addItem(new Item(0, 0, exlaser.spd * cos(pc.orientation)+pc.vx,exlaser.spd * sin(pc.orientation)+pc.vy,3,0,10), 607+pc.lx,607+pc.ly);
-=======
+
 				world.addItem(new Item(0, 0, exlaser.spd * cos(pc.orientation)+pc.vx,exlaser.spd * sin(pc.orientation)+pc.vy,3,0,10), 600+pc.lx,600+pc.ly);
 			 lasersound.setPitch(1.0); 
 				lasersound.play(); 
->>>>>>> dc9abf2aecd03be9c8fb40da8643eb64874167b0
+
 			}
 	}
 	

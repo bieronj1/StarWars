@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 # Install script for directory: /home/f85/msnelsen/CS420/StarWars
-=======
-# Install script for directory: /home/f85/hyli/StarWars
->>>>>>> dc9abf2aecd03be9c8fb40da8643eb64874167b0
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,9 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-<<<<<<< HEAD
 file(WRITE "/home/f85/msnelsen/CS420/StarWars/${CMAKE_INSTALL_MANIFEST}"
-=======
-file(WRITE "/home/f85/hyli/StarWars/${CMAKE_INSTALL_MANIFEST}"
->>>>>>> dc9abf2aecd03be9c8fb40da8643eb64874167b0
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
