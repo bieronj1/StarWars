@@ -72,6 +72,16 @@ PlayerShip::PlayerShip(float tlx, float tly, float tft, float tlt, float tr){
 void PlayerShip::update(){
 		lx+=vx;
 		ly+=vy;
+		displayShield += 1;
+		if(shieldsUp)
+			displayShield -=3;
+		if(displayShield > 100)
+			displayShield = 100;
+		if(displayShield < 0)
+			{
+			displayShield = 0;
+			shieldsUp = false;
+			}
 		if(displayHealth < health)
 			displayHealth++;
 		if(displayHealth > health)
@@ -85,12 +95,22 @@ void PlayerShip::editHealth(int dmg){
 			health = 0;
 }
 
+void PlayerShip::editShield(int dmg){
+		displayShield += dmg;
+		if(displayShield < 0)
+			displayShield = 0;
+}
+
 int PlayerShip::returnHealth(){
 		return health;
 }
 
 int PlayerShip::returnDisplayHealth(){
 		return displayHealth;
+}
+
+int PlayerShip::returnDisplayShield(){
+		return displayShield;
 }
 
 void PlayerShip::faster(){
@@ -111,6 +131,7 @@ void PlayerShip::stopRight(){
 }
 
 void PlayerShip::setShields(bool on){
+	if(displayShield > 0)
 	shieldsUp = on;
 }
 	

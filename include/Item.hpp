@@ -45,7 +45,7 @@ class Item : public sf::Drawable{
 		if(damage==0){c.setFillColor(sf::Color::Cyan);}
 		else{c.setFillColor(sf::Color::Red);}
 		c.setPosition(lx+offx, ly+offy);
-        c.setOrigin(r,r);
+        	c.setOrigin(r,r);
 		target.draw(c);
     }
 	

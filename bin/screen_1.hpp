@@ -87,10 +87,16 @@ int screen_1::Run(sf::RenderWindow &App)
     	bool Running = true;
     	sf::RectangleShape rectangle(sf::Vector2f(90, 40));
     	rectangle.setFillColor(sf::Color(255, 202, 54));
-    	rectangle.setPosition(10,5);
+    	rectangle.setPosition(10,60);
     	sf::RectangleShape rectangleBG(sf::Vector2f(280, 40));
     	rectangleBG.setFillColor(sf::Color(115, 72, 24));
-    	rectangleBG.setPosition(10,5);
+    	rectangleBG.setPosition(10,60);
+	sf::RectangleShape rectangle2(sf::Vector2f(90, 40));
+    	rectangle2.setFillColor(sf::Color(35, 55, 255));
+    	rectangle2.setPosition(10,5);
+    	sf::RectangleShape rectangleBG2(sf::Vector2f(280, 40));
+    	rectangleBG2.setFillColor(sf::Color(25, 30, 125));
+    	rectangleBG2.setPosition(10,5);
     	//sf::Texture Texture;
     	//sf::Sprite Sprite;
     	int alpha = 0;
@@ -146,8 +152,12 @@ int screen_1::Run(sf::RenderWindow &App)
         std::cerr << "healthbar.png" << std::endl;
         return (-1);
     }
-  healthOverlay.setTexture(healthText);
-  healthOverlay.setPosition(0,0);
+  	healthOverlay.setTexture(healthText);
+  	healthOverlay.setPosition(0,0);
+  	sf::Sprite shieldOverlay;
+	shieldOverlay.setTexture(healthText);
+	shieldOverlay.setPosition(0,55);
+
 	
 	App.clear(sf::Color::Black);
   // start main loop
@@ -253,9 +263,13 @@ int screen_1::Run(sf::RenderWindow &App)
     	// right click...
 		if(excannon.fire())
 			{
+<<<<<<< HEAD
 				world.addItem(new Item(0, 0, excannon.spd * cos(pc.orientation)+pc.vx,excannon.spd * sin(pc.orientation)+pc.vy,3,10000,0), 600+pc.lx,600+pc.ly);
 			lasersound.setPitch(.5); 
 			  lasersound.play(); 
+=======
+				world.addItem(new Item(0, 0, excannon.spd * cos(pc.orientation)+pc.vx,excannon.spd * sin(pc.orientation)+pc.vy,7,10000,0), 607+pc.lx,607+pc.ly);
+>>>>>>> 2ea6cae76b57671a755bd3a0c3f99fcd18871d48
 			}
 	}
 	//for thruster sounds 
@@ -276,7 +290,7 @@ int screen_1::Run(sf::RenderWindow &App)
 	sf::View camera(sf::FloatRect(0,0,1200,800));
     	sf::View minimap(sf::FloatRect(0,0,600,600));
     	sf::View mmOverlay(sf::FloatRect(0,0,300,300));
-	sf::View hOverlay(sf::FloatRect(0,0,300,50));
+	sf::View hOverlay(sf::FloatRect(0,0,300,200));
 	world.update();
 	exlaser.updateCD();
 	excannon.updateCD();
@@ -293,12 +307,13 @@ int screen_1::Run(sf::RenderWindow &App)
 	camera.setViewport(sf::FloatRect(0,0,1,1));
 	minimap.setViewport(sf::FloatRect(0.77f,0.6866f,0.21,0.2933));
 	mmOverlay.setViewport(sf::FloatRect(0.75f,0.6666f,0.25,0.3333));
-	hOverlay.setViewport(sf::FloatRect(0.375f,0.85f,0.25,0.0625));
+	hOverlay.setViewport(sf::FloatRect(0.375f,0.85f,0.25,0.2500));
 	App.setView(camera);
 		
 	world.drawOnWindow(&App);
 	
 	rectangle.setSize(sf::Vector2f((int)(pc.returnDisplayHealth()*2.8f), 40));
+	rectangle2.setSize(sf::Vector2f((int)(pc.returnDisplayShield()*2.8f), 40));
 	sf::RectangleShape minimapback(sf::Vector2f(2500,2500));
 	minimapback.setFillColor(sf::Color(25,45,25));
 	App.setView(minimap);
@@ -307,8 +322,11 @@ int screen_1::Run(sf::RenderWindow &App)
 	App.setView(hOverlay);
 	App.draw(rectangleBG);
 	App.draw(rectangle);
-	App.draw(healthOverlay);
 	
+	App.draw(rectangleBG2);
+	App.draw(rectangle2);
+	App.draw(shieldOverlay);
+	App.draw(healthOverlay);
 	App.setView(mmOverlay);
 	App.draw(mmoverlay);
 	
