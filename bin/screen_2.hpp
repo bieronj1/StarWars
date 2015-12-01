@@ -25,7 +25,7 @@ private:
     sf::Sprite upSprite [10];
     int stats [10];
     int costs [6] = {100, 150, 200, 250, 300, 0};
-    std::string costSTR [6] = {"100", "150", "200", "250", "300", "MAX"};
+    string costSTR [6] = {"100 UP", "150 UP", "200 UP", "250 UP", "300 UP", "MAX LEVEL"};
     int totalPT = 0;
     sf::Text upString[10];
 	
@@ -341,10 +341,7 @@ int screen_2::Run(sf::RenderWindow &App){
 		for (int i=0; i<10; i++) { 
 			upString[i].setCharacterSize(27);
 			upString[i].setFont(font);
-			if(stats[i] == 5)
-				upString[i].setString("MAX LEVEL");
-			else
-				upString[i].setString(costSTR[stats[i]] + " UP");
+			upString[i].setString(costSTR[stats[i]]);
 			if(totalPT < costs[stats[i]])
 			{
     				upSprite[i].setTexture(uOff);
@@ -524,14 +521,7 @@ int screen_2::Run(sf::RenderWindow &App){
 						points.setString(IntToString(totalPT) + " UPGRADE POINTS");
 						stats[i] += 1;
 						expSprite[i].setTexture(expText[stats[i]]);
-						
-						if(stats[i] == 5)
-						{
-							upString[i].setString("MAX LEVEL");
-						}
-						else
-						{
-							upString[i].setString(costSTR[stats[i]] + " UP");
+							upString[i].setString(costSTR[stats[i]]);
 							for (int i=0; i<10; i++) { 
 							if(totalPT < costs[stats[i]] && stats[i] < 5)
 							{
@@ -544,7 +534,7 @@ int screen_2::Run(sf::RenderWindow &App){
 							upString[i].setColor(ptcolorl);
 							}
 		}
-						}
+						
 					}
 				}
 			}
@@ -587,10 +577,12 @@ int screen_2::Run(sf::RenderWindow &App){
 	  	pc.update();
 		for (int i=0; i<10; i++) {
 			App.draw(expSprite[i]);
-			App.draw(upString[i]);
+			
 			if(stats[i] < 5)
 				App.draw(upSprite[i]);
-    			
+			int xo = stats[i];
+			upString[i].setString(costSTR[xo]);			
+			App.draw(upString[i]);
 		}
 		App.draw(shipBG);
 		App.draw(missile);

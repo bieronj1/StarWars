@@ -2,7 +2,11 @@
 //#include "cScreen.hpp"
 #include <string>
 #include <SFML/Graphics.hpp>
-#include <math.h>  
+#include <math.h> 
+#include "GameWorld.hpp"
+
+
+ 
 class screen_0 : public cScreen
 {
 private:
@@ -21,12 +25,11 @@ private:
     sf::Texture modeImg [12];
     sf::Sprite modeSprite [4];
     std::string diffStr[3];
-    diffStr[0] = "Easy";
-    diffStr[1] = "Medium";
-    diffStr[2] = "Difficult";
+    
     
 public:
     screen_0(void);
+    void saveSelection();
     virtual int Run(sf::RenderWindow &App);
 };
 
@@ -44,18 +47,33 @@ bool inRange (float x1, float x2, float y1, float y2, float dist)
     return false;
 }
 
+void screen_0::saveSelection(){
+	std::ofstream ofs;
+	ofs.open("bin/select.txt", std::ofstream::out| std::ofstream::trunc);
+	ofs << selMode; ofs << "\n";
+	ofs << diff; ofs << "\n";
+	ofs.close();
+}
+
 int screen_0::Run(sf::RenderWindow &App)
 {
     sf::Event Event;
     bool Running = true;
     //sf::Texture Texture;
     //sf::Sprite Sprite;
-    
+    diffStr[0] = "Easy";
+    diffStr[1] = "Medium";
+    diffStr[2] = "Difficult";
     int alpha = 0;
     sf::Font Font;
     int menu = 0;
     sf::Font font;
     sf::Text text;
+
+		PlayerShip pc(900, 400,0.1,0.05,0.05);
+		pc.setOrientation(3* M_PI / 2);
+		
+		
     font.loadFromFile("LemonMilk.otf");
     text.setFont(font);
     text.setString("Medium");
@@ -345,7 +363,7 @@ int screen_0::Run(sf::RenderWindow &App)
                 }
 		}
 		if (hoverCustom)
-			return (1);
+			return (2);
 		if (hoverL)
 		{
 			if(diff > 0)
@@ -384,11 +402,15 @@ int screen_0::Run(sf::RenderWindow &App)
                 case sf::Keyboard::Down:
                     menu = 1;
                     break;
+								case sf::Keyboard::S:
+										return(2);
+										break;
                 case sf::Keyboard::Return:
                     if (menu == 0)
                     {
                         //Let's get play !
                         playing = true;
+			saveSelection();
                         return (1);
                     }
                     else
@@ -419,6 +441,7 @@ int screen_0::Run(sf::RenderWindow &App)
 	App.draw(s10);
 	App.draw(s11);
 	App.draw(text);
+	App.draw(pc);
         App.display();
     }
 

@@ -29,6 +29,7 @@ private:
     
 public:
     screen_0(void);
+    void saveSelection();
     virtual int Run(sf::RenderWindow &App);
 };
 
@@ -44,6 +45,14 @@ bool inRange (float x1, float x2, float y1, float y2, float dist)
     if(sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2)) < dist)
 	return true;
     return false;
+}
+
+void screen_0::saveSelection(){
+	std::ofstream ofs;
+	ofs.open("bin/select.txt", std::ofstream::out| std::ofstream::trunc);
+	ofs << selMode; ofs << "\n";
+	ofs << diff; ofs << "\n";
+	ofs.close();
 }
 
 int screen_0::Run(sf::RenderWindow &App)
@@ -335,23 +344,8 @@ int screen_0::Run(sf::RenderWindow &App)
     		
 		if (hoverPlay)
 		{
-		switch (selMode)
-		{
-                case 0:
-                    return (1);
-                    break;
-                case 1:
-                    return (1);
-                    break;
-		case 2:
-                    return (1);
-                    break;
-		case 3:
-                    return (1);
-                    break;
-                default:
-                    break;
-                }
+		saveSelection();
+		return(1);
 		}
 		if (hoverCustom)
 			return (2);
@@ -401,6 +395,7 @@ int screen_0::Run(sf::RenderWindow &App)
                     {
                         //Let's get play !
                         playing = true;
+			saveSelection();
                         return (1);
                     }
                     else

@@ -34,9 +34,13 @@ private:
     int alpha_max;
     int alpha_div;
     bool playing;
+    int gameMode = 0;
+    int difficulty = 1;
 public:
     screen_1(void);
     virtual int Run(sf::RenderWindow &App);
+    int str2int (const string &str);
+    void loadSelection();
 };
 
 screen_1::screen_1(void)
@@ -45,37 +49,71 @@ screen_1::screen_1(void)
     alpha_div = 3;
     playing = false;
 }
+int screen_1::str2int (const string &str) {
+  stringstream ss(str);
+  int num;
+  if((ss >> num).fail())
+  { 
+      //ERROR 
+  }
+  return num;
+}
+
+void screen_1::loadSelection(){
+	std::ifstream myfile("bin/select.txt");
+	std::string line;
+	std::string::size_type sz;   // alias of size_t
+
+	if(!myfile.is_open())
+	{
+		std::cerr<<"Could not open the selection file\n";
+	}
+	int place = 0;
+	if(getline(myfile, line))
+		{
+			gameMode = str2int(line);
+		}
+	if(getline(myfile, line))
+		{
+			difficulty = str2int(line);
+		}
+	myfile.close();
+	
+}
 
 int screen_1::Run(sf::RenderWindow &App)
 {
-    sf::Event Event;
-    bool Running = true;
-    sf::RectangleShape rectangle(sf::Vector2f(90, 40));
-    rectangle.setFillColor(sf::Color(255, 202, 54));
-    rectangle.setPosition(10,5);
-    sf::RectangleShape rectangleBG(sf::Vector2f(280, 40));
-    rectangleBG.setFillColor(sf::Color(115, 72, 24));
-    rectangleBG.setPosition(10,5);
-    //sf::Texture Texture;
-    //sf::Sprite Sprite;
-    int alpha = 0;
-    // create main window
-  int FPS=120;
-  App.setFramerateLimit(FPS); 
+    	sf::Event Event;
+    	bool Running = true;
+    	sf::RectangleShape rectangle(sf::Vector2f(90, 40));
+    	rectangle.setFillColor(sf::Color(255, 202, 54));
+    	rectangle.setPosition(10,5);
+    	sf::RectangleShape rectangleBG(sf::Vector2f(280, 40));
+    	rectangleBG.setFillColor(sf::Color(115, 72, 24));
+    	rectangleBG.setPosition(10,5);
+    	//sf::Texture Texture;
+    	//sf::Sprite Sprite;
+    	int alpha = 0;
+    	// create main window
+  	int FPS=120;
+  	App.setFramerateLimit(FPS); 
+
+	// load game mode and difficulty
+  	loadSelection();
 
 	//taken from SFML official site
-  sf::Font font;
+  	sf::Font font;
 	if (!font.loadFromFile("lucon.ttf"))
 	{
 		std::cout<<"FONT FAILURE"<<std::endl;
 	}
-  sf::Sprite mmoverlay;
-  sf::Texture mmText;
-    if (!mmText.loadFromFile("img/mmcover.png"))
-    {
+  	sf::Sprite mmoverlay;
+  	sf::Texture mmText;
+    	if (!mmText.loadFromFile("img/mmcover.png"))
+    	{
         std::cerr << "mmcover.png" << std::endl;
         return (-1);
-    }
+    	}
   mmoverlay.setTexture(mmText);
   mmoverlay.setPosition(0,0);
   sf::Sprite healthOverlay;
