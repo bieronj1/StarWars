@@ -115,6 +115,14 @@ int screen_1::Run(sf::RenderWindow &App)
     	//sf::Sprite Sprite;
     	int alpha = 0;
     	// create main window
+	sf::Sprite imageBG;
+	sf::Texture bgText;
+   	if (!bgText.loadFromFile("img/bgtile.jpg"))
+    	{
+        std::cerr << "bgtile.jpg" << std::endl;
+        return (-1);
+    	}
+	imageBG.setTexture(bgText);
   	int FPS=120;
   	App.setFramerateLimit(FPS); 
 
@@ -320,6 +328,7 @@ int screen_1::Run(sf::RenderWindow &App)
 
 	App.clear(sf::Color::Black);
 	sf::View camera(sf::FloatRect(0,0,1200,800));
+	sf::View bg(sf::FloatRect(0,0,1024,1024));
     	sf::View minimap(sf::FloatRect(0,0,600,600));
     	sf::View mmOverlay(sf::FloatRect(0,0,300,300));
 	sf::View hOverlay(sf::FloatRect(0,0,300,200));
@@ -337,17 +346,20 @@ int screen_1::Run(sf::RenderWindow &App)
 	camera.zoom(5);}
 	minimap.zoom(3);
 	camera.setViewport(sf::FloatRect(0,0,1,1));
+	bg.setViewport(sf::FloatRect(0,0,1,1));
 	minimap.setViewport(sf::FloatRect(0.77f,0.6866f,0.21,0.2933));
 	mmOverlay.setViewport(sf::FloatRect(0.75f,0.6666f,0.25,0.3333));
 	hOverlay.setViewport(sf::FloatRect(0.375f,0.85f,0.25,0.2500));
+	App.setView(bg);
+	App.draw(imageBG);
 	App.setView(camera);
-		
 	world.drawOnWindow(&App);
 	
 	rectangle.setSize(sf::Vector2f((int)(pc.returnDisplayHealth()*2.8f), 40));
 	rectangle2.setSize(sf::Vector2f((int)(pc.returnDisplayShield()*2.8f), 40));
 	sf::RectangleShape minimapback(sf::Vector2f(2500,2500));
 	minimapback.setFillColor(sf::Color(25,45,25));
+	
 	App.setView(minimap);
 	App.draw(minimapback);
 	world.drawOnWindow(&App);
