@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include <math.h> 
 #include "GameWorld.hpp"
+#include <SFML/Audio.hpp>
 
 
  
@@ -82,6 +83,7 @@ int screen_0::Run(sf::RenderWindow &App)
     text.setOrigin(textRect.left + textRect.width/2.0f,
     textRect.top  + textRect.height/2.0f);
     text.setPosition(sf::Vector2f(GLOBAL_RES*8/3+100,GLOBAL_RES*19/10+45));
+    
     
    
     //sf::Texture m0;
@@ -232,7 +234,27 @@ int screen_0::Run(sf::RenderWindow &App)
     s11.setTexture(m11);
     s11.setPosition(GLOBAL_RES*8/3 -50,GLOBAL_RES*17/20);
 
-
+  //This is the sound buffer 
+    sf::SoundBuffer buffert;//thruster buffer
+    if (!buffert.loadFromFile("sounds/blip.wav"))
+        return -1;
+	//making sounds 
+	sf::Sound clicksound;
+	clicksound.setBuffer(buffert);
+       sf::SoundBuffer buffern;//thruster buffer
+    if (!buffern.loadFromFile("sounds/neon.wav"))
+        return -1;
+	//making sounds 
+	sf::Sound hoversound;
+	hoversound.setBuffer(buffern);
+    hoversound.setPitch(.8); 
+    //background music
+    sf::Music bgmusic;
+    if (!bgmusic.openFromFile("sounds/GrimesOblivion.wav"))
+    return -1; // error
+    bgmusic.play();
+    bgmusic.setLoop(true); 
+    int hovcount = 0; 
 
 
 /*
@@ -267,8 +289,13 @@ int screen_0::Run(sf::RenderWindow &App)
 		{
 		if(Event.mouseMove.x  > GLOBAL_RES*8/3 && Event.mouseMove.x < (GLOBAL_RES*8/3+200) && Event.mouseMove.y > GLOBAL_RES*14/6 && Event.mouseMove.y < (GLOBAL_RES*14/6 + 80))
 			{
+			hovcount = 1; 
+			if (hoversound.getStatus() != sf::Sound::Playing)
+			  hoversound.play();
 			hoverPlay = true;			
 			s4.setTexture(m5);
+			hoversound.play(); 
+		    
 			}
 		else
 			{
@@ -278,6 +305,9 @@ int screen_0::Run(sf::RenderWindow &App)
 		if(Event.mouseMove.x  > GLOBAL_RES*8/3 - 60 && Event.mouseMove.x < (GLOBAL_RES*8/3) && Event.mouseMove.y > GLOBAL_RES*19/10 && Event.mouseMove.y < (GLOBAL_RES*19/10 + 90))
 			{
 			hoverL = true;
+			hovcount = 1; 
+			if (hoversound.getStatus() != sf::Sound::Playing)
+			  hoversound.play();
 			}
 		else
 			{
@@ -286,6 +316,9 @@ int screen_0::Run(sf::RenderWindow &App)
 		if(Event.mouseMove.x  > GLOBAL_RES*8/3 +200 && Event.mouseMove.x < (GLOBAL_RES*8/3 + 260) && Event.mouseMove.y > GLOBAL_RES*19/10 && Event.mouseMove.y < (GLOBAL_RES*19/10 + 90))
 			{
 			hoverR = true;
+			hovcount = 1; 
+			if (hoversound.getStatus() != sf::Sound::Playing)
+			  hoversound.play();
 			}
 		else
 			{
@@ -293,7 +326,10 @@ int screen_0::Run(sf::RenderWindow &App)
 			}
 		if(Event.mouseMove.x  > GLOBAL_RES*8/3-25 && Event.mouseMove.x < (GLOBAL_RES*8/3+225) && Event.mouseMove.y > 0 && Event.mouseMove.y < 50)
 			{
-			hoverCustom = true;			
+			hoverCustom = true;	
+			hovcount = 1; 
+			if (hoversound.getStatus() != sf::Sound::Playing)
+			  hoversound.play();		
 			s7.setTexture(m8);
 			}
 		else
@@ -306,18 +342,30 @@ int screen_0::Run(sf::RenderWindow &App)
 		if(inRange(Event.mouseMove.x, GLOBAL_RES*2/3 + 125, Event.mouseMove.y, GLOBAL_RES*5/3 + 125, 125))
 			{
 			newHover = 0;
+					hovcount = 1; 
+			if (hoversound.getStatus() != sf::Sound::Playing)
+			  hoversound.play();
 			}
 		else if(inRange(Event.mouseMove.x, GLOBAL_RES*2/3 + 125, Event.mouseMove.y, GLOBAL_RES*2/3 + 125, 125))
 			{
 			newHover = 1;
+					hovcount = 1; 
+			if (hoversound.getStatus() != sf::Sound::Playing)
+			  hoversound.play();
 			}			
 		else if(inRange(Event.mouseMove.x, GLOBAL_RES*1/6 + 125, Event.mouseMove.y, GLOBAL_RES*7/6 + 125, 125))
 			{
 			newHover = 2;
+					hovcount = 1; 
+			if (hoversound.getStatus() != sf::Sound::Playing)
+			  hoversound.play();
 			}	
 		else if(inRange(Event.mouseMove.x, GLOBAL_RES*7/6 + 125, Event.mouseMove.y, GLOBAL_RES*7/6 + 125, 125))
 			{			
-			newHover = 3;
+			newHover = 3; 
+					hovcount = 1; 
+			if (hoversound.getStatus() != sf::Sound::Playing)
+			  hoversound.play();
 			}
 		}
 		else
@@ -329,12 +377,20 @@ int screen_0::Run(sf::RenderWindow &App)
 		if(hoverMode >= 0 && hoverMode != selMode)
 			modeSprite[hoverMode].setTexture(modeImg[hoverMode + 4]);
 		}
+		
+		//for hoversounds 
+	if (hovcount != 1)
+	  hoversound.pause();
+	else 
+	  hovcount = 0; 
 	    //Mouseclick
 	    if (Event.type == sf::Event::MouseButtonPressed)
 		{
+		 
     		if (Event.mouseButton.button == sf::Mouse::Left)
     		{
-        	std::cout << "the left button was pressed" << std::endl;
+        	//std::cout << "the left button was pressed" << std::endl;
+		  
         		if(hoverMode != selMode && hoverMode >= 0)
 			{
 				modeSprite[0].setTexture(modeImg[8]);
@@ -343,17 +399,20 @@ int screen_0::Run(sf::RenderWindow &App)
 				modeSprite[3].setTexture(modeImg[11]);
 				modeSprite[hoverMode].setTexture(modeImg[hoverMode]);
 				selMode = hoverMode;
+				 clicksound.play(); 
 			}
     		
 		if (hoverPlay)
 		{
 		saveSelection();
+		clicksound.play(); 
 		return(1);
 		}
 		if (hoverCustom)
-			return (2);
+		{ clicksound.play(); 
+		  return (2);}
 		if (hoverL)
-		{
+		{	 clicksound.play(); 
 			if(diff > 0)
 			{
 			diff--;
@@ -365,7 +424,7 @@ int screen_0::Run(sf::RenderWindow &App)
 			}		
 		}
 		if (hoverR)
-		{
+		{	 clicksound.play(); 
 			if(diff < 2)
 			{
 			diff++;
@@ -381,7 +440,7 @@ int screen_0::Run(sf::RenderWindow &App)
 	    }
             //Key pressed
             if (Event.type == sf::Event::KeyPressed)
-            {
+            { clicksound.play(); 
                 switch (Event.key.code)
                 {
                 case sf::Keyboard::Up:
@@ -390,9 +449,9 @@ int screen_0::Run(sf::RenderWindow &App)
                 case sf::Keyboard::Down:
                     menu = 1;
                     break;
-								case sf::Keyboard::S:
-										return(2);
-										break;
+		case sf::Keyboard::S:
+			return(2);
+			break;
                 case sf::Keyboard::Return:
                     if (menu == 0)
                     {
