@@ -79,6 +79,7 @@ void PlayerShip::update(){
 			displayShield = 100;
 		if(displayShield < 0)
 			{
+			shieldwasup=false;
 			displayShield = 0;
 			shieldsUp = false;
 			}

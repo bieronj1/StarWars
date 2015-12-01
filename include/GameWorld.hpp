@@ -287,7 +287,7 @@ class GameWorld {
 		yshifts++;
 		//destroy far left
 		for(int col=0;col<25;col++){
-			//delete board[24][col];
+			delete board[24][col];
 			board[23][col]->D=NULL;
 			board[23][col]->DL=NULL;
 			board[23][col]->DR=NULL;

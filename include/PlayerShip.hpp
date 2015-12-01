@@ -44,7 +44,7 @@ class PlayerShip : public sf::Drawable{
 		float shieldmass = 31400; //100 * pi
 		float shieldrechargeactive = 0;
 		float shieldrechargepassive=0;
-		
+		bool shieldwasup=false;
 		//momentum manipulator (magicTurn) stats
 		bool hasMM = false;
 		int MMcooldown = 0; //MM cooldown in frames

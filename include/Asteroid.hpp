@@ -18,6 +18,7 @@ class Asteroid : public sf::Drawable{
 		}
 	}
 	
+	
 	//update object location for new frame
 	void update(){
 		lx+=vx;

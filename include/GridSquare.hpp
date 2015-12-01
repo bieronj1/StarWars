@@ -117,14 +117,14 @@ class GridSquare{
 	GridSquare(int fps){
 		FPS=fps;
 		if(std::rand()%8==0){
-		Asteroid a(std::rand()%100,std::rand()%100,std::rand()%100/100.0f - 0.5,std::rand()%100/100.0f - 0.5,40);
+		Asteroid a(std::rand()%100,std::rand()%100,(120.0/fps)*(std::rand()%100/100.0f - 0.5),(120.0/fps)*(std::rand()%100/100.0f - 0.5),40);
 		//Asteroid a(0.0,0.0,0.0,0.0,40.0);
 		asteroids.push_back(a);} 
 	}
 	
 	void addAsteroid(float lx, float ly, float vx, float vy, float r){
-		Asteroid* a = new Asteroid(lx,ly,vx,vy,r);
-		asteroids.push_back(*a);
+		Asteroid a(lx,ly,vx,vy,r);
+		asteroids.push_back(a);
 		//std::cout<<"NEW "<<lx<<","<<ly<<std::endl;
 	}
 	
@@ -133,9 +133,8 @@ class GridSquare{
 	void addEnemy(Enemy* e){enemies.push_back(e);}
 	
 	~GridSquare(){
-		return;
+		//for()
 	}
-	
 	//Update had to be redone as two methods, because an object could be caught in multiple updates otherwise
 	void update1(){
 		if(playerIsHere){ps->update();}
@@ -439,7 +438,7 @@ class GridSquare{
 					else{
 						if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax, ay, ar)){
 							asteroids[i].collide();
-							ps->editHealth(-1*(FPS/120));
+							ps->editHealth(-1*(120.0/FPS));
 						}
 					}
 				}
@@ -458,7 +457,7 @@ class GridSquare{
 					else{
 						if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax, ay, ar)){
 							UL->asteroids[i].collide();
-							ps->editHealth(-1*(FPS/120));
+							ps->editHealth(-1*(120.0/FPS));
 						}
 					}
 				}
@@ -477,7 +476,7 @@ class GridSquare{
 					else{
 						if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax, ay, ar)){
 							U->asteroids[i].collide();
-							ps->editHealth(-1*(FPS/120));
+							ps->editHealth(-1*(120.0/FPS));
 						}
 					}
 				}
@@ -496,7 +495,7 @@ class GridSquare{
 					else{
 						if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax, ay, ar)){
 							UR->asteroids[i].collide();
-							ps->editHealth(-1*(FPS/120));
+							ps->editHealth(-1*(120.0/FPS));
 						}
 					}
 				}
@@ -515,7 +514,7 @@ class GridSquare{
 					else{
 						if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax, ay, ar)){
 							L->asteroids[i].collide();
-							ps->editHealth(-1*(FPS/120));
+							ps->editHealth(-1*(120.0/FPS));
 						}
 					}
 				}
@@ -533,7 +532,7 @@ class GridSquare{
 					else{
 						if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax, ay, ar)){
 							R->asteroids[i].collide();
-							ps->editHealth(-1*(FPS/120));
+							ps->editHealth(-1*(120.0/FPS));
 						}
 					}
 				}
@@ -552,7 +551,7 @@ class GridSquare{
 					else{
 						if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax, ay, ar)){
 							DL->asteroids[i].collide();
-							ps->editHealth(-1*(FPS/120));
+							ps->editHealth(-1*(120.0/FPS));
 						}
 					}
 				}
@@ -571,7 +570,7 @@ class GridSquare{
 					else{
 						if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax, ay, ar)){
 							D->asteroids[i].collide();
-							ps->editHealth(-1*(FPS/120));
+							ps->editHealth(-1*(120.0/FPS));
 						}
 					}
 				}
@@ -590,7 +589,7 @@ class GridSquare{
 					else{
 						if(collisionAsteroidPlayer(ps->lx, ps->ly, ps->orientation, ax, ay, ar)){
 							DR->asteroids[i].collide();
-							ps->editHealth(-1*(FPS/120));
+							ps->editHealth(-1*(120.0/FPS));
 						}
 					}
 				}
