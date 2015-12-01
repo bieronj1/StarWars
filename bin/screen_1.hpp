@@ -41,6 +41,7 @@ public:
     virtual int Run(sf::RenderWindow &App);
     int str2int (const string &str);
     void loadSelection();
+    std::vector<int> loadConfig();
 };
 
 screen_1::screen_1(void)
@@ -58,6 +59,19 @@ int screen_1::str2int (const string &str) {
   }
   return num;
 }
+
+std::vector<int> screen_1::loadConfig(){
+   std::vector<int> configVariables;
+   std::string line;
+   std::ifstream myfile("bin/upgradeState.txt");
+   if(getline(myfile, line)){
+     int i = str2int(line);
+     configVariables.push_back(i);
+   }
+   return configVariables;
+   
+}
+
 
 void screen_1::loadSelection(){
 	std::ifstream myfile("bin/select.txt");
