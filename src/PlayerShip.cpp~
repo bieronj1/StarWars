@@ -58,6 +58,10 @@ PlayerShip::PlayerShip(float tlx, float tly, float tft, float tlt, float tr){
 			std::cerr<<"Couldn't load the thruster image\n";
 		}
 		
+		if(!shieldtexture.loadFromFile("img/shield.png")){
+			std::cerr<<"Couldn't load the shield image\n";
+		}
+		
 		loadFromFile();
 
 		thrustersOn = false;
@@ -68,6 +72,16 @@ PlayerShip::PlayerShip(float tlx, float tly, float tft, float tlt, float tr){
 void PlayerShip::update(){
 		lx+=vx;
 		ly+=vy;
+		displayShield += 1;
+		if(shieldsUp)
+			displayShield -=3;
+		if(displayShield > 100)
+			displayShield = 100;
+		if(displayShield < 0)
+			{
+			displayShield = 0;
+			shieldsUp = false;
+			}
 		if(displayHealth < health)
 			displayHealth++;
 		if(displayHealth > health)
@@ -81,12 +95,22 @@ void PlayerShip::editHealth(int dmg){
 			health = 0;
 }
 
+void PlayerShip::editShield(int dmg){
+		displayShield += dmg;
+		if(displayShield < 0)
+			displayShield = 0;
+}
+
 int PlayerShip::returnHealth(){
 		return health;
 }
 
 int PlayerShip::returnDisplayHealth(){
 		return displayHealth;
+}
+
+int PlayerShip::returnDisplayShield(){
+		return displayShield;
 }
 
 void PlayerShip::faster(){
@@ -104,6 +128,11 @@ void PlayerShip::stopLeft(){
 }
 void PlayerShip::stopRight(){
 	leftOn = false;
+}
+
+void PlayerShip::setShields(bool on){
+	if(displayShield > 0)
+	shieldsUp = on;
 }
 	
 void PlayerShip::reverse(){
@@ -229,7 +258,7 @@ void PlayerShip::draw(sf::RenderTarget& target, sf::RenderStates states) const
 
 			thrusterRectangle.setTexture(&texture);
 			
-			thrusterRectangle.setOrigin(30,8);
+			thrusterRectangle.setOrigin(32,7.5);
 			thrusterRectangle.setPosition(lx+offx, ly+offy);
 			thrusterRectangle.rotate(orientation*180/M_PI);
 			target.draw(thrusterRectangle);
@@ -255,6 +284,17 @@ void PlayerShip::draw(sf::RenderTarget& target, sf::RenderStates states) const
 			rightRectangle.setPosition(lx+offx, ly+offy);
 			rightRectangle.rotate(orientation*180/M_PI);
 			target.draw(rightRectangle);
+		}
+		
+		if(shieldsUp){
+			sf::RectangleShape shieldRectangle;
+			shieldRectangle.setSize(sf::Vector2f(90,90));
+			shieldRectangle.setTexture(&shieldtexture);
+			shieldRectangle.setPosition(lx+offx, ly+offy);
+			shieldRectangle.setOrigin(45, 45);
+			shieldRectangle.setFillColor(sf::Color::Blue);
+			target.draw(shieldRectangle);
+			
 		}
     }
 

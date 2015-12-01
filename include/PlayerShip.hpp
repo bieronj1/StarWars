@@ -36,6 +36,7 @@ class PlayerShip : public sf::Drawable{
 		sf::Texture shieldtexture;
 		int health = 100;
 		int displayHealth = 100;
+		int displayShield = 100;
 		
 		//shield stats
 		float shieldcap = 0;
@@ -73,8 +74,10 @@ class PlayerShip : public sf::Drawable{
 		void setRenderOffset(float x, float y);
 		void loadFromFile();
 		void editHealth(int dmg);
+		void editShield(int dmg);
 		int returnHealth();
 		int returnDisplayHealth();
+		int returnDisplayShield();
 		void setTail(Tail ttail);
 		void chooseTail(std::string tailName);
 		

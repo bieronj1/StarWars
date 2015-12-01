@@ -28,11 +28,28 @@ class PlayerShip : public sf::Drawable{
 		bool thrustersOn;
 		bool leftOn;
 		bool rightOn;
+		bool shieldsUp;
+		bool backThrust;
 		sf::Texture texture;
 		sf::Texture lefttexture;
 		sf::Texture righttexture;
+		sf::Texture shieldtexture;
 		int health = 100;
 		int displayHealth = 100;
+		int displayShield = 100;
+		
+		//shield stats
+		float shieldcap = 0;
+		float shieldhealth = 0;
+		float shieldmass = 31400; //100 * pi
+		float shieldrechargeactive = 0;
+		float shieldrechargepassive=0;
+		
+		//momentum manipulator (magicTurn) stats
+		bool hasMM = false;
+		int MMcooldown = 0; //MM cooldown in frames
+		int MMcd=0;
+		
 		Body body;
 		Nose nose;
 		Tail tail;
@@ -48,6 +65,7 @@ class PlayerShip : public sf::Drawable{
 		void turnRight();
 		void turnLeft();
 		void latRight();
+		void setShields(bool on);
 		void latLeft();
 		void magicTurn();
 		void setOrientation(float newOrientation); 
@@ -55,9 +73,10 @@ class PlayerShip : public sf::Drawable{
 		void chooseBody(std::string bodyName);
 		void setRenderOffset(float x, float y);
 		void loadFromFile();
-		void PlayerShip::editHealth(int dmg);
-		int PlayerShip::returnHealth();
-		int PlayerShip::returnDisplayHealth();
+		void editHealth(int dmg);
+		int returnHealth();
+		int returnDisplayHealth();
+		int returnDisplayShield();
 		void setTail(Tail ttail);
 		void chooseTail(std::string tailName);
 		
