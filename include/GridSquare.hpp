@@ -106,24 +106,34 @@ class GridSquare{
 	GridSquare* UR = NULL;
 	GridSquare* DL = NULL;
 	GridSquare* DR = NULL;
+	sf::Texture asteroidTexture;
 	int FPS;
 	GridSquare(){
+		if(!asteroidTexture.loadFromFile("img/asteroid.png")){
+		  std::cerr<<"Couldn't load asteroid image\n";
+		}
 		if(std::rand()%8==0){
-		Asteroid a(std::rand()%100,std::rand()%100,std::rand()%100/100.0f - 0.5,std::rand()%100/100.0f - 0.5,40);
+
+		Asteroid a(std::rand()%100,std::rand()%100,std::rand()%100/100.0f - 0.5,std::rand()%100/100.0f - 0.5,40, asteroidTexture);
 		//Asteroid a(0.0,0.0,0.0,0.0,40.0);
-		asteroids.push_back(a);} 
+		asteroids.push_back(a);}
+ 
 	}
 	
 	GridSquare(int fps){
 		FPS=fps;
+		if(!asteroidTexture.loadFromFile("img/asteroid.png")){
+		  std::cerr<<"Couldn't load asteroid image\n";
+		}
 		if(std::rand()%8==0){
-		Asteroid a(std::rand()%100,std::rand()%100,(120.0/fps)*(std::rand()%100/100.0f - 0.5),(120.0/fps)*(std::rand()%100/100.0f - 0.5),40);
+
+		Asteroid a(std::rand()%100,std::rand()%100,(120.0/fps)*(std::rand()%100/100.0f - 0.5),(120.0/fps)*(std::rand()%100/100.0f - 0.5),40, asteroidTexture);
 		//Asteroid a(0.0,0.0,0.0,0.0,40.0);
 		asteroids.push_back(a);} 
 	}
 	
 	void addAsteroid(float lx, float ly, float vx, float vy, float r){
-		Asteroid a(lx,ly,vx,vy,r);
+		Asteroid a(lx,ly,vx,vy,r, asteroidTexture);
 		asteroids.push_back(a);
 		//std::cout<<"NEW "<<lx<<","<<ly<<std::endl;
 	}

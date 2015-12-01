@@ -7,15 +7,14 @@ class Asteroid : public sf::Drawable{
 	float r;
 	bool collision = false;
 	sf::Texture texture;
-	Asteroid(float tlx, float tly, float tvx, float tvy, float tr){
+	Asteroid(float tlx, float tly, float tvx, float tvy, float tr, sf::Texture asTexture){
 		lx=tlx;
 		ly=tly;
 		vx=tvx;
 		vy=tvy;
 		r=tr;
-		if(!texture.loadFromFile("img/asteroid.png")){
-		  std::cerr<<"Couldn't load asteroid image\n";
-		}
+		texture = asTexture;
+
 	}
 	
 	

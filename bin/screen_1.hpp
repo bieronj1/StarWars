@@ -42,6 +42,7 @@ public:
     int str2int (const string &str);
     void loadSelection();
     std::vector<int> loadConfig();
+		
 };
 
 screen_1::screen_1(void)
@@ -49,6 +50,7 @@ screen_1::screen_1(void)
     alpha_max = 3 * 255;
     alpha_div = 3;
     playing = false;
+
 }
 int screen_1::str2int (const string &str) {
   stringstream ss(str);
@@ -115,14 +117,6 @@ int screen_1::Run(sf::RenderWindow &App)
     	//sf::Sprite Sprite;
     	int alpha = 0;
     	// create main window
-	sf::Sprite imageBG;
-	sf::Texture bgText;
-   	if (!bgText.loadFromFile("img/bgtile.jpg"))
-    	{
-        std::cerr << "bgtile.jpg" << std::endl;
-        return (-1);
-    	}
-	imageBG.setTexture(bgText);
   	int FPS=120;
   	App.setFramerateLimit(FPS); 
 
@@ -143,7 +137,7 @@ int screen_1::Run(sf::RenderWindow &App)
         return (-1);
     	}
     	
-    	  //This are the sound buffer s
+    	  //This is the sound buffer 
     sf::SoundBuffer buffert;//thruster buffer
     if (!buffert.loadFromFile("sounds/earthquake-03.wav"))
         return -1;
@@ -157,16 +151,6 @@ int screen_1::Run(sf::RenderWindow &App)
 	thrustersound.setBuffer(buffert); 
     //int for keeping track of thrusters
     int thrustercounter = 0; 
- 
-       sf::SoundBuffer buffera;//thruster buffer
-    if (!buffera.loadFromFile("sounds/hitabsorb.wav"))
-        return -1;
-    	sf::Sound shieldsound;
-	shieldsound.setBuffer(buffera); 
-    int shieldcounter = 0; 
-   // shieldsound.setPitch(0.8); 
-    
-    
     //background music
     sf::Music bgmusic;
     if (!bgmusic.openFromFile("sounds/JBSorry.wav"))
@@ -274,12 +258,7 @@ int screen_1::Run(sf::RenderWindow &App)
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
 		//zoom=true;
 		pc.shieldsUp=true;
-		   shieldcounter = 1;
-		if (shieldsound.getStatus() != sf::Sound::Playing)
-		  shieldsound.play();
-		  
 	}
-	
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::T)){
 		world.checkLinks();
 		std::cout<<"Check Complete"<<std::endl;
@@ -312,11 +291,6 @@ int screen_1::Run(sf::RenderWindow &App)
 	  thrustersound.pause();
 	else 
 	  thrustercounter = 0; 
-	//for sheidl 
-	if (shieldcounter != 1)
-	  shieldsound.pause();
-	else 
-	  shieldcounter = 0; 
 	//keys to pause music
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::M) == true)
 	{
@@ -328,7 +302,6 @@ int screen_1::Run(sf::RenderWindow &App)
 
 	App.clear(sf::Color::Black);
 	sf::View camera(sf::FloatRect(0,0,1200,800));
-	sf::View bg(sf::FloatRect(0,0,1024,1024));
     	sf::View minimap(sf::FloatRect(0,0,600,600));
     	sf::View mmOverlay(sf::FloatRect(0,0,300,300));
 	sf::View hOverlay(sf::FloatRect(0,0,300,200));
@@ -346,20 +319,17 @@ int screen_1::Run(sf::RenderWindow &App)
 	camera.zoom(5);}
 	minimap.zoom(3);
 	camera.setViewport(sf::FloatRect(0,0,1,1));
-	bg.setViewport(sf::FloatRect(0,0,1,1));
 	minimap.setViewport(sf::FloatRect(0.77f,0.6866f,0.21,0.2933));
 	mmOverlay.setViewport(sf::FloatRect(0.75f,0.6666f,0.25,0.3333));
 	hOverlay.setViewport(sf::FloatRect(0.375f,0.85f,0.25,0.2500));
-	App.setView(bg);
-	App.draw(imageBG);
 	App.setView(camera);
+		
 	world.drawOnWindow(&App);
 	
 	rectangle.setSize(sf::Vector2f((int)(pc.returnDisplayHealth()*2.8f), 40));
 	rectangle2.setSize(sf::Vector2f((int)(pc.returnDisplayShield()*2.8f), 40));
 	sf::RectangleShape minimapback(sf::Vector2f(2500,2500));
 	minimapback.setFillColor(sf::Color(25,45,25));
-	
 	App.setView(minimap);
 	App.draw(minimapback);
 	world.drawOnWindow(&App);
