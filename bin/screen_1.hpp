@@ -114,6 +114,29 @@ int screen_1::Run(sf::RenderWindow &App)
         std::cerr << "mmcover.png" << std::endl;
         return (-1);
     	}
+    	
+    	  //This is the sound buffer 
+    sf::SoundBuffer buffert;//thruster buffer
+    if (!buffert.loadFromFile("sounds/earthquake-03.wav"))
+        return -1;
+    sf::SoundBuffer bufferl;//laser buffer
+    if (!bufferl.loadFromFile("sounds/Laser2.wav"))
+        return -1;
+	//making sounds 
+	sf::Sound lasersound;
+	lasersound.setBuffer(bufferl);
+	sf::Sound thrustersound;
+	thrustersound.setBuffer(buffert); 
+    //int for keeping track of thrusters
+    int thrustercounter = 0; 
+    //background music
+    sf::Music bgmusic;
+    if (!bgmusic.openFromFile("sounds/JBSorry.wav"))
+    return -1; // error
+    bgmusic.play();
+    bgmusic.setLoop(true); 
+
+    	
   mmoverlay.setTexture(mmText);
   mmoverlay.setPosition(0,0);
   sf::Sprite healthOverlay;
@@ -169,7 +192,16 @@ int screen_1::Run(sf::RenderWindow &App)
 	QWEASD[5]=sf::Keyboard::isKeyPressed(sf::Keyboard::D);
 	bool SHIFT =sf::Keyboard::isKeyPressed(sf::Keyboard::LShift);
 	
-	if(QWEASD[1]){pc.faster();}else{pc.stopThruster();}
+	if(QWEASD[1])
+		{pc.faster();
+		   thrustercounter = 1;
+		if (thrustersound.getStatus() != sf::Sound::Playing)
+		{ thrustersound.setPitch(1); 
+		  thrustersound.play();
+		  
+		}}
+	else{pc.stopThruster(); }
+	
 	if(QWEASD[4]){
 		if(SHIFT)
 			pc.slower();
@@ -178,8 +210,23 @@ int screen_1::Run(sf::RenderWindow &App)
 	}
 	if(QWEASD[3]){pc.turnLeft();}
 	if(QWEASD[5]){pc.turnRight();}
-	if(QWEASD[0]){pc.latLeft();}else{pc.stopLeft();}
-	if(QWEASD[2]){pc.latRight();}else{pc.stopRight();}
+	if(QWEASD[0]){pc.latLeft();
+	  thrustercounter = 1; 
+	  if (thrustersound.getStatus() != sf::Sound::Playing)
+		{ thrustersound.setPitch(1.2); 
+		  thrustersound.play();	
+		  
+		}}
+	  else{pc.stopLeft();  }
+	if(QWEASD[2]){pc.latRight();
+	  thrustercounter = 1;
+	  if (thrustersound.getStatus() != sf::Sound::Playing)
+		{ thrustersound.setPitch(1.2); 
+		  thrustersound.play();	
+		   
+		}}
+	else{pc.stopRight();; 
+	}
 	bool zoom = false;
 	pc.shieldsUp=false;
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
@@ -196,6 +243,8 @@ int screen_1::Run(sf::RenderWindow &App)
 		if(exlaser.fire())
 			{
 				world.addItem(new Item(0, 0, exlaser.spd * cos(pc.orientation)+pc.vx,exlaser.spd * sin(pc.orientation)+pc.vy,3,0,10), 600+pc.lx,600+pc.ly);
+			 lasersound.setPitch(1.0); 
+				lasersound.play(); 
 			}
 	}
 	
@@ -205,7 +254,22 @@ int screen_1::Run(sf::RenderWindow &App)
 		if(excannon.fire())
 			{
 				world.addItem(new Item(0, 0, excannon.spd * cos(pc.orientation)+pc.vx,excannon.spd * sin(pc.orientation)+pc.vy,3,10000,0), 600+pc.lx,600+pc.ly);
+			lasersound.setPitch(.5); 
+			  lasersound.play(); 
 			}
+	}
+	//for thruster sounds 
+	if (thrustercounter != 1)
+	  thrustersound.pause();
+	else 
+	  thrustercounter = 0; 
+	//keys to pause music
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::M) == true)
+	{
+	  if (bgmusic.getStatus() == sf::Sound::Playing)
+	    bgmusic.pause();
+	  else //if (bgmusic.getStatus() == sf::Sound::Paused)
+	    bgmusic.play(); 
 	}
 
 	App.clear(sf::Color::Black);
