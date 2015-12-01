@@ -41,6 +41,7 @@ public:
     virtual int Run(sf::RenderWindow &App);
     int str2int (const string &str);
     void loadSelection();
+    void readConfig(std::string one, std::string two,std::string three,std::string four,std::string five,std::string six,std::string seven,std::string eight);
 };
 
 screen_1::screen_1(void)
@@ -57,6 +58,15 @@ int screen_1::str2int (const string &str) {
       //ERROR 
   }
   return num;
+}
+
+void screen_1::readConfig(std::string one, std::string two,std::string three,std::string four,std::string five,std::string six,std::string seven,std::string eight){
+	std::ofstream ofs;
+	ofs.open("bin/upgradeState.txt", std::ofstream::out| std::ofstream::trunc);
+	ofs << one; ofs << "\n"; ofs << two; ofs << "\n"; ofs << three; ofs << "\n";
+	ofs << four; ofs << "\n"; ofs << five; ofs << "\n"; ofs << six; ofs << "\n";
+	ofs << seven; ofs << "\n"; ofs << eight; 
+	ofs.close();
 }
 
 void screen_1::loadSelection(){
@@ -171,6 +181,7 @@ int screen_1::Run(sf::RenderWindow &App)
 	
 	if(QWEASD[1]){pc.faster();}else{pc.stopThruster();}
 	if(QWEASD[4]){
+		
 		if(SHIFT)
 			pc.slower();
 		else
