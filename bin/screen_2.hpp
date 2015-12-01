@@ -8,6 +8,7 @@
 #include <map>
 //#include <cScreen.hpp>
 #include <sstream>
+#include <SFML/Audio.hpp>
 
 #define SSTR( x ) dynamic_cast< std::ostringstream & >( \
         ( std::ostringstream() << std::dec << x ) ).str()
@@ -491,7 +492,29 @@ int screen_2::Run(sf::RenderWindow &App){
 		pc.chooseNose(noseDict.at(menu.flippers.at(0).returnText()));
 		pc.chooseBody(bodyDict.at(menu.flippers.at(1).returnText()));
 		pc.chooseTail(tailDict.at(menu.flippers.at(2).returnText()));
+	sf::SoundBuffer buffert;//thruster buffer
+	if (!buffert.loadFromFile("sounds/blip.wav"))
+	    return -1;
+	    //making sounds 
+	    sf::Sound clicksound;
+	    clicksound.setBuffer(buffert);
+	  sf::SoundBuffer buffern;//thruster buffer
+	if (!buffern.loadFromFile("sounds/neon.wav"))
+	    return -1;
+	    //making sounds 
+	    sf::Sound hoversound;
+	    hoversound.setBuffer(buffern);
+	hoversound.setPitch(.8); 
+	//background music
+	sf::Music bgmusic;
+	if (!bgmusic.openFromFile("sounds/GrimesOblivion.wav"))
+	return -1; // error
+	bgmusic.play();
+	bgmusic.setLoop(true); 
+	int hovcount = 0; 
 
+		
+		
 	  // start main loop
 	  while(App.isOpen())
 	  {
@@ -503,7 +526,7 @@ int screen_2::Run(sf::RenderWindow &App){
 	      if(Event.type == sf::Event::Closed)
 	        App.close();
 		if(Event.type == sf::Event::MouseButtonPressed)
-		{
+		{clicksound.play(); 
 			if(mouseOnSprite(sMain, App))
 			{
 				saveState(noseDict.at(menu.flippers.at(0).returnText()), bodyDict.at(menu.flippers.at(1).returnText()), 
@@ -542,25 +565,25 @@ int screen_2::Run(sf::RenderWindow &App){
 
 
 		}
-		    if((Event.type == sf::Event::KeyPressed) && (Event.key.code == sf::Keyboard::Down)){
+		    if((Event.type == sf::Event::KeyPressed) && (Event.key.code == sf::Keyboard::Down)){ clicksound.play(); 
 					menu.next();
 		    }
-				if((Event.type == sf::Event::KeyPressed) && (Event.key.code == sf::Keyboard::Up)){
+				if((Event.type == sf::Event::KeyPressed) && (Event.key.code == sf::Keyboard::Up)){ clicksound.play(); 
 					menu.previous();
 				}
-				if((Event.type == sf::Event::KeyPressed) && (Event.key.code == sf::Keyboard::Left)){
+				if((Event.type == sf::Event::KeyPressed) && (Event.key.code == sf::Keyboard::Left)){ clicksound.play(); 
 					menu.flipperPrevious();
 					pc.chooseBody(bodyDict.at(menu.flippers.at(1).returnText()));
 					pc.chooseNose(noseDict.at(menu.flippers.at(0).returnText()));
 					pc.chooseTail(tailDict.at(menu.flippers.at(2).returnText()));
 				}
-				if((Event.type == sf::Event::KeyPressed) && (Event.key.code == sf::Keyboard::Right)){
+				if((Event.type == sf::Event::KeyPressed) && (Event.key.code == sf::Keyboard::Right)){ clicksound.play(); 
 					menu.flipperNext();
 					pc.chooseBody(bodyDict.at(menu.flippers.at(1).returnText()));
 					pc.chooseNose(noseDict.at(menu.flippers.at(0).returnText()));
 					pc.chooseTail(tailDict.at(menu.flippers.at(2).returnText()));
 				}
-				if((Event.type == sf::Event::KeyPressed) && (Event.key.code == sf::Keyboard::Return)){
+				if((Event.type == sf::Event::KeyPressed) && (Event.key.code == sf::Keyboard::Return)){ clicksound.play(); 
 					saveState(noseDict.at(menu.flippers.at(0).returnText()), bodyDict.at(menu.flippers.at(1).returnText()), 
 						tailDict.at(menu.flippers.at(2).returnText()));
 					return(0);

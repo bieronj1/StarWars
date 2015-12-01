@@ -135,7 +135,7 @@ int screen_1::Run(sf::RenderWindow &App)
         return (-1);
     	}
     	
-    	  //This is the sound buffer 
+    	  //This are the sound buffer s
     sf::SoundBuffer buffert;//thruster buffer
     if (!buffert.loadFromFile("sounds/earthquake-03.wav"))
         return -1;
@@ -149,6 +149,16 @@ int screen_1::Run(sf::RenderWindow &App)
 	thrustersound.setBuffer(buffert); 
     //int for keeping track of thrusters
     int thrustercounter = 0; 
+ 
+       sf::SoundBuffer buffera;//thruster buffer
+    if (!buffera.loadFromFile("sounds/hitabsorb.wav"))
+        return -1;
+    	sf::Sound shieldsound;
+	shieldsound.setBuffer(buffera); 
+    int shieldcounter = 0; 
+   // shieldsound.setPitch(0.8); 
+    
+    
     //background music
     sf::Music bgmusic;
     if (!bgmusic.openFromFile("sounds/JBSorry.wav"))
@@ -256,7 +266,12 @@ int screen_1::Run(sf::RenderWindow &App)
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
 		//zoom=true;
 		pc.shieldsUp=true;
+		   shieldcounter = 1;
+		if (shieldsound.getStatus() != sf::Sound::Playing)
+		  shieldsound.play();
+		  
 	}
+	
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::T)){
 		world.checkLinks();
 		std::cout<<"Check Complete"<<std::endl;
@@ -289,6 +304,11 @@ int screen_1::Run(sf::RenderWindow &App)
 	  thrustersound.pause();
 	else 
 	  thrustercounter = 0; 
+	//for sheidl 
+	if (shieldcounter != 1)
+	  shieldsound.pause();
+	else 
+	  shieldcounter = 0; 
 	//keys to pause music
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::M) == true)
 	{
