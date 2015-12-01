@@ -70,10 +70,9 @@ int screen_0::Run(sf::RenderWindow &App)
     sf::Font font;
     sf::Text text;
 
-		PlayerShip pc(900, 400,0.1,0.05,0.05);
-		pc.setOrientation(3* M_PI / 2);
-		
-		
+    PlayerShip pc(900, 400,0.1,0.05,0.05);
+    pc.setOrientation(3* M_PI / 2);
+
     font.loadFromFile("LemonMilk.otf");
     text.setFont(font);
     text.setString("Medium");
@@ -83,6 +82,8 @@ int screen_0::Run(sf::RenderWindow &App)
     text.setOrigin(textRect.left + textRect.width/2.0f,
     textRect.top  + textRect.height/2.0f);
     text.setPosition(sf::Vector2f(GLOBAL_RES*8/3+100,GLOBAL_RES*19/10+45));
+    
+   
     //sf::Texture m0;
     if (!modeImg[0].loadFromFile("img/mode00.png"))
     {
@@ -255,6 +256,8 @@ int screen_0::Run(sf::RenderWindow &App)
         //Verifying events
         while (App.pollEvent(Event))
         {
+	  
+	
             // Window closed
             if (Event.type == sf::Event::Closed)
             {
