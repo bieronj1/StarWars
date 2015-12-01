@@ -48,10 +48,17 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
+<<<<<<< HEAD
+CMAKE_SOURCE_DIR = /home/f85/msnelsen/CS420/StarWars
+
+# The top-level build directory on which CMake was run.
+CMAKE_BINARY_DIR = /home/f85/msnelsen/CS420/StarWars
+=======
 CMAKE_SOURCE_DIR = /home/f85/hyli/StarWars
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/f85/hyli/StarWars
+>>>>>>> dc9abf2aecd03be9c8fb40da8643eb64874167b0
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +87,15 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
+<<<<<<< HEAD
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/f85/msnelsen/CS420/StarWars/CMakeFiles /home/f85/msnelsen/CS420/StarWars/CMakeFiles/progress.marks
+	$(MAKE) -f CMakeFiles/Makefile2 all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/f85/msnelsen/CS420/StarWars/CMakeFiles 0
+=======
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/f85/hyli/StarWars/CMakeFiles /home/f85/hyli/StarWars/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/f85/hyli/StarWars/CMakeFiles 0
+>>>>>>> dc9abf2aecd03be9c8fb40da8643eb64874167b0
 .PHONY : all
 
 # The main clean target
