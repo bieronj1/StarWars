@@ -10,7 +10,7 @@ The output was:
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
 
-The C compiler identification is GNU, found in "/home/f85/msnelsen/CS420/StarWars/CMakeFiles/3.3.2/CompilerIdC/a.out"
+The C compiler identification is GNU, found in "/home/f85/msnelsen/CS420/StarWars/CMakeFiles/3.4.0/CompilerIdC/a.out"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
 Compiler: /usr/bin/c++ 
@@ -23,33 +23,33 @@ The output was:
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
 
-The CXX compiler identification is GNU, found in "/home/f85/msnelsen/CS420/StarWars/CMakeFiles/3.3.2/CompilerIdCXX/a.out"
+The CXX compiler identification is GNU, found in "/home/f85/msnelsen/CS420/StarWars/CMakeFiles/3.4.0/CompilerIdCXX/a.out"
 
 Determining if the C compiler works passed with the following output:
 Change Dir: /home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_62216/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_62216.dir/build.make CMakeFiles/cmTC_62216.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_de88b/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_de88b.dir/build.make CMakeFiles/cmTC_de88b.dir/build
 gmake[1]: Entering directory '/home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_62216.dir/testCCompiler.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_62216.dir/testCCompiler.c.o   -c /home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_62216
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_62216.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_62216.dir/testCCompiler.c.o  -o cmTC_62216 -rdynamic 
+Building C object CMakeFiles/cmTC_de88b.dir/testCCompiler.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_de88b.dir/testCCompiler.c.o   -c /home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_de88b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_de88b.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_de88b.dir/testCCompiler.c.o  -o cmTC_de88b -rdynamic 
 gmake[1]: Leaving directory '/home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp'
 
 
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: /home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_ce899/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_ce899.dir/build.make CMakeFiles/cmTC_ce899.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_77d9d/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_77d9d.dir/build.make CMakeFiles/cmTC_77d9d.dir/build
 gmake[1]: Entering directory '/home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_ce899.dir/CMakeCCompilerABI.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_ce899.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake/Modules/CMakeCCompilerABI.c
-Linking C executable cmTC_ce899
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ce899.dir/link.txt --verbose=1
-/usr/bin/cc      -v CMakeFiles/cmTC_ce899.dir/CMakeCCompilerABI.c.o  -o cmTC_ce899 -rdynamic  
+Building C object CMakeFiles/cmTC_77d9d.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_77d9d.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_77d9d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_77d9d.dir/link.txt --verbose=1
+/usr/bin/cc      -v CMakeFiles/cmTC_77d9d.dir/CMakeCCompilerABI.c.o  -o cmTC_77d9d -rdynamic  
 Using built-in specs.
 COLLECT_GCC=/usr/bin/cc
 COLLECT_LTO_WRAPPER=/usr/lib64/gcc/x86_64-suse-linux/4.8/lto-wrapper
@@ -59,8 +59,8 @@ Thread model: posix
 gcc version 4.8.3 20140627 [gcc-4_8-branch revision 212064] (SUSE Linux) 
 COMPILER_PATH=/usr/lib64/gcc/x86_64-suse-linux/4.8/:/usr/lib64/gcc/x86_64-suse-linux/4.8/:/usr/lib64/gcc/x86_64-suse-linux/:/usr/lib64/gcc/x86_64-suse-linux/4.8/:/usr/lib64/gcc/x86_64-suse-linux/:/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/bin/
 LIBRARY_PATH=/usr/lib64/gcc/x86_64-suse-linux/4.8/:/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/lib/:/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ce899' '-rdynamic' '-mtune=generic' '-march=x86-64'
- /usr/lib64/gcc/x86_64-suse-linux/4.8/collect2 --build-id --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_ce899 /usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crt1.o /usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crti.o /usr/lib64/gcc/x86_64-suse-linux/4.8/crtbegin.o -L/usr/lib64/gcc/x86_64-suse-linux/4.8 -L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/lib -L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../.. CMakeFiles/cmTC_ce899.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib64/gcc/x86_64-suse-linux/4.8/crtend.o /usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_77d9d' '-rdynamic' '-mtune=generic' '-march=x86-64'
+ /usr/lib64/gcc/x86_64-suse-linux/4.8/collect2 --build-id --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_77d9d /usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crt1.o /usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crti.o /usr/lib64/gcc/x86_64-suse-linux/4.8/crtbegin.o -L/usr/lib64/gcc/x86_64-suse-linux/4.8 -L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/lib -L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../.. CMakeFiles/cmTC_77d9d.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib64/gcc/x86_64-suse-linux/4.8/crtend.o /usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crtn.o
 gmake[1]: Leaving directory '/home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp'
 
 
@@ -68,14 +68,14 @@ Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/gmake" "cmTC_ce899/fast"]
-  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_ce899.dir/build.make CMakeFiles/cmTC_ce899.dir/build]
+  ignore line: [Run Build Command:"/usr/bin/gmake" "cmTC_77d9d/fast"]
+  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_77d9d.dir/build.make CMakeFiles/cmTC_77d9d.dir/build]
   ignore line: [gmake[1]: Entering directory '/home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp']
-  ignore line: [Building C object CMakeFiles/cmTC_ce899.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTC_ce899.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTC_ce899]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ce899.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/cc      -v CMakeFiles/cmTC_ce899.dir/CMakeCCompilerABI.c.o  -o cmTC_ce899 -rdynamic  ]
+  ignore line: [Building C object CMakeFiles/cmTC_77d9d.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc     -o CMakeFiles/cmTC_77d9d.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_77d9d]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_77d9d.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc      -v CMakeFiles/cmTC_77d9d.dir/CMakeCCompilerABI.c.o  -o cmTC_77d9d -rdynamic  ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/cc]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib64/gcc/x86_64-suse-linux/4.8/lto-wrapper]
@@ -85,8 +85,8 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 4.8.3 20140627 [gcc-4_8-branch revision 212064] (SUSE Linux) ]
   ignore line: [COMPILER_PATH=/usr/lib64/gcc/x86_64-suse-linux/4.8/:/usr/lib64/gcc/x86_64-suse-linux/4.8/:/usr/lib64/gcc/x86_64-suse-linux/:/usr/lib64/gcc/x86_64-suse-linux/4.8/:/usr/lib64/gcc/x86_64-suse-linux/:/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/bin/]
   ignore line: [LIBRARY_PATH=/usr/lib64/gcc/x86_64-suse-linux/4.8/:/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/lib/:/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ce899' '-rdynamic' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib64/gcc/x86_64-suse-linux/4.8/collect2 --build-id --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_ce899 /usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crt1.o /usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crti.o /usr/lib64/gcc/x86_64-suse-linux/4.8/crtbegin.o -L/usr/lib64/gcc/x86_64-suse-linux/4.8 -L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/lib -L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../.. CMakeFiles/cmTC_ce899.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib64/gcc/x86_64-suse-linux/4.8/crtend.o /usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_77d9d' '-rdynamic' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib64/gcc/x86_64-suse-linux/4.8/collect2 --build-id --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_77d9d /usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crt1.o /usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crti.o /usr/lib64/gcc/x86_64-suse-linux/4.8/crtbegin.o -L/usr/lib64/gcc/x86_64-suse-linux/4.8 -L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/lib -L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../.. CMakeFiles/cmTC_77d9d.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib64/gcc/x86_64-suse-linux/4.8/crtend.o /usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crtn.o]
     arg [/usr/lib64/gcc/x86_64-suse-linux/4.8/collect2] ==> ignore
     arg [--build-id] ==> ignore
     arg [--eh-frame-hdr] ==> ignore
@@ -96,7 +96,7 @@ Parsed C implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_ce899] ==> ignore
+    arg [cmTC_77d9d] ==> ignore
     arg [/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crt1.o] ==> ignore
     arg [/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crti.o] ==> ignore
     arg [/usr/lib64/gcc/x86_64-suse-linux/4.8/crtbegin.o] ==> ignore
@@ -106,7 +106,7 @@ Parsed C implicit link information from above output:
     arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
     arg [-L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/lib] ==> dir [/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/lib]
     arg [-L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../..] ==> dir [/usr/lib64/gcc/x86_64-suse-linux/4.8/../../..]
-    arg [CMakeFiles/cmTC_ce899.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_77d9d.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [--as-needed] ==> ignore
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -138,14 +138,14 @@ Parsed C implicit link information from above output:
 Detecting C [-std=c11] compiler features compiled with the following output:
 Change Dir: /home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_73917/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_73917.dir/build.make CMakeFiles/cmTC_73917.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_7fdad/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_7fdad.dir/build.make CMakeFiles/cmTC_7fdad.dir/build
 gmake[1]: Entering directory '/home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_73917.dir/feature_tests.c.o
-/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_73917.dir/feature_tests.c.o   -c /home/f85/msnelsen/CS420/StarWars/CMakeFiles/feature_tests.c
-Linking C executable cmTC_73917
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_73917.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_73917.dir/feature_tests.c.o  -o cmTC_73917 -rdynamic 
+Building C object CMakeFiles/cmTC_7fdad.dir/feature_tests.c.o
+/usr/bin/cc    -std=c11 -o CMakeFiles/cmTC_7fdad.dir/feature_tests.c.o   -c /home/f85/msnelsen/CS420/StarWars/CMakeFiles/feature_tests.c
+Linking C executable cmTC_7fdad
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7fdad.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_7fdad.dir/feature_tests.c.o  -o cmTC_7fdad -rdynamic 
 gmake[1]: Leaving directory '/home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp'
 
 
@@ -158,14 +158,14 @@ gmake[1]: Leaving directory '/home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeT
 Detecting C [-std=c99] compiler features compiled with the following output:
 Change Dir: /home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_8f215/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_8f215.dir/build.make CMakeFiles/cmTC_8f215.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_9d171/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_9d171.dir/build.make CMakeFiles/cmTC_9d171.dir/build
 gmake[1]: Entering directory '/home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_8f215.dir/feature_tests.c.o
-/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_8f215.dir/feature_tests.c.o   -c /home/f85/msnelsen/CS420/StarWars/CMakeFiles/feature_tests.c
-Linking C executable cmTC_8f215
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8f215.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_8f215.dir/feature_tests.c.o  -o cmTC_8f215 -rdynamic 
+Building C object CMakeFiles/cmTC_9d171.dir/feature_tests.c.o
+/usr/bin/cc    -std=c99 -o CMakeFiles/cmTC_9d171.dir/feature_tests.c.o   -c /home/f85/msnelsen/CS420/StarWars/CMakeFiles/feature_tests.c
+Linking C executable cmTC_9d171
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9d171.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_9d171.dir/feature_tests.c.o  -o cmTC_9d171 -rdynamic 
 gmake[1]: Leaving directory '/home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp'
 
 
@@ -178,14 +178,14 @@ gmake[1]: Leaving directory '/home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeT
 Detecting C [-std=c90] compiler features compiled with the following output:
 Change Dir: /home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_f6b73/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_f6b73.dir/build.make CMakeFiles/cmTC_f6b73.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_9ab67/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_9ab67.dir/build.make CMakeFiles/cmTC_9ab67.dir/build
 gmake[1]: Entering directory '/home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_f6b73.dir/feature_tests.c.o
-/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_f6b73.dir/feature_tests.c.o   -c /home/f85/msnelsen/CS420/StarWars/CMakeFiles/feature_tests.c
-Linking C executable cmTC_f6b73
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f6b73.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_f6b73.dir/feature_tests.c.o  -o cmTC_f6b73 -rdynamic 
+Building C object CMakeFiles/cmTC_9ab67.dir/feature_tests.c.o
+/usr/bin/cc    -std=c90 -o CMakeFiles/cmTC_9ab67.dir/feature_tests.c.o   -c /home/f85/msnelsen/CS420/StarWars/CMakeFiles/feature_tests.c
+Linking C executable cmTC_9ab67
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9ab67.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_9ab67.dir/feature_tests.c.o  -o cmTC_9ab67 -rdynamic 
 gmake[1]: Leaving directory '/home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp'
 
 
@@ -196,28 +196,28 @@ gmake[1]: Leaving directory '/home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeT
 Determining if the CXX compiler works passed with the following output:
 Change Dir: /home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_d3fdc/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_d3fdc.dir/build.make CMakeFiles/cmTC_d3fdc.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_9f02f/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_9f02f.dir/build.make CMakeFiles/cmTC_9f02f.dir/build
 gmake[1]: Entering directory '/home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_d3fdc.dir/testCXXCompiler.cxx.o
-/usr/bin/c++     -o CMakeFiles/cmTC_d3fdc.dir/testCXXCompiler.cxx.o -c /home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_d3fdc
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d3fdc.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_d3fdc.dir/testCXXCompiler.cxx.o  -o cmTC_d3fdc -rdynamic 
+Building CXX object CMakeFiles/cmTC_9f02f.dir/testCXXCompiler.cxx.o
+/usr/bin/c++      -o CMakeFiles/cmTC_9f02f.dir/testCXXCompiler.cxx.o -c /home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_9f02f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9f02f.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_9f02f.dir/testCXXCompiler.cxx.o  -o cmTC_9f02f -rdynamic 
 gmake[1]: Leaving directory '/home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp'
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: /home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_51ca3/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_51ca3.dir/build.make CMakeFiles/cmTC_51ca3.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_99f5e/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_99f5e.dir/build.make CMakeFiles/cmTC_99f5e.dir/build
 gmake[1]: Entering directory '/home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_51ca3.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/c++     -o CMakeFiles/cmTC_51ca3.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_51ca3
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_51ca3.dir/link.txt --verbose=1
-/usr/bin/c++       -v CMakeFiles/cmTC_51ca3.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_51ca3 -rdynamic  
+Building CXX object CMakeFiles/cmTC_99f5e.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++      -o CMakeFiles/cmTC_99f5e.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_99f5e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_99f5e.dir/link.txt --verbose=1
+/usr/bin/c++       -v CMakeFiles/cmTC_99f5e.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_99f5e -rdynamic  
 Using built-in specs.
 COLLECT_GCC=/usr/bin/c++
 COLLECT_LTO_WRAPPER=/usr/lib64/gcc/x86_64-suse-linux/4.8/lto-wrapper
@@ -227,8 +227,8 @@ Thread model: posix
 gcc version 4.8.3 20140627 [gcc-4_8-branch revision 212064] (SUSE Linux) 
 COMPILER_PATH=/usr/lib64/gcc/x86_64-suse-linux/4.8/:/usr/lib64/gcc/x86_64-suse-linux/4.8/:/usr/lib64/gcc/x86_64-suse-linux/:/usr/lib64/gcc/x86_64-suse-linux/4.8/:/usr/lib64/gcc/x86_64-suse-linux/:/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/bin/
 LIBRARY_PATH=/usr/lib64/gcc/x86_64-suse-linux/4.8/:/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/lib/:/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_51ca3' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /usr/lib64/gcc/x86_64-suse-linux/4.8/collect2 --build-id --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_51ca3 /usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crt1.o /usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crti.o /usr/lib64/gcc/x86_64-suse-linux/4.8/crtbegin.o -L/usr/lib64/gcc/x86_64-suse-linux/4.8 -L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/lib -L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../.. CMakeFiles/cmTC_51ca3.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib64/gcc/x86_64-suse-linux/4.8/crtend.o /usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_99f5e' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib64/gcc/x86_64-suse-linux/4.8/collect2 --build-id --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_99f5e /usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crt1.o /usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crti.o /usr/lib64/gcc/x86_64-suse-linux/4.8/crtbegin.o -L/usr/lib64/gcc/x86_64-suse-linux/4.8 -L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/lib -L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../.. CMakeFiles/cmTC_99f5e.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib64/gcc/x86_64-suse-linux/4.8/crtend.o /usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crtn.o
 gmake[1]: Leaving directory '/home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp'
 
 
@@ -236,14 +236,14 @@ Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/gmake" "cmTC_51ca3/fast"]
-  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_51ca3.dir/build.make CMakeFiles/cmTC_51ca3.dir/build]
+  ignore line: [Run Build Command:"/usr/bin/gmake" "cmTC_99f5e/fast"]
+  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_99f5e.dir/build.make CMakeFiles/cmTC_99f5e.dir/build]
   ignore line: [gmake[1]: Entering directory '/home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_51ca3.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTC_51ca3.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTC_51ca3]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_51ca3.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/c++       -v CMakeFiles/cmTC_51ca3.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_51ca3 -rdynamic  ]
+  ignore line: [Building CXX object CMakeFiles/cmTC_99f5e.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++      -o CMakeFiles/cmTC_99f5e.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_99f5e]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_99f5e.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++       -v CMakeFiles/cmTC_99f5e.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_99f5e -rdynamic  ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/c++]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib64/gcc/x86_64-suse-linux/4.8/lto-wrapper]
@@ -253,8 +253,8 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 4.8.3 20140627 [gcc-4_8-branch revision 212064] (SUSE Linux) ]
   ignore line: [COMPILER_PATH=/usr/lib64/gcc/x86_64-suse-linux/4.8/:/usr/lib64/gcc/x86_64-suse-linux/4.8/:/usr/lib64/gcc/x86_64-suse-linux/:/usr/lib64/gcc/x86_64-suse-linux/4.8/:/usr/lib64/gcc/x86_64-suse-linux/:/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/bin/]
   ignore line: [LIBRARY_PATH=/usr/lib64/gcc/x86_64-suse-linux/4.8/:/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/lib/:/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_51ca3' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib64/gcc/x86_64-suse-linux/4.8/collect2 --build-id --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_51ca3 /usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crt1.o /usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crti.o /usr/lib64/gcc/x86_64-suse-linux/4.8/crtbegin.o -L/usr/lib64/gcc/x86_64-suse-linux/4.8 -L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/lib -L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../.. CMakeFiles/cmTC_51ca3.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib64/gcc/x86_64-suse-linux/4.8/crtend.o /usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_99f5e' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib64/gcc/x86_64-suse-linux/4.8/collect2 --build-id --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_99f5e /usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crt1.o /usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crti.o /usr/lib64/gcc/x86_64-suse-linux/4.8/crtbegin.o -L/usr/lib64/gcc/x86_64-suse-linux/4.8 -L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/lib -L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../.. CMakeFiles/cmTC_99f5e.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib64/gcc/x86_64-suse-linux/4.8/crtend.o /usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crtn.o]
     arg [/usr/lib64/gcc/x86_64-suse-linux/4.8/collect2] ==> ignore
     arg [--build-id] ==> ignore
     arg [--eh-frame-hdr] ==> ignore
@@ -264,7 +264,7 @@ Parsed CXX implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_51ca3] ==> ignore
+    arg [cmTC_99f5e] ==> ignore
     arg [/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crt1.o] ==> ignore
     arg [/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crti.o] ==> ignore
     arg [/usr/lib64/gcc/x86_64-suse-linux/4.8/crtbegin.o] ==> ignore
@@ -274,7 +274,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
     arg [-L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/lib] ==> dir [/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/lib]
     arg [-L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../..] ==> dir [/usr/lib64/gcc/x86_64-suse-linux/4.8/../../..]
-    arg [CMakeFiles/cmTC_51ca3.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_99f5e.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -304,14 +304,14 @@ Parsed CXX implicit link information from above output:
 Detecting CXX [-std=c++1y] compiler features compiled with the following output:
 Change Dir: /home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_f718c/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_f718c.dir/build.make CMakeFiles/cmTC_f718c.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_00baf/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_00baf.dir/build.make CMakeFiles/cmTC_00baf.dir/build
 gmake[1]: Entering directory '/home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_f718c.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++1y -o CMakeFiles/cmTC_f718c.dir/feature_tests.cxx.o -c /home/f85/msnelsen/CS420/StarWars/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_f718c
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f718c.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_f718c.dir/feature_tests.cxx.o  -o cmTC_f718c -rdynamic 
+Building CXX object CMakeFiles/cmTC_00baf.dir/feature_tests.cxx.o
+/usr/bin/c++     -std=c++1y -o CMakeFiles/cmTC_00baf.dir/feature_tests.cxx.o -c /home/f85/msnelsen/CS420/StarWars/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_00baf
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_00baf.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_00baf.dir/feature_tests.cxx.o  -o cmTC_00baf -rdynamic 
 gmake[1]: Leaving directory '/home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp'
 
 
@@ -377,14 +377,14 @@ gmake[1]: Leaving directory '/home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeT
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
 Change Dir: /home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_1a281/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_1a281.dir/build.make CMakeFiles/cmTC_1a281.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_8451c/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_8451c.dir/build.make CMakeFiles/cmTC_8451c.dir/build
 gmake[1]: Entering directory '/home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_1a281.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++11 -o CMakeFiles/cmTC_1a281.dir/feature_tests.cxx.o -c /home/f85/msnelsen/CS420/StarWars/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_1a281
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1a281.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_1a281.dir/feature_tests.cxx.o  -o cmTC_1a281 -rdynamic 
+Building CXX object CMakeFiles/cmTC_8451c.dir/feature_tests.cxx.o
+/usr/bin/c++     -std=c++11 -o CMakeFiles/cmTC_8451c.dir/feature_tests.cxx.o -c /home/f85/msnelsen/CS420/StarWars/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_8451c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8451c.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_8451c.dir/feature_tests.cxx.o  -o cmTC_8451c -rdynamic 
 gmake[1]: Leaving directory '/home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp'
 
 
@@ -450,14 +450,14 @@ gmake[1]: Leaving directory '/home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeT
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
 Change Dir: /home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_9de95/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_9de95.dir/build.make CMakeFiles/cmTC_9de95.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_1006a/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_1006a.dir/build.make CMakeFiles/cmTC_1006a.dir/build
 gmake[1]: Entering directory '/home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_9de95.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++98 -o CMakeFiles/cmTC_9de95.dir/feature_tests.cxx.o -c /home/f85/msnelsen/CS420/StarWars/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_9de95
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9de95.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_9de95.dir/feature_tests.cxx.o  -o cmTC_9de95 -rdynamic 
+Building CXX object CMakeFiles/cmTC_1006a.dir/feature_tests.cxx.o
+/usr/bin/c++     -std=c++98 -o CMakeFiles/cmTC_1006a.dir/feature_tests.cxx.o -c /home/f85/msnelsen/CS420/StarWars/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_1006a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1006a.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_1006a.dir/feature_tests.cxx.o  -o cmTC_1006a -rdynamic 
 gmake[1]: Leaving directory '/home/f85/msnelsen/CS420/StarWars/CMakeFiles/CMakeTmp'
 
 

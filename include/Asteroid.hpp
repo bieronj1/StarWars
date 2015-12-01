@@ -6,17 +6,12 @@ class Asteroid : public sf::Drawable{
 	float vy;
 	float r;
 	bool collision = false;
-	sf::Texture texture;
 	Asteroid(float tlx, float tly, float tvx, float tvy, float tr){
 		lx=tlx;
 		ly=tly;
 		vx=tvx;
 		vy=tvy;
 		r=tr;
-		
-		if(!texture.loadFromFile("img/asteroid.png")){
-		  std::cerr<<"Couldn't load the thruster image\n";
-		}
 	}
 	
 	//update object location for new frame
@@ -41,13 +36,13 @@ class Asteroid : public sf::Drawable{
 	 virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const
     {
         // You can draw other high-level objects
-		sf::RectangleShape c;
-		c.setSize(sf::Vector2f(2*r, 2*r));
+		sf::CircleShape c;
+		c.setRadius(r);
 		//c.setPointCount(6);
-		c.setTexture(&texture);
+		c.setFillColor(sf::Color::Blue);
 		if(collision){c.setFillColor(sf::Color::Red);}
 		c.setPosition(lx+offx-r, ly+offy-r);
-                target.draw(c);
+        target.draw(c);
 		//sf::CircleShape ct;
 		//ct.setRadius(5);
 		//ct.setFillColor(sf::Color::Yellow);
