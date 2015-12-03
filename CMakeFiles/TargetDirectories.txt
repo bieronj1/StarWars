@@ -1,4 +1,4 @@
-/home/f85/hyli/StarWars/CMakeFiles/shipBuilder.dir
-/home/f85/hyli/StarWars/CMakeFiles/sandbox.dir
-/home/f85/hyli/StarWars/CMakeFiles/astroloot.dir
-/home/f85/hyli/StarWars/CMakeFiles/8x8menu.dir
+/home/keyvin/StarWars/CMakeFiles/8x8menu.dir
+/home/keyvin/StarWars/CMakeFiles/shipBuilder.dir
+/home/keyvin/StarWars/CMakeFiles/sandbox.dir
+/home/keyvin/StarWars/CMakeFiles/astroloot.dir

@@ -42,6 +42,7 @@ public:
     int str2int (const string &str);
     void loadSelection();
     std::vector<int> loadConfig();
+    string IntToString (int a);
 };
 
 screen_1::screen_1(void)
@@ -50,6 +51,7 @@ screen_1::screen_1(void)
     alpha_div = 3;
     playing = false;
 }
+
 int screen_1::str2int (const string &str) {
   stringstream ss(str);
   int num;
@@ -59,6 +61,14 @@ int screen_1::str2int (const string &str) {
   }
   return num;
 }
+
+string screen_1::IntToString (int a)
+{
+    ostringstream temp;
+    temp<<a;
+    return temp.str();
+}
+
 
 std::vector<int> screen_1::loadConfig(){
    std::vector<int> configVariables;
@@ -111,6 +121,10 @@ int screen_1::Run(sf::RenderWindow &App)
     	sf::RectangleShape rectangleBG2(sf::Vector2f(280, 40));
     	rectangleBG2.setFillColor(sf::Color(25, 30, 125));
     	rectangleBG2.setPosition(10,5);
+	sf::Clock clock;
+	sf::Time elapsed1 = clock.getElapsedTime();
+	int min = 0;
+	int sec = 0;
     	//sf::Texture Texture;
     	//sf::Sprite Sprite;
     	int alpha = 0;
@@ -123,6 +137,15 @@ int screen_1::Run(sf::RenderWindow &App)
         return (-1);
     	}
 	imageBG.setTexture(bgText);
+	sf::Sprite timeBG;
+	sf::Texture timeText;
+   	if (!timeText.loadFromFile("img/timeoverlay.png"))
+    	{
+        std::cerr << "timeoverlay.png" << std::endl;
+        return (-1);
+    	}
+	timeBG.setTexture(timeText);
+	timeBG.setPosition(0,37);
   	int FPS=120;
   	App.setFramerateLimit(FPS); 
 
@@ -135,6 +158,16 @@ int screen_1::Run(sf::RenderWindow &App)
 	{
 		std::cout<<"FONT FAILURE"<<std::endl;
 	}
+	sf::Font fontTime;
+	if (!fontTime.loadFromFile("digitalm.ttf"))
+	{
+		std::cout<<"FONT FAILURE"<<std::endl;
+	}
+	sf::Text timeCounter; 
+	timeCounter.setFont(fontTime); 
+	timeCounter.setCharacterSize(70);
+	timeCounter.setPosition(40, 40);  
+	timeCounter.setColor(sf::Color::White);
   	sf::Sprite mmoverlay;
   	sf::Texture mmText;
     	if (!mmText.loadFromFile("img/mmcover.png"))
@@ -216,8 +249,16 @@ int screen_1::Run(sf::RenderWindow &App)
     while (Running)
     {
         App.clear(sf::Color::Black); //prepare to draw on a clean slate
-	  
-	 
+	elapsed1 = clock.getElapsedTime();
+
+	if(elapsed1.asSeconds() > 180)
+		return(0);
+	min = (180-elapsed1.asSeconds())/60;
+	sec = (180-elapsed1.asSeconds()) - min*60;
+	if(sec > 9)
+		timeCounter.setString(IntToString(min)+":"+IntToString(sec)); 
+	else
+		timeCounter.setString(IntToString(min)+":0"+IntToString(sec)); 
     // process events
     sf::Event Event;
     while(App.pollEvent(Event))
@@ -343,6 +384,7 @@ int screen_1::Run(sf::RenderWindow &App)
     	sf::View minimap(sf::FloatRect(0,0,600,600));
     	sf::View mmOverlay(sf::FloatRect(0,0,300,300));
 	sf::View hOverlay(sf::FloatRect(0,0,300,200));
+	sf::View tOverlay(sf::FloatRect(0,0,300,200));
 	world.update();
 	exlaser.updateCD();
 	excannon.updateCD();
@@ -361,6 +403,7 @@ int screen_1::Run(sf::RenderWindow &App)
 	minimap.setViewport(sf::FloatRect(0.77f,0.6866f,0.21,0.2933));
 	mmOverlay.setViewport(sf::FloatRect(0.75f,0.6666f,0.25,0.3333));
 	hOverlay.setViewport(sf::FloatRect(0.375f,0.85f,0.25,0.2500));
+	tOverlay.setViewport(sf::FloatRect(0.0f,0.75f,0.25,0.2500));
 	App.setView(bg);
 	App.draw(imageBG);
 	App.setView(camera);
@@ -384,7 +427,9 @@ int screen_1::Run(sf::RenderWindow &App)
 	App.draw(healthOverlay);
 	App.setView(mmOverlay);
 	App.draw(mmoverlay);
-	
+	App.setView(tOverlay);
+	App.draw(timeBG);
+	App.draw(timeCounter);
 	App.display();
     }
 
