@@ -159,7 +159,7 @@ int screen_1::Run(sf::RenderWindow &App)
 		std::cout<<"FONT FAILURE"<<std::endl;
 	}
 	sf::Font fontTime;
-	if (!fontTime.loadFromFile("digi.TTF"))
+	if (!fontTime.loadFromFile("digitalm.ttf"))
 	{
 		std::cout<<"FONT FAILURE"<<std::endl;
 	}
@@ -230,7 +230,7 @@ int screen_1::Run(sf::RenderWindow &App)
 	
 	App.clear(sf::Color::Black);
   // start main loop
-
+sf::View camera(sf::FloatRect(0,0,1200,800));
 	Weapon* Weapons[3];
   
 //Test Weapon 0
@@ -252,7 +252,12 @@ int screen_1::Run(sf::RenderWindow &App)
 	elapsed1 = clock.getElapsedTime();
 
 	if(elapsed1.asSeconds() > 180)
+	{
+		camera.setCenter(600, 400);
+		camera.setRotation(0);
+		App.setView(camera);
 		return(0);
+	}
 	min = (180-elapsed1.asSeconds())/60;
 	sec = (180-elapsed1.asSeconds()) - min*60;
 	if(sec > 9)
@@ -379,7 +384,7 @@ int screen_1::Run(sf::RenderWindow &App)
 
 
 	App.clear(sf::Color::Black);
-	sf::View camera(sf::FloatRect(0,0,1200,800));
+	
 	sf::View bg(sf::FloatRect(0,0,1024,1024));
     	sf::View minimap(sf::FloatRect(0,0,600,600));
     	sf::View mmOverlay(sf::FloatRect(0,0,300,300));
