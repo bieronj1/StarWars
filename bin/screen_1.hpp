@@ -143,9 +143,9 @@ int screen_1::Run(sf::RenderWindow &App)
         return (-1);
     	}
     	
-    	  //This are the sound buffer s
+   //These are the sound buffers
     sf::SoundBuffer buffert;//thruster buffer
-    if (!buffert.loadFromFile("sounds/earthquake-03.wav"))
+    if (!buffert.loadFromFile("sounds/storm-01.wav"))
         return -1;
     sf::SoundBuffer bufferl;//laser buffer
     if (!bufferl.loadFromFile("sounds/Laser2.wav"))
@@ -153,16 +153,20 @@ int screen_1::Run(sf::RenderWindow &App)
 	//making sounds 
 	sf::Sound lasersound;
 	lasersound.setBuffer(bufferl);
+	lasersound.setVolume(30); 
 	sf::Sound thrustersound;
 	thrustersound.setBuffer(buffert); 
+	thrustersound.setVolume(80); 
     //int for keeping track of thrusters
     int thrustercounter = 0; 
  
-       sf::SoundBuffer buffera;//thruster buffer
+       sf::SoundBuffer buffera;//shieldbuffer
     if (!buffera.loadFromFile("sounds/hitabsorb.wav"))
         return -1;
     	sf::Sound shieldsound;
-	shieldsound.setBuffer(buffera); 
+	shieldsound.setBuffer(buffera);
+    shieldsound.setPitch(.8);
+    shieldsound.setVolume(30); 
     int shieldcounter = 0; 
    // shieldsound.setPitch(0.8); 
     
@@ -238,7 +242,7 @@ int screen_1::Run(sf::RenderWindow &App)
 		{pc.faster();
 		   thrustercounter = 1;
 		if (thrustersound.getStatus() != sf::Sound::Playing)
-		{ thrustersound.setPitch(1); 
+		{ thrustersound.setPitch(.5); 
 		  thrustersound.play();
 		  
 		}}
@@ -255,7 +259,7 @@ int screen_1::Run(sf::RenderWindow &App)
 	if(QWEASD[0]){pc.latLeft();
 	  thrustercounter = 1; 
 	  if (thrustersound.getStatus() != sf::Sound::Playing)
-		{ thrustersound.setPitch(1.2); 
+		{ thrustersound.setPitch(.6); 
 		  thrustersound.play();	
 		  
 		}}
@@ -263,7 +267,7 @@ int screen_1::Run(sf::RenderWindow &App)
 	if(QWEASD[2]){pc.latRight();
 	  thrustercounter = 1;
 	  if (thrustersound.getStatus() != sf::Sound::Playing)
-		{ thrustersound.setPitch(1.2); 
+		{ thrustersound.setPitch(.6); 
 		  thrustersound.play();	
 		   
 		}}
@@ -273,13 +277,8 @@ int screen_1::Run(sf::RenderWindow &App)
 	pc.shieldsUp=false;
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
 		//zoom=true;
-		pc.shieldsUp=true;
-		   shieldcounter = 1;
-		if (shieldsound.getStatus() != sf::Sound::Playing)
-		  shieldsound.play();
-		  
+		pc.shieldsUp=true;		  
 	}
-	
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::T)){
 		world.checkLinks();
 		std::cout<<"Check Complete"<<std::endl;
@@ -312,11 +311,19 @@ int screen_1::Run(sf::RenderWindow &App)
 	  thrustersound.pause();
 	else 
 	  thrustercounter = 0; 
+	
 	//for sheidl 
+	if (pc.displayShield > 10 && pc.shieldsUp == true)
+	  {
+	shieldcounter = 1;
+	if (shieldsound.getStatus() != sf::Sound::Playing)
+	shieldsound.play();}
+	
 	if (shieldcounter != 1)
 	  shieldsound.pause();
 	else 
 	  shieldcounter = 0; 
+	
 	//keys to pause music
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::N) == true)
 	{
