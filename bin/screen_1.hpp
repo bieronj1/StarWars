@@ -318,13 +318,17 @@ int screen_1::Run(sf::RenderWindow &App)
 	else 
 	  shieldcounter = 0; 
 	//keys to pause music
-	if(sf::Keyboard::isKeyPressed(sf::Keyboard::M) == true)
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::N) == true)
 	{
-	  if (bgmusic.getStatus() == sf::Sound::Playing)
 	    bgmusic.pause();
-	  else //if (bgmusic.getStatus() == sf::Sound::Paused)
+
+	}
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::M) == true)
+	{
+	    if (bgmusic.getStatus() == sf::Sound::Paused)
 	    bgmusic.play(); 
 	}
+
 
 	App.clear(sf::Color::Black);
 	sf::View camera(sf::FloatRect(0,0,1200,800));
