@@ -631,5 +631,5 @@ int screen_2::Run(sf::RenderWindow &App){
 	  }
 
 	  // Done.
-	  return 0;
+	  return (-1);
 }
