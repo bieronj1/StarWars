@@ -10,19 +10,39 @@
 #include <sstream>
 #include <SFML/Audio.hpp>
 
+
+
 class screen_3 : public cScreen
 {
 	public:
 		screen_3(void);
-		void loadPreviousWinner();
 		virtual int Run(sf::RenderWindow &App);
 		sf::Font font;
+		std::string mode;
+		std::string score;
+		void loadModeAndScore();
 	private:
 		int alpha_max;
     int alpha_div;
     bool playing;
 		
 	};
+	
+void screen_3::loadModeAndScore(){
+  std::ifstream myfile("bin/modeAndScore.txt");
+  std::string line;
+	if(!myfile.is_open())
+	{
+		std::cerr<<"Could not open the mode and score file\n";
+	}
+	getline(myfile, line);
+	mode = line;
+	getline(myfile, line);
+	score = line;
+  
+  
+}
+
 
 screen_3::screen_3(void)
 {
@@ -40,14 +60,29 @@ int screen_3::Run(sf::RenderWindow &App)
 	int FPS=60;
 	App.setFramerateLimit(FPS);
 	
+	loadModeAndScore();
+	
+	PlayerShip pc(450, 525,0.1,0.05,0.05);
+	pc.loadFromFileScored();
+	pc.setOrientation(3* M_PI / 2);
+
+	
+	sf::Text victoryText; victoryText.setFont(font);
+	victoryText.setPosition(350, 225); victoryText.setString("Your Score was:  ");
+	victoryText.setColor(sf::Color::Black);
+	
+	
+	sf::Text playerScore; playerScore.setFont(font);
+	playerScore.setPosition(700, 225); playerScore.setString(score);
+	playerScore.setColor(sf::Color::Black);
 	
 	
 	sf::Text exitToMenuText; exitToMenuText.setFont(font);
-	exitToMenuText.setPosition(400, 725); exitToMenuText.setString("Press Enter to Return to Main Menu");
+	exitToMenuText.setPosition(350, 725); exitToMenuText.setString("Press Enter to Return to Main Menu");
 	exitToMenuText.setColor(sf::Color::Black);
 	
 	sf::Text previousChampText; previousChampText.setFont(font);
-	previousChampText.setPosition(400, 425); previousChampText.setString("The previous Champion was:");
+	previousChampText.setPosition(350, 425); previousChampText.setString("The previous Champion was:");
 	previousChampText.setColor(sf::Color::Black);
 	
 	while(App.isOpen())
@@ -62,8 +97,11 @@ int screen_3::Run(sf::RenderWindow &App)
 	  
 	
 	 App.clear(sf::Color::White);
+	App.draw(victoryText);
 	App.draw(previousChampText);
 	App.draw(exitToMenuText);
+	App.draw(playerScore);
+	App.draw(pc);
 	App.display();
 	}
 	return(-1);
