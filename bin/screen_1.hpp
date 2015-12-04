@@ -43,6 +43,7 @@ public:
     virtual int Run(sf::RenderWindow &App);
     int str2int (const string &str);
     void loadSelection();
+    void saveScore();
     std::vector<int> loadConfig();
     string IntToString (int a);
 		bool gameOver;
@@ -72,6 +73,19 @@ string screen_1::IntToString (int a)
     ostringstream temp;
     temp<<a;
     return temp.str();
+}
+
+void screen_1::saveScore(){
+  std::ofstream ofs;
+  ofs.open("bin/modeAndScore.txt", std::ofstream::out| std::ofstream::trunc);
+  if(gameMode == 0){
+    ofs<<"classic\n"<<scoreholder->score;
+    
+  }else{
+    ofs<<"race\n"<<scoreholder->racescore;
+  }
+  
+  
 }
 
 
@@ -472,6 +486,7 @@ sf::View camera(sf::FloatRect(0,0,1200,800));
 		camera.setCenter(600, 400);
 		camera.setRotation(0);
 		App.setView(camera);
+		saveScore();
 		return (3);
 	}
 
