@@ -41,6 +41,7 @@ public:
     void loadSelection();
     std::vector<int> loadConfig();
     string IntToString (int a);
+		bool gameOver;
 };
 
 screen_1::screen_1(void)
@@ -48,6 +49,7 @@ screen_1::screen_1(void)
     alpha_max = 3 * 255;
     alpha_div = 3;
     playing = false;
+		gameOver = false;
 }
 
 int screen_1::str2int (const string &str) {
@@ -389,6 +391,9 @@ sf::View camera(sf::FloatRect(0,0,1200,800));
 	    if (bgmusic.getStatus() == sf::Sound::Paused)
 	    bgmusic.play(); 
 	}
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Return)){
+		gameOver = true;
+	}
 
 
 	App.clear(sf::Color::Black);
@@ -403,6 +408,7 @@ sf::View camera(sf::FloatRect(0,0,1200,800));
 	exlaser.updateCD();
 	excannon.updateCD();
 	camera.setCenter(1200+pc.lx, 1200+pc.ly);
+	
 	
 	//camera.move(1250-650+pc.lx,1250-500+pc.ly);
 	minimap.move(1250-350+pc.lx,1250-350+pc.ly);
@@ -432,7 +438,11 @@ sf::View camera(sf::FloatRect(0,0,1200,800));
 	
 	angle = atan2(world.xshifts,world.yshifts) + (pc.orientation) + 4.712f;
 	circ.setPosition(cos(angle)*150.0f+200,sin(angle)*150.0f+200);
+  
 
+	if(gameOver){
+		return (3);
+	}
 
 	App.setView(minimap);
 	App.draw(minimapback);
