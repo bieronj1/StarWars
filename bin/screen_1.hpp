@@ -42,11 +42,7 @@ public:
     int str2int (const string &str);
     void loadSelection();
     std::vector<int> loadConfig();
-<<<<<<< HEAD
-		
-=======
     string IntToString (int a);
->>>>>>> f4589cb5a7bab52465d1452508beae8f417680c6
 };
 
 screen_1::screen_1(void)
@@ -54,7 +50,6 @@ screen_1::screen_1(void)
     alpha_max = 3 * 255;
     alpha_div = 3;
     playing = false;
-
 }
 
 int screen_1::str2int (const string &str) {
@@ -130,12 +125,11 @@ int screen_1::Run(sf::RenderWindow &App)
 	sf::Time elapsed1 = clock.getElapsedTime();
 	int min = 0;
 	int sec = 0;
+	float angle;
     	//sf::Texture Texture;
     	//sf::Sprite Sprite;
     	int alpha = 0;
     	// create main window
-<<<<<<< HEAD
-=======
 	sf::Sprite imageBG;
 	sf::Texture bgText;
    	if (!bgText.loadFromFile("img/bgtile.jpg"))
@@ -153,7 +147,15 @@ int screen_1::Run(sf::RenderWindow &App)
     	}
 	timeBG.setTexture(timeText);
 	timeBG.setPosition(0,37);
->>>>>>> f4589cb5a7bab52465d1452508beae8f417680c6
+	sf::Sprite circ;
+	sf::Texture circText;
+   	if (!circText.loadFromFile("img/origin.png"))
+    	{
+        std::cerr << "circ.png" << std::endl;
+        return (-1);
+    	}
+	circ.setTexture(circText);
+	circ.setOrigin(15,15);
   	int FPS=120;
   	App.setFramerateLimit(FPS); 
 
@@ -184,11 +186,7 @@ int screen_1::Run(sf::RenderWindow &App)
         return (-1);
     	}
     	
-<<<<<<< HEAD
-    	  //This is the sound buffer 
-=======
    //These are the sound buffers
->>>>>>> f4589cb5a7bab52465d1452508beae8f417680c6
     sf::SoundBuffer buffert;//thruster buffer
     if (!buffert.loadFromFile("sounds/storm-01.wav"))
         return -1;
@@ -204,8 +202,6 @@ int screen_1::Run(sf::RenderWindow &App)
 	thrustersound.setVolume(80); 
     //int for keeping track of thrusters
     int thrustercounter = 0; 
-<<<<<<< HEAD
-=======
  
        sf::SoundBuffer buffera;//shieldbuffer
     if (!buffera.loadFromFile("sounds/hitabsorb.wav"))
@@ -218,7 +214,6 @@ int screen_1::Run(sf::RenderWindow &App)
    // shieldsound.setPitch(0.8); 
     
     
->>>>>>> f4589cb5a7bab52465d1452508beae8f417680c6
     //background music
     sf::Music bgmusic;
     if (!bgmusic.openFromFile("sounds/JBSorry.wav"))
@@ -338,11 +333,7 @@ sf::View camera(sf::FloatRect(0,0,1200,800));
 	pc.shieldsUp=false;
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
 		//zoom=true;
-<<<<<<< HEAD
-		pc.shieldsUp=true;
-=======
 		pc.shieldsUp=true;		  
->>>>>>> f4589cb5a7bab52465d1452508beae8f417680c6
 	}
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::T)){
 		world.checkLinks();
@@ -376,8 +367,6 @@ sf::View camera(sf::FloatRect(0,0,1200,800));
 	  thrustersound.pause();
 	else 
 	  thrustercounter = 0; 
-<<<<<<< HEAD
-=======
 	
 	//for sheidl 
 	if (pc.displayShield > 10 && pc.shieldsUp == true)
@@ -391,7 +380,6 @@ sf::View camera(sf::FloatRect(0,0,1200,800));
 	else 
 	  shieldcounter = 0; 
 	
->>>>>>> f4589cb5a7bab52465d1452508beae8f417680c6
 	//keys to pause music
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::N) == true)
 	{
@@ -406,16 +394,13 @@ sf::View camera(sf::FloatRect(0,0,1200,800));
 
 
 	App.clear(sf::Color::Black);
-<<<<<<< HEAD
-	sf::View camera(sf::FloatRect(0,0,1200,800));
-=======
 	
 	sf::View bg(sf::FloatRect(0,0,1024,1024));
->>>>>>> f4589cb5a7bab52465d1452508beae8f417680c6
     	sf::View minimap(sf::FloatRect(0,0,600,600));
     	sf::View mmOverlay(sf::FloatRect(0,0,300,300));
 	sf::View hOverlay(sf::FloatRect(0,0,300,200));
 	sf::View tOverlay(sf::FloatRect(0,0,300,200));
+	sf::View cOverlay(sf::FloatRect(0,0,400,400));
 	world.update();
 	exlaser.updateCD();
 	excannon.updateCD();
@@ -425,28 +410,32 @@ sf::View camera(sf::FloatRect(0,0,1200,800));
 	minimap.move(1250-350+pc.lx,1250-350+pc.ly);
 	camera.setRotation((pc.orientation+3.14/2.0)*180.0/M_PI);
 	minimap.setRotation((pc.orientation+3.14/2.0)*180.0/M_PI);
+	//cOverlay.setRotation((pc.orientation+3.14/2.0)*180.0/M_PI);
 	
 	if(zoom){
 	camera.zoom(5);}
 	minimap.zoom(3);
 	camera.setViewport(sf::FloatRect(0,0,1,1));
+	bg.setViewport(sf::FloatRect(0,0,1,1));
 	minimap.setViewport(sf::FloatRect(0.77f,0.6866f,0.21,0.2933));
 	mmOverlay.setViewport(sf::FloatRect(0.75f,0.6666f,0.25,0.3333));
 	hOverlay.setViewport(sf::FloatRect(0.375f,0.85f,0.25,0.2500));
-<<<<<<< HEAD
-=======
 	tOverlay.setViewport(sf::FloatRect(0.0f,0.75f,0.25,0.2500));
+	cOverlay.setViewport(sf::FloatRect(0.333f,0.25f,0.33333,0.5));
 	App.setView(bg);
 	App.draw(imageBG);
->>>>>>> f4589cb5a7bab52465d1452508beae8f417680c6
 	App.setView(camera);
-		
 	world.drawOnWindow(&App);
 	
 	rectangle.setSize(sf::Vector2f((int)(pc.returnDisplayHealth()*2.8f), 40));
 	rectangle2.setSize(sf::Vector2f((int)(pc.returnDisplayShield()*2.8f), 40));
 	sf::RectangleShape minimapback(sf::Vector2f(2500,2500));
 	minimapback.setFillColor(sf::Color(25,45,25));
+	
+	angle = atan2(world.xshifts,world.yshifts) + (pc.orientation) + 4.712f;
+	circ.setPosition(cos(angle)*150.0f+200,sin(angle)*150.0f+200);
+
+
 	App.setView(minimap);
 	App.draw(minimapback);
 	world.drawOnWindow(&App);
@@ -463,6 +452,9 @@ sf::View camera(sf::FloatRect(0,0,1200,800));
 	App.setView(tOverlay);
 	App.draw(timeBG);
 	App.draw(timeCounter);
+	App.setView(cOverlay);
+	if(abs(world.xshifts) + abs(world.yshifts) > 2)
+		App.draw(circ);
 	App.display();
     }
 
