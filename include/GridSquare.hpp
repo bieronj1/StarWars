@@ -12,6 +12,7 @@ ANY CHANGES TO THIS FILE AFTER 11/9 SHOULD BE LOGGED HERE.  NO CHANGES WITHOUT C
 class scoreHolder {
 	public:
 		int score = 0;
+		int racescore = 0;
 		int mode = 0;
 	scoreHolder(int m){mode = m;}
 };

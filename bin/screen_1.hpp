@@ -110,8 +110,13 @@ void screen_1::loadSelection(){
 	
 }
 
+
+
+
 int screen_1::Run(sf::RenderWindow &App)
-{		int mode = 0;
+{	 loadSelection();
+  std::cout<<gameMode<<std::endl;
+	    int mode = gameMode;
 		scoreholder = new scoreHolder(mode);
 	    gameOver = false;
     	sf::Event Event;

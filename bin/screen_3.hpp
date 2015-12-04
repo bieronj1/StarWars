@@ -20,6 +20,7 @@ class screen_3 : public cScreen
 		sf::Font font;
 		std::string mode;
 		std::string score;
+		void compareHighAndCurrent(std::string highScore, std::string current);
 		void loadModeAndScore();
 	private:
 		int alpha_max;
@@ -27,6 +28,13 @@ class screen_3 : public cScreen
     bool playing;
 		
 	};
+	
+
+void screen_3::compareHighAndCurrent(std::string highScore, std::string current){
+    
+  
+}
+
 	
 void screen_3::loadModeAndScore(){
   std::ifstream myfile("bin/modeAndScore.txt");

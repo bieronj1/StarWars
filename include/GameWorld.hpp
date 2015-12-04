@@ -147,9 +147,9 @@ class GameWorld {
 	private:
 	void shiftLeft(){
 		xshifts--;
-		if(scoreholder->mode == 2){
-			scoreholder->score= std::sqrt(xshifts*xshifts+yshifts*yshifts);
-		}
+		
+			scoreholder->racescore= std::sqrt(xshifts*xshifts+yshifts*yshifts);
+		
 		//destroy far left
 		for(int row=0;row<25;row++){
 			delete board[row][0];
@@ -199,9 +199,7 @@ class GameWorld {
 		xshifts++;
 		//destroy far left
 		
-		if(scoreholder->mode == 2){
-			scoreholder->score= std::sqrt(xshifts*xshifts+yshifts*yshifts);
-		}
+		scoreholder->racescore= std::sqrt(xshifts*xshifts+yshifts*yshifts);
 		for(int row=0;row<25;row++){
 			delete board[row][24];
 			board[row][23]->R=NULL;
@@ -250,10 +248,8 @@ class GameWorld {
 		yshifts--;
 		//destroy far top
 		
-		if(scoreholder->mode == 2){
-			scoreholder->score= std::sqrt(xshifts*xshifts+yshifts*yshifts);
-		}
-		std::cout<<scoreholder->score<<std::endl;
+		scoreholder->racescore= std::sqrt(xshifts*xshifts+yshifts*yshifts);
+		std::cout<<scoreholder->score<<":"<<scoreholder->racescore<<std::endl;
 		for(int col=0;col<25;col++){
 			delete board[0][col];
 			board[1][col]->U=NULL;
@@ -302,9 +298,7 @@ class GameWorld {
 		yshifts++;
 		//destroy far left
 		
-		if(scoreholder->mode == 2){
-			scoreholder->score= std::sqrt(xshifts*xshifts+yshifts*yshifts);
-		}
+		scoreholder->racescore= std::sqrt(xshifts*xshifts+yshifts*yshifts);
 		for(int col=0;col<25;col++){
 			delete board[24][col];
 			board[23][col]->D=NULL;
