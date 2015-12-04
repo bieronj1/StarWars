@@ -62,10 +62,13 @@ int screen_3::Run(sf::RenderWindow &App)
 	
 	loadModeAndScore();
 	
-	PlayerShip pc(450, 525,0.1,0.05,0.05);
+	PlayerShip pc(450, 575,0.1,0.05,0.05);
 	pc.loadFromFileScored();
 	pc.setOrientation(3* M_PI / 2);
 
+	sf::Text pcscore; pcscore.setFont(font);
+ 	pcscore.setPosition(700, 575); pcscore.setString(pc.score);
+	pcscore.setColor(sf::Color::Black);
 	
 	sf::Text victoryText; victoryText.setFont(font);
 	victoryText.setPosition(350, 225); victoryText.setString("Your Score was:  ");
@@ -95,13 +98,15 @@ int screen_3::Run(sf::RenderWindow &App)
 		}
 	  }
 	  
-	
+
 	 App.clear(sf::Color::White);
 	App.draw(victoryText);
+
 	App.draw(previousChampText);
 	App.draw(exitToMenuText);
 	App.draw(playerScore);
 	App.draw(pc);
+	App.draw(pcscore);
 	App.display();
 	}
 	return(-1);

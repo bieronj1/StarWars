@@ -8,6 +8,14 @@ ANY CHANGES TO THIS FILE AFTER 11/9 SHOULD BE LOGGED HERE.  NO CHANGES WITHOUT C
 #include "Enemy.hpp"
 #include "Asteroid.hpp"
 
+
+class scoreHolder {
+	public:
+		int score = 0;
+		int mode = 0;
+	scoreHolder(int m){mode = m;}
+};
+
 float SHIELD_RADIUS=38;//unknown at time of coding so left to compiler to propogate the value
 
 float inline dotProduct(float x1, float x2, float y1, float y2){
@@ -108,7 +116,9 @@ class GridSquare{
 	GridSquare* DR = NULL;
 	sf::Texture asteroidTexture;
 	int FPS;
+	scoreHolder * scoreholder;
 	GridSquare(){
+		scoreholder = new scoreHolder(0);
 		if(!asteroidTexture.loadFromFile("img/asteroid.png")){
 		  std::cerr<<"Couldn't load asteroid image\n";
 		}
@@ -120,7 +130,8 @@ class GridSquare{
  
 	}
 	
-	GridSquare(int fps){
+	GridSquare(int fps, scoreHolder * sh){
+		scoreholder = sh;
 		FPS=fps;
 		if(!asteroidTexture.loadFromFile("img/asteroid.png")){
 		  std::cerr<<"Couldn't load asteroid image\n";
@@ -670,7 +681,7 @@ class GridSquare{
 					}
 				}
 				
-				if(b->r<5){asteroids.erase(asteroids.begin()+j);}
+				if(b->r<5){asteroids.erase(asteroids.begin()+j); if(scoreholder->mode == 0){scoreholder->score+=100;}}
 			}
 			
 			//{std::cout<<"A"<<std::endl;}

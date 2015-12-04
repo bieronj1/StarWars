@@ -25,6 +25,9 @@ and gridsquare is in GameWorld
 
 static bool QWEASD[6]; //stores keypressed values
 
+//helper class that just holds the score
+
+
 
 class screen_1 : public cScreen
 {
@@ -34,6 +37,7 @@ private:
     bool playing;
     int gameMode = 0;
     int difficulty = 1;
+	scoreHolder* scoreholder;
 public:
     screen_1(void);
     virtual int Run(sf::RenderWindow &App);
@@ -45,7 +49,7 @@ public:
 };
 
 screen_1::screen_1(void)
-{
+{	scoreholder = new scoreHolder(1);
     alpha_max = 3 * 255;
     alpha_div = 3;
     playing = false;
@@ -53,6 +57,7 @@ screen_1::screen_1(void)
 }
 
 int screen_1::str2int (const string &str) {
+  scoreholder = new scoreHolder(1);
   stringstream ss(str);
   int num;
   if((ss >> num).fail())
@@ -106,7 +111,8 @@ void screen_1::loadSelection(){
 }
 
 int screen_1::Run(sf::RenderWindow &App)
-{
+{		int mode = 0;
+		scoreholder = new scoreHolder(mode);
 	    gameOver = false;
     	sf::Event Event;
     	bool Running = true;
@@ -262,7 +268,7 @@ sf::View camera(sf::FloatRect(0,0,1200,800));
   	cout << exlaser.getData(); 
   PlayerShip pc(50,50,0.035,0.035,0.015);
   	pc.setShields(true);
-  GameWorld world(&pc, FPS);
+  GameWorld world(&pc, FPS, scoreholder);
 
     if (playing)
     {
