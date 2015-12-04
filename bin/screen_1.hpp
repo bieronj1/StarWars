@@ -177,8 +177,8 @@ int screen_1::Run(sf::RenderWindow &App)
 //timer info
 	sf::Text timeCounter; 
 	timeCounter.setFont(fontTime); 
-	timeCounter.setCharacterSize(70);
-	timeCounter.setPosition(40, 40);  
+	timeCounter.setCharacterSize(50);
+	timeCounter.setPosition(30, 40);  
 	timeCounter.setColor(sf::Color::White);
 //text info
 		sf::Text gmodetext;
@@ -374,6 +374,10 @@ sf::View camera(sf::FloatRect(0,0,1200,800));
 				world.addItem(new Item(0, 0, excannon.spd * cos(pc.orientation)+pc.vx,excannon.spd * sin(pc.orientation)+pc.vy,7,10000,0), 607+pc.lx,607+pc.ly);
 
 			}
+	}
+//game over key
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::L)){
+		gameOver = true; 		  
 	}
 	//for thruster sounds 
 	if (thrustercounter != 1)
