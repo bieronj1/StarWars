@@ -49,6 +49,7 @@ class PlayerShip : public sf::Drawable{
 		bool hasMM = false;
 		int MMcooldown = 0; //MM cooldown in frames
 		int MMcd=0;
+		std::string score;
 		
 		Body body;
 		Nose nose;
@@ -68,11 +69,12 @@ class PlayerShip : public sf::Drawable{
 		void setShields(bool on);
 		void latLeft();
 		void magicTurn();
-		void setOrientation(float newOrientation); 
+		void setOrientation(float newOrientation);
 		void setBody(Body tbody);
 		void chooseBody(std::string bodyName);
 		void setRenderOffset(float x, float y);
 		void loadFromFile();
+		void loadFromFileScored();
 		void editHealth(int dmg);
 		void editShield(int dmg);
 		int returnHealth();

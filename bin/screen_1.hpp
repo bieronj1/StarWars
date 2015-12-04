@@ -107,6 +107,7 @@ void screen_1::loadSelection(){
 
 int screen_1::Run(sf::RenderWindow &App)
 {
+	    gameOver = false;
     	sf::Event Event;
     	bool Running = true;
     	sf::RectangleShape rectangle(sf::Vector2f(90, 40));
@@ -441,6 +442,9 @@ sf::View camera(sf::FloatRect(0,0,1200,800));
   
 
 	if(gameOver){
+		camera.setCenter(600, 400);
+		camera.setRotation(0);
+		App.setView(camera);
 		return (3);
 	}
 

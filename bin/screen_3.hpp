@@ -33,16 +33,22 @@ screen_3::screen_3(void)
 
 int screen_3::Run(sf::RenderWindow &App)
 {
-	if (!font.loadFromFile("lucon.ttf"))
+	if (!font.loadFromFile("LemonMilk.otf"))
 	{
 		std::cout<<"FONT FAILURE"<<std::endl;
 	}
 	int FPS=60;
 	App.setFramerateLimit(FPS);
 	
+	
+	
 	sf::Text exitToMenuText; exitToMenuText.setFont(font);
-	exitToMenuText.setPosition(650, 725); exitToMenuText.setString("Press Enter to Return to Main Menu");
+	exitToMenuText.setPosition(400, 725); exitToMenuText.setString("Press Enter to Return to Main Menu");
 	exitToMenuText.setColor(sf::Color::Black);
+	
+	sf::Text previousChampText; previousChampText.setFont(font);
+	previousChampText.setPosition(400, 425); previousChampText.setString("The previous Champion was:");
+	previousChampText.setColor(sf::Color::Black);
 	
 	while(App.isOpen())
 	{
@@ -53,10 +59,15 @@ int screen_3::Run(sf::RenderWindow &App)
 			return(0);
 		}
 	  }
-	}
+	  
 	
-	
-	App.clear(sf::Color::White);
+	 App.clear(sf::Color::White);
+	App.draw(previousChampText);
 	App.draw(exitToMenuText);
 	App.display();
+	}
+	return(-1);
+	
+	
+
 }

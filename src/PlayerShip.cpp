@@ -17,6 +17,29 @@ std::vector<std::string> split(const std::string &s, char delim) {
     return elems;
 }
 
+
+void PlayerShip::loadFromFileScored(){
+	std::ifstream myfile("bin/championState.txt");
+	std::string line;
+	if(!myfile.is_open())
+	{
+		std::cerr<<"Could not open the playership file\n";
+	}
+	getline (myfile, line);
+	chooseNose(line);
+	
+	getline(myfile, line);
+	chooseBody(line);	
+	
+	getline(myfile, line);
+	chooseTail(line);
+	
+	getline(myfile, line);
+	score = line;
+
+	
+}
+
 void PlayerShip::loadFromFile(){
 	std::ifstream myfile("bin/shipState.txt");
 	std::string line;
