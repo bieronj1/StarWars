@@ -72,9 +72,18 @@ PlayerShip::PlayerShip(float tlx, float tly, float tft, float tlt, float tr){
 void PlayerShip::update(){
 		lx+=vx;
 		ly+=vy;
-		displayShield += 1;
+		if(regenCD == 0)
+			displayShield += 1;
 		if(shieldsUp)
+		{
+			regenCD = 30;
 			displayShield -=3;
+		}
+		else
+		{
+			if(regenCD > 0)
+				regenCD--;
+		}
 		if(displayShield > 100)
 			displayShield = 100;
 		if(displayShield < 0)

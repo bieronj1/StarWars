@@ -37,7 +37,7 @@ class PlayerShip : public sf::Drawable{
 		int health = 100;
 		int displayHealth = 100;
 		int displayShield = 100;
-		
+		int regenCD = 0;
 		//shield stats
 		float shieldcap = 0;
 		float shieldhealth = 0;

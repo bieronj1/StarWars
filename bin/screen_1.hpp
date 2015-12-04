@@ -42,7 +42,11 @@ public:
     int str2int (const string &str);
     void loadSelection();
     std::vector<int> loadConfig();
+<<<<<<< HEAD
 		
+=======
+    string IntToString (int a);
+>>>>>>> f4589cb5a7bab52465d1452508beae8f417680c6
 };
 
 screen_1::screen_1(void)
@@ -52,6 +56,7 @@ screen_1::screen_1(void)
     playing = false;
 
 }
+
 int screen_1::str2int (const string &str) {
   stringstream ss(str);
   int num;
@@ -61,6 +66,14 @@ int screen_1::str2int (const string &str) {
   }
   return num;
 }
+
+string screen_1::IntToString (int a)
+{
+    ostringstream temp;
+    temp<<a;
+    return temp.str();
+}
+
 
 std::vector<int> screen_1::loadConfig(){
    std::vector<int> configVariables;
@@ -113,10 +126,34 @@ int screen_1::Run(sf::RenderWindow &App)
     	sf::RectangleShape rectangleBG2(sf::Vector2f(280, 40));
     	rectangleBG2.setFillColor(sf::Color(25, 30, 125));
     	rectangleBG2.setPosition(10,5);
+	sf::Clock clock;
+	sf::Time elapsed1 = clock.getElapsedTime();
+	int min = 0;
+	int sec = 0;
     	//sf::Texture Texture;
     	//sf::Sprite Sprite;
     	int alpha = 0;
     	// create main window
+<<<<<<< HEAD
+=======
+	sf::Sprite imageBG;
+	sf::Texture bgText;
+   	if (!bgText.loadFromFile("img/bgtile.jpg"))
+    	{
+        std::cerr << "bgtile.jpg" << std::endl;
+        return (-1);
+    	}
+	imageBG.setTexture(bgText);
+	sf::Sprite timeBG;
+	sf::Texture timeText;
+   	if (!timeText.loadFromFile("img/timeoverlay.png"))
+    	{
+        std::cerr << "timeoverlay.png" << std::endl;
+        return (-1);
+    	}
+	timeBG.setTexture(timeText);
+	timeBG.setPosition(0,37);
+>>>>>>> f4589cb5a7bab52465d1452508beae8f417680c6
   	int FPS=120;
   	App.setFramerateLimit(FPS); 
 
@@ -129,6 +166,16 @@ int screen_1::Run(sf::RenderWindow &App)
 	{
 		std::cout<<"FONT FAILURE"<<std::endl;
 	}
+	sf::Font fontTime;
+	if (!fontTime.loadFromFile("digitalm.ttf"))
+	{
+		std::cout<<"FONT FAILURE"<<std::endl;
+	}
+	sf::Text timeCounter; 
+	timeCounter.setFont(fontTime); 
+	timeCounter.setCharacterSize(70);
+	timeCounter.setPosition(40, 40);  
+	timeCounter.setColor(sf::Color::White);
   	sf::Sprite mmoverlay;
   	sf::Texture mmText;
     	if (!mmText.loadFromFile("img/mmcover.png"))
@@ -137,9 +184,13 @@ int screen_1::Run(sf::RenderWindow &App)
         return (-1);
     	}
     	
+<<<<<<< HEAD
     	  //This is the sound buffer 
+=======
+   //These are the sound buffers
+>>>>>>> f4589cb5a7bab52465d1452508beae8f417680c6
     sf::SoundBuffer buffert;//thruster buffer
-    if (!buffert.loadFromFile("sounds/earthquake-03.wav"))
+    if (!buffert.loadFromFile("sounds/storm-01.wav"))
         return -1;
     sf::SoundBuffer bufferl;//laser buffer
     if (!bufferl.loadFromFile("sounds/Laser2.wav"))
@@ -147,10 +198,27 @@ int screen_1::Run(sf::RenderWindow &App)
 	//making sounds 
 	sf::Sound lasersound;
 	lasersound.setBuffer(bufferl);
+	lasersound.setVolume(30); 
 	sf::Sound thrustersound;
 	thrustersound.setBuffer(buffert); 
+	thrustersound.setVolume(80); 
     //int for keeping track of thrusters
     int thrustercounter = 0; 
+<<<<<<< HEAD
+=======
+ 
+       sf::SoundBuffer buffera;//shieldbuffer
+    if (!buffera.loadFromFile("sounds/hitabsorb.wav"))
+        return -1;
+    	sf::Sound shieldsound;
+	shieldsound.setBuffer(buffera);
+    shieldsound.setPitch(.8);
+    shieldsound.setVolume(30); 
+    int shieldcounter = 0; 
+   // shieldsound.setPitch(0.8); 
+    
+    
+>>>>>>> f4589cb5a7bab52465d1452508beae8f417680c6
     //background music
     sf::Music bgmusic;
     if (!bgmusic.openFromFile("sounds/JBSorry.wav"))
@@ -177,7 +245,7 @@ int screen_1::Run(sf::RenderWindow &App)
 	
 	App.clear(sf::Color::Black);
   // start main loop
-
+sf::View camera(sf::FloatRect(0,0,1200,800));
 	Weapon* Weapons[3];
   
 //Test Weapon 0
@@ -196,8 +264,21 @@ int screen_1::Run(sf::RenderWindow &App)
     while (Running)
     {
         App.clear(sf::Color::Black); //prepare to draw on a clean slate
-	  
-	 
+	elapsed1 = clock.getElapsedTime();
+
+	if(elapsed1.asSeconds() > 180)
+	{
+		camera.setCenter(600, 400);
+		camera.setRotation(0);
+		App.setView(camera);
+		return(0);
+	}
+	min = (180-elapsed1.asSeconds())/60;
+	sec = (180-elapsed1.asSeconds()) - min*60;
+	if(sec > 9)
+		timeCounter.setString(IntToString(min)+":"+IntToString(sec)); 
+	else
+		timeCounter.setString(IntToString(min)+":0"+IntToString(sec)); 
     // process events
     sf::Event Event;
     while(App.pollEvent(Event))
@@ -222,7 +303,7 @@ int screen_1::Run(sf::RenderWindow &App)
 		{pc.faster();
 		   thrustercounter = 1;
 		if (thrustersound.getStatus() != sf::Sound::Playing)
-		{ thrustersound.setPitch(1); 
+		{ thrustersound.setPitch(.5); 
 		  thrustersound.play();
 		  
 		}}
@@ -239,7 +320,7 @@ int screen_1::Run(sf::RenderWindow &App)
 	if(QWEASD[0]){pc.latLeft();
 	  thrustercounter = 1; 
 	  if (thrustersound.getStatus() != sf::Sound::Playing)
-		{ thrustersound.setPitch(1.2); 
+		{ thrustersound.setPitch(.6); 
 		  thrustersound.play();	
 		  
 		}}
@@ -247,7 +328,7 @@ int screen_1::Run(sf::RenderWindow &App)
 	if(QWEASD[2]){pc.latRight();
 	  thrustercounter = 1;
 	  if (thrustersound.getStatus() != sf::Sound::Playing)
-		{ thrustersound.setPitch(1.2); 
+		{ thrustersound.setPitch(.6); 
 		  thrustersound.play();	
 		   
 		}}
@@ -257,7 +338,11 @@ int screen_1::Run(sf::RenderWindow &App)
 	pc.shieldsUp=false;
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
 		//zoom=true;
+<<<<<<< HEAD
 		pc.shieldsUp=true;
+=======
+		pc.shieldsUp=true;		  
+>>>>>>> f4589cb5a7bab52465d1452508beae8f417680c6
 	}
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::T)){
 		world.checkLinks();
@@ -291,20 +376,46 @@ int screen_1::Run(sf::RenderWindow &App)
 	  thrustersound.pause();
 	else 
 	  thrustercounter = 0; 
+<<<<<<< HEAD
+=======
+	
+	//for sheidl 
+	if (pc.displayShield > 10 && pc.shieldsUp == true)
+	  {
+	shieldcounter = 1;
+	if (shieldsound.getStatus() != sf::Sound::Playing)
+	shieldsound.play();}
+	
+	if (shieldcounter != 1)
+	  shieldsound.pause();
+	else 
+	  shieldcounter = 0; 
+	
+>>>>>>> f4589cb5a7bab52465d1452508beae8f417680c6
 	//keys to pause music
-	if(sf::Keyboard::isKeyPressed(sf::Keyboard::M) == true)
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::N) == true)
 	{
-	  if (bgmusic.getStatus() == sf::Sound::Playing)
 	    bgmusic.pause();
-	  else //if (bgmusic.getStatus() == sf::Sound::Paused)
+
+	}
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::M) == true)
+	{
+	    if (bgmusic.getStatus() == sf::Sound::Paused)
 	    bgmusic.play(); 
 	}
 
+
 	App.clear(sf::Color::Black);
+<<<<<<< HEAD
 	sf::View camera(sf::FloatRect(0,0,1200,800));
+=======
+	
+	sf::View bg(sf::FloatRect(0,0,1024,1024));
+>>>>>>> f4589cb5a7bab52465d1452508beae8f417680c6
     	sf::View minimap(sf::FloatRect(0,0,600,600));
     	sf::View mmOverlay(sf::FloatRect(0,0,300,300));
 	sf::View hOverlay(sf::FloatRect(0,0,300,200));
+	sf::View tOverlay(sf::FloatRect(0,0,300,200));
 	world.update();
 	exlaser.updateCD();
 	excannon.updateCD();
@@ -322,6 +433,12 @@ int screen_1::Run(sf::RenderWindow &App)
 	minimap.setViewport(sf::FloatRect(0.77f,0.6866f,0.21,0.2933));
 	mmOverlay.setViewport(sf::FloatRect(0.75f,0.6666f,0.25,0.3333));
 	hOverlay.setViewport(sf::FloatRect(0.375f,0.85f,0.25,0.2500));
+<<<<<<< HEAD
+=======
+	tOverlay.setViewport(sf::FloatRect(0.0f,0.75f,0.25,0.2500));
+	App.setView(bg);
+	App.draw(imageBG);
+>>>>>>> f4589cb5a7bab52465d1452508beae8f417680c6
 	App.setView(camera);
 		
 	world.drawOnWindow(&App);
@@ -343,7 +460,9 @@ int screen_1::Run(sf::RenderWindow &App)
 	App.draw(healthOverlay);
 	App.setView(mmOverlay);
 	App.draw(mmoverlay);
-	
+	App.setView(tOverlay);
+	App.draw(timeBG);
+	App.draw(timeCounter);
 	App.display();
     }
 
