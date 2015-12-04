@@ -202,14 +202,14 @@ int screen_1::Run(sf::RenderWindow &App)
 //timer info
 	sf::Text timeCounter; 
 	timeCounter.setFont(fontTime); 
-	timeCounter.setCharacterSize(50);
-	timeCounter.setPosition(30, 40);  
+	timeCounter.setCharacterSize(20);
+	timeCounter.setPosition(150, 10);  
 	timeCounter.setColor(sf::Color::White);
 //text info
 		sf::Text gmodetext;
 	gmodetext.setFont(fontTime); 
 	gmodetext.setCharacterSize(20);
-	gmodetext.setPosition(40, 10); 
+	gmodetext.setPosition(10, 10); 
 	gmodetext.setColor(sf::Color::White); 
 	if(gameMode==0)
 	  gmodetext.setString("Classic Mode"); 
@@ -219,8 +219,8 @@ int screen_1::Run(sf::RenderWindow &App)
 //score text info
 	 sf::Text scoremodetxt; 
 	 scoremodetxt.setFont(fontTime);
-	 scoremodetxt.setCharacterSize(50);
-	 scoremodetxt.setPosition(30, 60); 
+	 scoremodetxt.setCharacterSize(75);
+	 scoremodetxt.setPosition(40, 40); 
 	 scoremodetxt.setColor(sf::Color::White);
 	 
 	
