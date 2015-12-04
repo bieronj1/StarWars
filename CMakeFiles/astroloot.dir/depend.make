@@ -6,6 +6,7 @@ CMakeFiles/astroloot.dir/bin/astroloot.cpp.o: bin/cScreen.hpp
 CMakeFiles/astroloot.dir/bin/astroloot.cpp.o: bin/screen_0.hpp
 CMakeFiles/astroloot.dir/bin/astroloot.cpp.o: bin/screen_1.hpp
 CMakeFiles/astroloot.dir/bin/astroloot.cpp.o: bin/screen_2.hpp
+CMakeFiles/astroloot.dir/bin/astroloot.cpp.o: bin/screen_3.hpp
 CMakeFiles/astroloot.dir/bin/astroloot.cpp.o: bin/screens.hpp
 CMakeFiles/astroloot.dir/bin/astroloot.cpp.o: /home/f85/msnelsen/SFML/include/SFML/Audio.hpp
 CMakeFiles/astroloot.dir/bin/astroloot.cpp.o: /home/f85/msnelsen/SFML/include/SFML/Audio/AlResource.hpp
