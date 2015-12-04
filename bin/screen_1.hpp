@@ -279,7 +279,7 @@ sf::View camera(sf::FloatRect(0,0,1200,800));
     {
         App.clear(sf::Color::Black); //prepare to draw on a clean slate
 	elapsed1 = clock.getElapsedTime();
-
+	
 	if(elapsed1.asSeconds() > 180)
 	{
 		camera.setCenter(600, 400);

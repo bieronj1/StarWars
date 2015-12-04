@@ -681,7 +681,9 @@ class GridSquare{
 					}
 				}
 				
-				if(b->r<5){asteroids.erase(asteroids.begin()+j); if(scoreholder->mode == 0){scoreholder->score+=100;}}
+				if(b->r<5){asteroids.erase(asteroids.begin()+j); 
+					if(scoreholder->mode != 2){scoreholder->score+=10;}
+				}
 			}
 			
 			//{std::cout<<"A"<<std::endl;}

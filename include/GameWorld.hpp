@@ -12,6 +12,7 @@ class GameWorld {
 	GameWorld(PlayerShip * ps, int fps=120, scoreHolder* sh = NULL){
 		FPS=fps;
 		scoreholder = sh;
+		if(scoreholder == NULL)std::cout<<"FUCK"<<std::endl;
 		for(int i=0; i<25; i++){
 			for(int j=0; j<25; j++){
 				board[i][j] = new GridSquare(FPS, scoreholder);
@@ -116,10 +117,10 @@ class GameWorld {
 			if(pi==-1 || pj==-1)
 				{std::cout<<"PLAYER SHIP LOST"<<std::endl; exit(1);}
 			//std::cout<<pi<<","<<pj<<std::endl;
-			while(pj<12){shiftRight();pj++;std::cout<<std::sqrt(xshifts*xshifts+yshifts*yshifts)<<std::endl;}
-			while(pj>12){shiftLeft();pj--;std::cout<<std::sqrt(xshifts*xshifts+yshifts*yshifts)<<std::endl;}
-			while(pi<12){shiftDown();pi++;std::cout<<std::sqrt(xshifts*xshifts+yshifts*yshifts)<<std::endl;}
-			while(pi>12){shiftUp();pi--;std::cout<<std::sqrt(xshifts*xshifts+yshifts*yshifts)<<std::endl;}
+			while(pj<12){shiftRight();pj++;}
+			while(pj>12){shiftLeft();pj--;}
+			while(pi<12){shiftDown();pi++;}
+			while(pi>12){shiftUp();pi--;}
 			//std::cout<<pi<<","<<pj<<std::endl;
 		}
 	}
@@ -252,6 +253,7 @@ class GameWorld {
 		if(scoreholder->mode == 2){
 			scoreholder->score= std::sqrt(xshifts*xshifts+yshifts*yshifts);
 		}
+		std::cout<<scoreholder->score<<std::endl;
 		for(int col=0;col<25;col++){
 			delete board[0][col];
 			board[1][col]->U=NULL;
