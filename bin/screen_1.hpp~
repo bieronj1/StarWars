@@ -12,14 +12,12 @@
 using namespace std;
 /*
 these are in GridSquare: (p.s. I'll pretty this up later - Jamie)
-
 #include "PlayerShip.hpp"
 #include "Weapon.hpp"
 #include "CDetect.hpp"
 #include "Item.hpp"
 #Include "Enemy.hpp"
 #include "Asteroid.hpp"
-
 and gridsquare is in GameWorld
 */
 
@@ -43,6 +41,7 @@ public:
     void loadSelection();
     std::vector<int> loadConfig();
     string IntToString (int a);
+		bool gameOver;
 };
 
 screen_1::screen_1(void)
@@ -50,6 +49,7 @@ screen_1::screen_1(void)
     alpha_max = 3 * 255;
     alpha_div = 3;
     playing = false;
+		gameOver = false;
 }
 
 int screen_1::str2int (const string &str) {
@@ -107,6 +107,7 @@ void screen_1::loadSelection(){
 
 int screen_1::Run(sf::RenderWindow &App)
 {
+	    gameOver = false;
     	sf::Event Event;
     	bool Running = true;
     	sf::RectangleShape rectangle(sf::Vector2f(90, 40));
@@ -125,6 +126,7 @@ int screen_1::Run(sf::RenderWindow &App)
 	sf::Time elapsed1 = clock.getElapsedTime();
 	int min = 0;
 	int sec = 0;
+	float angle;
     	//sf::Texture Texture;
     	//sf::Sprite Sprite;
     	int alpha = 0;
@@ -146,6 +148,15 @@ int screen_1::Run(sf::RenderWindow &App)
     	}
 	timeBG.setTexture(timeText);
 	timeBG.setPosition(0,37);
+	sf::Sprite circ;
+	sf::Texture circText;
+   	if (!circText.loadFromFile("img/origin.png"))
+    	{
+        std::cerr << "circ.png" << std::endl;
+        return (-1);
+    	}
+	circ.setTexture(circText);
+	circ.setOrigin(15,15);
   	int FPS=120;
   	App.setFramerateLimit(FPS); 
 
@@ -381,6 +392,9 @@ sf::View camera(sf::FloatRect(0,0,1200,800));
 	    if (bgmusic.getStatus() == sf::Sound::Paused)
 	    bgmusic.play(); 
 	}
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Return)){
+		gameOver = true;
+	}
 
 
 	App.clear(sf::Color::Black);
@@ -390,15 +404,18 @@ sf::View camera(sf::FloatRect(0,0,1200,800));
     	sf::View mmOverlay(sf::FloatRect(0,0,300,300));
 	sf::View hOverlay(sf::FloatRect(0,0,300,200));
 	sf::View tOverlay(sf::FloatRect(0,0,300,200));
+	sf::View cOverlay(sf::FloatRect(0,0,400,400));
 	world.update();
 	exlaser.updateCD();
 	excannon.updateCD();
 	camera.setCenter(1200+pc.lx, 1200+pc.ly);
 	
+	
 	//camera.move(1250-650+pc.lx,1250-500+pc.ly);
 	minimap.move(1250-350+pc.lx,1250-350+pc.ly);
 	camera.setRotation((pc.orientation+3.14/2.0)*180.0/M_PI);
 	minimap.setRotation((pc.orientation+3.14/2.0)*180.0/M_PI);
+	//cOverlay.setRotation((pc.orientation+3.14/2.0)*180.0/M_PI);
 	
 	if(zoom){
 	camera.zoom(5);}
@@ -409,6 +426,7 @@ sf::View camera(sf::FloatRect(0,0,1200,800));
 	mmOverlay.setViewport(sf::FloatRect(0.75f,0.6666f,0.25,0.3333));
 	hOverlay.setViewport(sf::FloatRect(0.375f,0.85f,0.25,0.2500));
 	tOverlay.setViewport(sf::FloatRect(0.0f,0.75f,0.25,0.2500));
+	cOverlay.setViewport(sf::FloatRect(0.333f,0.25f,0.33333,0.5));
 	App.setView(bg);
 	App.draw(imageBG);
 	App.setView(camera);
@@ -419,6 +437,17 @@ sf::View camera(sf::FloatRect(0,0,1200,800));
 	sf::RectangleShape minimapback(sf::Vector2f(2500,2500));
 	minimapback.setFillColor(sf::Color(25,45,25));
 	
+	angle = atan2(world.xshifts,world.yshifts) + (pc.orientation) + 4.712f;
+	circ.setPosition(cos(angle)*150.0f+200,sin(angle)*150.0f+200);
+  
+
+	if(gameOver){
+		camera.setCenter(600, 400);
+		camera.setRotation(0);
+		App.setView(camera);
+		return (3);
+	}
+
 	App.setView(minimap);
 	App.draw(minimapback);
 	world.drawOnWindow(&App);
@@ -435,6 +464,9 @@ sf::View camera(sf::FloatRect(0,0,1200,800));
 	App.setView(tOverlay);
 	App.draw(timeBG);
 	App.draw(timeCounter);
+	App.setView(cOverlay);
+	if(abs(world.xshifts) + abs(world.yshifts) > 2)
+		App.draw(circ);
 	App.display();
     }
 

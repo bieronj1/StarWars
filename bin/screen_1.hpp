@@ -437,7 +437,7 @@ sf::View camera(sf::FloatRect(0,0,1200,800));
 	sf::RectangleShape minimapback(sf::Vector2f(2500,2500));
 	minimapback.setFillColor(sf::Color(25,45,25));
 	
-	angle = atan2(world.xshifts,world.yshifts) + (pc.orientation) + 4.712f;
+	angle = atan2(world.xshifts,world.yshifts) - (pc.orientation) + 4.712f;
 	circ.setPosition(cos(angle)*150.0f+200,sin(angle)*150.0f+200);
   
 

@@ -339,6 +339,7 @@ int screen_0::Run(sf::RenderWindow &App)
 			}
 		if(inRange(Event.mouseMove.x, GLOBAL_RES*2/3 + 125, Event.mouseMove.y, GLOBAL_RES*7/6 + 125, GLOBAL_RES/2 + 125))
 		{
+		
 		if(inRange(Event.mouseMove.x, GLOBAL_RES*2/3 + 125, Event.mouseMove.y, GLOBAL_RES*5/3 + 125, 125))
 			{
 			newHover = 0;
@@ -346,13 +347,16 @@ int screen_0::Run(sf::RenderWindow &App)
 			if (hoversound.getStatus() != sf::Sound::Playing)
 			  hoversound.play();
 			}
+		/*
 		else if(inRange(Event.mouseMove.x, GLOBAL_RES*2/3 + 125, Event.mouseMove.y, GLOBAL_RES*2/3 + 125, 125))
 			{
 			newHover = 1;
 					hovcount = 1; 
 			if (hoversound.getStatus() != sf::Sound::Playing)
 			  hoversound.play();
-			}			
+			}
+				
+		*/	
 		else if(inRange(Event.mouseMove.x, GLOBAL_RES*1/6 + 125, Event.mouseMove.y, GLOBAL_RES*7/6 + 125, 125))
 			{
 			newHover = 2;
@@ -360,6 +364,7 @@ int screen_0::Run(sf::RenderWindow &App)
 			if (hoversound.getStatus() != sf::Sound::Playing)
 			  hoversound.play();
 			}	
+		/*
 		else if(inRange(Event.mouseMove.x, GLOBAL_RES*7/6 + 125, Event.mouseMove.y, GLOBAL_RES*7/6 + 125, 125))
 			{			
 			newHover = 3; 
@@ -367,6 +372,7 @@ int screen_0::Run(sf::RenderWindow &App)
 			if (hoversound.getStatus() != sf::Sound::Playing)
 			  hoversound.play();
 			}
+		*/
 		}
 		else
 			newHover = -1;
