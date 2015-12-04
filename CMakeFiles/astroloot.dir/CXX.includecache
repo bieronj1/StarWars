@@ -87,26 +87,6 @@ sstream
 SFML/Audio.hpp
 -
 
-/home/f85/msnelsen/CS420/StarWars/bin/screen_3.hpp
-SFML/Graphics.hpp
--
-SFML/System.hpp
--
-string
--
-math.h
--
-fstream
--
-cmath
--
-map
--
-sstream
--
-SFML/Audio.hpp
--
-
 /home/f85/msnelsen/CS420/StarWars/bin/screens.hpp
 cScreen.hpp
 /home/f85/msnelsen/CS420/StarWars/bin/cScreen.hpp
@@ -116,8 +96,6 @@ screen_1.hpp
 /home/f85/msnelsen/CS420/StarWars/bin/screen_1.hpp
 screen_2.hpp
 /home/f85/msnelsen/CS420/StarWars/bin/screen_2.hpp
-screen_3.hpp
-/home/f85/msnelsen/CS420/StarWars/bin/screen_3.hpp
 
 /home/f85/msnelsen/CS420/StarWars/src/Body.cpp
 Body.hpp
