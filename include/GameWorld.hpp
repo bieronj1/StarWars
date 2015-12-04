@@ -5,14 +5,16 @@ class GameWorld {
 	public:
 	GridSquare* board[25][25]; //list of pointers -> easy to shift
 	// IT IS STORED [ROW][COL] AND DON'T FORGET!!!!
-
+	scoreHolder* scoreholder;
 	int xshifts = 0;
 	int yshifts = 0;
-	
-	GameWorld(PlayerShip * ps, int fps=120){
+	int FPS;
+	GameWorld(PlayerShip * ps, int fps=120, scoreHolder* sh = NULL){
+		FPS=fps;
+		scoreholder = sh;
 		for(int i=0; i<25; i++){
 			for(int j=0; j<25; j++){
-				board[i][j] = new GridSquare(fps);
+				board[i][j] = new GridSquare(FPS, scoreholder);
 			}
 		}
 		board[12][12]->playerIsHere=true;
@@ -144,6 +146,9 @@ class GameWorld {
 	private:
 	void shiftLeft(){
 		xshifts--;
+		if(scoreholder->mode == 2){
+			scoreholder->score= std::sqrt(xshifts*xshifts+yshifts*yshifts);
+		}
 		//destroy far left
 		for(int row=0;row<25;row++){
 			delete board[row][0];
@@ -159,7 +164,7 @@ class GameWorld {
 		}
 		//build far right
 		for(int row=0; row<25; row++){
-			board[row][24] = new GridSquare();
+			board[row][24] = new GridSquare(FPS, scoreholder);
 		}
 		//establish links (Right)
 		board[0][23]->R=board[0][24];
@@ -192,6 +197,10 @@ class GameWorld {
 	void shiftRight(){
 		xshifts++;
 		//destroy far left
+		
+		if(scoreholder->mode == 2){
+			scoreholder->score= std::sqrt(xshifts*xshifts+yshifts*yshifts);
+		}
 		for(int row=0;row<25;row++){
 			delete board[row][24];
 			board[row][23]->R=NULL;
@@ -206,7 +215,7 @@ class GameWorld {
 		}
 		//build far left
 		for(int row=0; row<25; row++){
-			board[row][0]= new GridSquare();
+			board[row][0]= new GridSquare(FPS, scoreholder);
 		}
 		//establish links (Right)
 		board[0][0]->R=board[0][1];
@@ -239,6 +248,10 @@ class GameWorld {
 	void shiftUp(){
 		yshifts--;
 		//destroy far top
+		
+		if(scoreholder->mode == 2){
+			scoreholder->score= std::sqrt(xshifts*xshifts+yshifts*yshifts);
+		}
 		for(int col=0;col<25;col++){
 			delete board[0][col];
 			board[1][col]->U=NULL;
@@ -253,7 +266,7 @@ class GameWorld {
 		}
 		//build far bottom
 		for(int col=0; col<25; col++){
-			board[24][col]= new GridSquare();
+			board[24][col]= new GridSquare(FPS, scoreholder);
 		}
 		//establish links (Down)
 		board[23][0]->D=board[24][0];
@@ -286,6 +299,10 @@ class GameWorld {
 	void shiftDown(){
 		yshifts++;
 		//destroy far left
+		
+		if(scoreholder->mode == 2){
+			scoreholder->score= std::sqrt(xshifts*xshifts+yshifts*yshifts);
+		}
 		for(int col=0;col<25;col++){
 			delete board[24][col];
 			board[23][col]->D=NULL;
@@ -301,7 +318,7 @@ class GameWorld {
 		}
 		//build far right
 		for(int col=0; col<25; col++){
-			board[0][col] = new GridSquare();
+			board[0][col] = new GridSquare(FPS, scoreholder);
 		}
 		//establish links (Down)
 		board[0][0]->D=board[1][0];

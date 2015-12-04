@@ -61,7 +61,7 @@ int screen_3::Run(sf::RenderWindow &App)
 	  }
 	  
 	
-	 App.clear(sf::Color::White);
+	App.clear(sf::Color::White);
 	App.draw(previousChampText);
 	App.draw(exitToMenuText);
 	App.display();
