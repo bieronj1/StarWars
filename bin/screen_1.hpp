@@ -164,21 +164,33 @@ int screen_1::Run(sf::RenderWindow &App)
   	loadSelection();
 
 	//taken from SFML official site
-  	sf::Font font;
-	if (!font.loadFromFile("lucon.ttf"))
-	{
-		std::cout<<"FONT FAILURE"<<std::endl;
-	}
+//   	sf::Font font;
+// 	if (!font.loadFromFile("lucon.ttf"))
+// 	{
+// 		std::cout<<"FONT FAILURE"<<std::endl;
+// 	}
 	sf::Font fontTime;
 	if (!fontTime.loadFromFile("digitalm.ttf"))
 	{
 		std::cout<<"FONT FAILURE"<<std::endl;
 	}
+//timer info
 	sf::Text timeCounter; 
 	timeCounter.setFont(fontTime); 
 	timeCounter.setCharacterSize(70);
 	timeCounter.setPosition(40, 40);  
 	timeCounter.setColor(sf::Color::White);
+//text info
+		sf::Text gmodetext;
+	gmodetext.setFont(fontTime); 
+	gmodetext.setCharacterSize(20);
+	gmodetext.setPosition(40, 10); 
+	gmodetext.setColor(sf::Color::White); 
+	if(gameMode==0)
+	  gmodetext.setString("Classic Mode"); 
+	else 
+	  gmodetext.setString("Race Mode"); 
+	
   	sf::Sprite mmoverlay;
   	sf::Texture mmText;
     	if (!mmText.loadFromFile("img/mmcover.png"))
@@ -461,9 +473,12 @@ sf::View camera(sf::FloatRect(0,0,1200,800));
 	App.draw(healthOverlay);
 	App.setView(mmOverlay);
 	App.draw(mmoverlay);
+	
+	
 	App.setView(tOverlay);
 	App.draw(timeBG);
 	App.draw(timeCounter);
+	App.draw(gmodetext); 
 	App.setView(cOverlay);
 	if(abs(world.xshifts) + abs(world.yshifts) > 2)
 		App.draw(circ);
