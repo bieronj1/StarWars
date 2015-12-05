@@ -14,6 +14,10 @@
 
 class screen_3 : public cScreen
 {
+	private:
+		int alpha_max;
+		int alpha_div;
+		bool playing;	
 	public:
 		screen_3(void);
 		virtual int Run(sf::RenderWindow &App);
@@ -24,10 +28,7 @@ class screen_3 : public cScreen
 		void loadModeAndScore();
 		void addUpgradePoints(std::string score);
 		int str2int(string &str);
-	private:
-		int alpha_max;
-    int alpha_div;
-    bool playing;
+
 		
 	};
 	

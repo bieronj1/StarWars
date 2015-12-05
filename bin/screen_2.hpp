@@ -492,6 +492,7 @@ int screen_2::Run(sf::RenderWindow &App){
 		pc.chooseNose(noseDict.at(menu.flippers.at(0).returnText()));
 		pc.chooseBody(bodyDict.at(menu.flippers.at(1).returnText()));
 		pc.chooseTail(tailDict.at(menu.flippers.at(2).returnText()));
+		
 	sf::SoundBuffer buffert;//thruster buffer
 	if (!buffert.loadFromFile("sounds/blip.wav"))
 	    return -1;
@@ -499,12 +500,6 @@ int screen_2::Run(sf::RenderWindow &App){
 	    sf::Sound clicksound;
 	    clicksound.setBuffer(buffert);
 	  sf::SoundBuffer buffern;//thruster buffer
-	if (!buffern.loadFromFile("sounds/neon.wav"))
-	    return -1;
-	    //making sounds 
-	    sf::Sound hoversound;
-	    hoversound.setBuffer(buffern);
-	hoversound.setPitch(.8); 
 	//background music
 	sf::Music bgmusic;
 	if (!bgmusic.openFromFile("sounds/GrimesOblivion.wav"))

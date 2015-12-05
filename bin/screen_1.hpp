@@ -54,7 +54,7 @@ screen_1::screen_1(void)
     alpha_max = 3 * 255;
     alpha_div = 3;
     playing = false;
-		gameOver = false;
+    gameOver = false;
 }
 
 int screen_1::str2int (const string &str) {
@@ -269,6 +269,20 @@ int screen_1::Run(sf::RenderWindow &App)
     shieldsound.setVolume(30); 
     int shieldcounter = 0; 
    // shieldsound.setPitch(0.8); 
+//more sounds
+
+    //about to die sound
+            sf::SoundBuffer bufferdie;//shieldbuffer
+     if (!bufferdie.loadFromFile("sounds/bad_feeling.wav"))
+         return -1;
+     	sf::Sound diesound;
+ 	diesound.setBuffer(bufferdie);
+        //timer sound
+         sf::SoundBuffer buffertime;
+    if (!buffertime.loadFromFile("sounds/countdown.wav"))
+	return -1;
+	sf::Sound timersound;
+	timersound.setBuffer(buffertime);
     
     //difficulty modes
     int timemode = 0; 
@@ -340,8 +354,9 @@ int screen_1::Run(sf::RenderWindow &App)
 		timeCounter.setString(IntToString(min)+":"+IntToString(sec)); 
 	else
 		timeCounter.setString(IntToString(min)+":0"+IntToString(sec)); 
-	
-	
+
+	if(sec == 5)
+	  timersound.play(); 
 	
 //Update Score
 	if(gameMode==0)
@@ -516,7 +531,9 @@ int screen_1::Run(sf::RenderWindow &App)
 	
 	angle = atan2(world.xshifts,world.yshifts) - (pc.orientation) + 4.712f;
 	circ.setPosition(cos(angle)*150.0f+200,sin(angle)*150.0f+200);
-  
+	//about to die sound
+	if (pc.displayHealth == 20)
+	  diesound.play(); 
 	if(pc.displayHealth<1)
 		gameOver=true;
 	if(gameOver){

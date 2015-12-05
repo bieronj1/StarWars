@@ -70,14 +70,14 @@ int screen_0::Run(sf::RenderWindow &App)
     int menu = 0;
     sf::Font font;
     sf::Text text;
-    diff = 1; 
+ //   diff = 1; 
 
     PlayerShip pc(900, 400,0.1,0.05,0.05);
     pc.setOrientation(3* M_PI / 2);
 
     font.loadFromFile("LemonMilk.otf");
     text.setFont(font);
-    text.setString("90 seconds");
+    text.setString(diffStr[diff]);
     text.setCharacterSize(35);
     text.setColor(sf::Color::Black);
     sf::FloatRect textRect = text.getLocalBounds();
