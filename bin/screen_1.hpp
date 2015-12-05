@@ -202,19 +202,27 @@ int screen_1::Run(sf::RenderWindow &App)
 //timer info
 	sf::Text timeCounter; 
 	timeCounter.setFont(fontTime); 
-	timeCounter.setCharacterSize(50);
-	timeCounter.setPosition(30, 40);  
+	timeCounter.setCharacterSize(20);
+	timeCounter.setPosition(150, 10);  
 	timeCounter.setColor(sf::Color::White);
 //text info
 		sf::Text gmodetext;
 	gmodetext.setFont(fontTime); 
 	gmodetext.setCharacterSize(20);
-	gmodetext.setPosition(40, 10); 
+	gmodetext.setPosition(10, 10); 
 	gmodetext.setColor(sf::Color::White); 
 	if(gameMode==0)
 	  gmodetext.setString("Classic Mode"); 
 	else 
 	  gmodetext.setString("Race Mode"); 
+	
+//score text info
+	 sf::Text scoremodetxt; 
+	 scoremodetxt.setFont(fontTime);
+	 scoremodetxt.setCharacterSize(75);
+	 scoremodetxt.setPosition(40, 40); 
+	 scoremodetxt.setColor(sf::Color::White);
+	 
 	
   	sf::Sprite mmoverlay;
   	sf::Texture mmText;
@@ -277,8 +285,8 @@ int screen_1::Run(sf::RenderWindow &App)
 
 	
 	App.clear(sf::Color::Black);
-  // start main loop
-sf::View camera(sf::FloatRect(0,0,1200,800));
+// start main loop
+	sf::View camera(sf::FloatRect(0,0,1200,800));
 	Weapon* Weapons[3];
   
 //Test Weapon 0
@@ -306,12 +314,19 @@ sf::View camera(sf::FloatRect(0,0,1200,800));
 		App.setView(camera);
 		return(0);
 	}
+//TIMER INFO 
 	min = (180-elapsed1.asSeconds())/60;
 	sec = (180-elapsed1.asSeconds()) - min*60;
 	if(sec > 9)
 		timeCounter.setString(IntToString(min)+":"+IntToString(sec)); 
 	else
 		timeCounter.setString(IntToString(min)+":0"+IntToString(sec)); 
+	
+//Update Score
+	if(gameMode==0)
+	  scoremodetxt.setString(IntToString(scoreholder->score)); 
+	else 
+	  scoremodetxt.setString(IntToString(scoreholder->racescore)); 
     // process events
     sf::Event Event;
     while(App.pollEvent(Event))
@@ -509,6 +524,7 @@ sf::View camera(sf::FloatRect(0,0,1200,800));
 	App.draw(timeBG);
 	App.draw(timeCounter);
 	App.draw(gmodetext); 
+	App.draw(scoremodetxt); 
 	App.setView(cOverlay);
 	if(abs(world.xshifts) + abs(world.yshifts) > 2)
 		App.draw(circ);
