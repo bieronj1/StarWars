@@ -88,7 +88,7 @@ void screen_1::saveScore(){
   
 }
 
-
+/*
 std::vector<int> screen_1::loadConfig(){
    std::vector<int> configVariables;
    std::string line;
@@ -100,7 +100,7 @@ std::vector<int> screen_1::loadConfig(){
    return configVariables;
    
 }
-
+*/
 
 void screen_1::loadSelection(){
 	std::ifstream myfile("bin/select.txt");
@@ -129,6 +129,14 @@ void screen_1::loadSelection(){
 
 int screen_1::Run(sf::RenderWindow &App)
 {	 loadSelection();
+	 std::vector<int> playerstats;
+	 std::string line;
+   std::ifstream myfile("bin/upgradeState.txt");
+   while(getline(myfile, line)){
+     int i = str2int(line);
+	 std::cout<<i<<std::endl;
+     playerstats.push_back(i);
+   }
   std::cout<<gameMode<<std::endl;
 	    int mode = gameMode;
 		scoreholder = new scoreHolder(mode);
@@ -202,14 +210,16 @@ int screen_1::Run(sf::RenderWindow &App)
 //timer info
 	sf::Text timeCounter; 
 	timeCounter.setFont(fontTime); 
+	//DO NOT TOUCH
 	timeCounter.setCharacterSize(20);
 	timeCounter.setPosition(150, 10);  
+	//GO
 	timeCounter.setColor(sf::Color::White);
 //text info
 		sf::Text gmodetext;
 	gmodetext.setFont(fontTime); 
 	gmodetext.setCharacterSize(20);
-	gmodetext.setPosition(10, 10); 
+	gmodetext.setPosition(10, 10);//KEEP 
 	gmodetext.setColor(sf::Color::White); 
 	if(gameMode==0)
 	  gmodetext.setString("Classic Mode"); 
@@ -290,10 +300,11 @@ int screen_1::Run(sf::RenderWindow &App)
 	Weapon* Weapons[3];
   
 //Test Weapon 0
-	Weapon exlaser(0, 2, 2, 5, 0);
-	Weapon excannon(0, 20, 2, 5, 0);
+	Weapon exlaser(0, 2+(5-playerstats[2]), 2, 5, 0);
+	Weapon excannon(0, playerstats[5]+10, 2, 5, 0);
   	cout << exlaser.getData(); 
-  PlayerShip pc(50,50,0.035,0.035,0.015);
+	cout<<playerstats[0]<<","<<playerstats[1]<<","<<playerstats[2]<<","<<playerstats[3]<<","<<playerstats[4]<<","<<playerstats[5]<<","<<playerstats[6]<<std::endl;
+  PlayerShip pc(50,50,0.025+0.002*playerstats[6],0.025+0.002*playerstats[7],0.010+0.001*playerstats[8]);
   	pc.setShields(true);
   GameWorld world(&pc, FPS, scoreholder);
 
@@ -397,7 +408,7 @@ int screen_1::Run(sf::RenderWindow &App)
     	// left click...
 		if(exlaser.fire())
 			{
-				world.addItem(new Item(0, 0, exlaser.spd * cos(pc.orientation)+pc.vx,exlaser.spd * sin(pc.orientation)+pc.vy,3,0,10), 600+pc.lx,600+pc.ly);
+				world.addItem(new Item(0, 0, exlaser.spd * cos(pc.orientation)+pc.vx,exlaser.spd * sin(pc.orientation)+pc.vy,3,0,2*(1+playerstats[0])), 600+pc.lx,600+pc.ly);
 			 lasersound.setPitch(1.0); 
 				lasersound.play(); 
 			}
@@ -408,10 +419,10 @@ int screen_1::Run(sf::RenderWindow &App)
     	// right click...
 		if(excannon.fire())
 			{
-				world.addItem(new Item(0, 0, excannon.spd * cos(pc.orientation)+pc.vx,excannon.spd * sin(pc.orientation)+pc.vy,3,10000,0), 600+pc.lx,600+pc.ly);
+				world.addItem(new Item(0, 0, excannon.spd * cos(pc.orientation)+pc.vx,excannon.spd * sin(pc.orientation)+pc.vy,3,1000+1000*3,0), 600+pc.lx,600+pc.ly);
 			lasersound.setPitch(.5); 
 			  lasersound.play(); 
-				world.addItem(new Item(0, 0, excannon.spd * cos(pc.orientation)+pc.vx,excannon.spd * sin(pc.orientation)+pc.vy,7,10000,0), 607+pc.lx,607+pc.ly);
+				//world.addItem(new Item(0, 0, excannon.spd * cos(pc.orientation)+pc.vx,excannon.spd * sin(pc.orientation)+pc.vy,7,10000,0), 607+pc.lx,607+pc.ly);
 
 			}
 	}
