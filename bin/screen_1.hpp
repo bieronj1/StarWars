@@ -333,6 +333,8 @@ int screen_1::Run(sf::RenderWindow &App)
 	else
 		timeCounter.setString(IntToString(min)+":0"+IntToString(sec)); 
 	
+	
+	
 //Update Score
 	if(gameMode==0)
 	  scoremodetxt.setString(IntToString(scoreholder->score)); 
@@ -507,7 +509,8 @@ int screen_1::Run(sf::RenderWindow &App)
 	angle = atan2(world.xshifts,world.yshifts) - (pc.orientation) + 4.712f;
 	circ.setPosition(cos(angle)*150.0f+200,sin(angle)*150.0f+200);
   
-
+	if(pc.displayHealth<1)
+		gameOver=true;
 	if(gameOver){
 		camera.setCenter(600, 400);
 		camera.setRotation(0);
