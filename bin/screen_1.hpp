@@ -155,6 +155,7 @@ int screen_1::Run(sf::RenderWindow &App)
     	sf::RectangleShape rectangleBG2(sf::Vector2f(280, 40));
     	rectangleBG2.setFillColor(sf::Color(25, 30, 125));
     	rectangleBG2.setPosition(10,5);
+//clock info 
 	sf::Clock clock;
 	sf::Time elapsed1 = clock.getElapsedTime();
 	int min = 0;
@@ -318,16 +319,16 @@ int screen_1::Run(sf::RenderWindow &App)
         App.clear(sf::Color::Black); //prepare to draw on a clean slate
 	elapsed1 = clock.getElapsedTime();
 	
-	if(elapsed1.asSeconds() > 180)
+	if(elapsed1.asSeconds() > 30)
 	{
 		camera.setCenter(600, 400);
 		camera.setRotation(0);
 		App.setView(camera);
-		return(0);
+		return(3);
 	}
 //TIMER INFO 
-	min = (180-elapsed1.asSeconds())/60;
-	sec = (180-elapsed1.asSeconds()) - min*60;
+	min = (30-elapsed1.asSeconds())/60;
+	sec = (30-elapsed1.asSeconds()) - min*60;
 	if(sec > 9)
 		timeCounter.setString(IntToString(min)+":"+IntToString(sec)); 
 	else

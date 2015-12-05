@@ -108,6 +108,13 @@ int screen_3::Run(sf::RenderWindow &App)
 		std::cout<<"FONT FAILURE"<<std::endl;
 	}
 	int FPS=60;
+//sound 
+      sf::Music bgmusic;
+      if (!bgmusic.openFromFile("sounds/jabba.wav"))
+      return -1; // error
+      bgmusic.play();
+      bgmusic.setLoop(false); 
+    
 	App.setFramerateLimit(FPS);
 	
 	loadModeAndScore();
