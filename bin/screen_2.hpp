@@ -598,7 +598,6 @@ int screen_2::Run(sf::RenderWindow &App){
 				stats[i] += 1;
 		stats[i] -= 1; 
 		upString[i].setString(" " + costSTR[stats[i]]);
-		std::cout<<costSTR[stats[i]]<<std::endl; 
 		App.draw(upString[i]);
 		
 		App.draw(expSprite[i]);
