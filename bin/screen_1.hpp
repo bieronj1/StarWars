@@ -304,7 +304,7 @@ int screen_1::Run(sf::RenderWindow &App)
 	Weapon excannon(0, playerstats[5]+10, 2, 5, 0);
   	cout << exlaser.getData(); 
 	cout<<playerstats[0]<<","<<playerstats[1]<<","<<playerstats[2]<<","<<playerstats[3]<<","<<playerstats[4]<<","<<playerstats[5]<<","<<playerstats[6]<<std::endl;
-  PlayerShip pc(50,50,0.025+0.002*playerstats[6],0.025+0.002*playerstats[7],0.010+0.001*playerstats[8]);
+  PlayerShip pc(50,50,0.025+0.002*playerstats[6],0.025+0.002*playerstats[7],0.0008+0.0003*playerstats[8]);
   	pc.setShields(true);
   GameWorld world(&pc, FPS, scoreholder);
 
