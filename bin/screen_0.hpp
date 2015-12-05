@@ -62,22 +62,23 @@ int screen_0::Run(sf::RenderWindow &App)
     bool Running = true;
     //sf::Texture Texture;
     //sf::Sprite Sprite;
-    diffStr[0] = "Easy";
-    diffStr[1] = "Medium";
-    diffStr[2] = "Difficult";
+    diffStr[0] = "30 seconds";
+    diffStr[1] = "90 seconds";
+    diffStr[2] = "3 minutes";
     int alpha = 0;
     sf::Font Font;
     int menu = 0;
     sf::Font font;
     sf::Text text;
+    diff = 1; 
 
     PlayerShip pc(900, 400,0.1,0.05,0.05);
     pc.setOrientation(3* M_PI / 2);
 
     font.loadFromFile("LemonMilk.otf");
     text.setFont(font);
-    text.setString("Medium");
-    text.setCharacterSize(40);
+    text.setString("90 seconds");
+    text.setCharacterSize(35);
     text.setColor(sf::Color::Black);
     sf::FloatRect textRect = text.getLocalBounds();
     text.setOrigin(textRect.left + textRect.width/2.0f,

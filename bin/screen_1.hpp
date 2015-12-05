@@ -270,6 +270,13 @@ int screen_1::Run(sf::RenderWindow &App)
     int shieldcounter = 0; 
    // shieldsound.setPitch(0.8); 
     
+    //difficulty modes
+    int timemode = 0; 
+    if(difficulty == 0)
+    timemode = 30;
+    else if (difficulty ==1)
+    timemode= 90;
+    else timemode = 180; 
     
     //background music
     sf::Music bgmusic;
@@ -319,7 +326,7 @@ int screen_1::Run(sf::RenderWindow &App)
         App.clear(sf::Color::Black); //prepare to draw on a clean slate
 	elapsed1 = clock.getElapsedTime();
 	
-	if(elapsed1.asSeconds() > 30)
+	if(elapsed1.asSeconds() > timemode)
 	{
 		camera.setCenter(600, 400);
 		camera.setRotation(0);
@@ -327,8 +334,8 @@ int screen_1::Run(sf::RenderWindow &App)
 		return(3);
 	}
 //TIMER INFO 
-	min = (30-elapsed1.asSeconds())/60;
-	sec = (30-elapsed1.asSeconds()) - min*60;
+	min = (timemode -elapsed1.asSeconds())/60;
+	sec = (timemode -elapsed1.asSeconds()) - min*60;
 	if(sec > 9)
 		timeCounter.setString(IntToString(min)+":"+IntToString(sec)); 
 	else
