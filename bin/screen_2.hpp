@@ -18,9 +18,9 @@
 class screen_2 : public cScreen
 {
 private:
-    int alpha_max;
-    int alpha_div;
-    bool playing;
+//     int alpha_max;
+//     int alpha_div;
+//     bool playing;
     sf::Texture expText [6];
     sf::Sprite expSprite [10];
     sf::Sprite upSprite [10];
@@ -35,15 +35,15 @@ public:
     virtual int Run(sf::RenderWindow &App);
     std::string loadx();
     void loadstats();
-		int str2int (const string &str);
-		string IntToString (int a);
-		std::map<std::string, std::string> loadNoses();
-		std::map<std::string, std::string> loadBodies();
-		std::map<std::string, std::string> loadTails();
-		void saveState(std::string nose, std::string body, std::string tail);
-		void saveStats();
-		void savePoints();
-		bool mouseOnSprite(sf::Sprite &av_Sprite, sf::RenderWindow &av_Window);
+    int str2int (const string &str);
+    string IntToString (int a);
+    std::map<std::string, std::string> loadNoses();
+    std::map<std::string, std::string> loadBodies();
+    std::map<std::string, std::string> loadTails();
+    void saveState(std::string nose, std::string body, std::string tail);
+    void saveStats();
+    void savePoints();
+    bool mouseOnSprite(sf::Sprite &av_Sprite, sf::RenderWindow &av_Window);
 };
 
 
@@ -83,7 +83,8 @@ int screen_2::str2int (const string &str) {
   int num;
   if((ss >> num).fail())
   { 
-      //ERROR 
+   std::cout<<"error with s2int"<<std::endl; 
+    //ERROR 
   }
   return num;
 }
@@ -210,9 +211,10 @@ void screen_2::savePoints(){
 
 screen_2::screen_2(void)
 {
-    alpha_max = 3 * 255;
-    alpha_div = 3;
-    playing = false;
+//     alpha_max = 3 * 255;
+//     alpha_div = 3;
+//     playing = false;
+
 }
 
 int screen_2::Run(sf::RenderWindow &App){
@@ -291,6 +293,7 @@ int screen_2::Run(sf::RenderWindow &App){
 		points.setPosition(80, 50); 
 		std::string thepoints = loadx();
 		points.setString(thepoints + " UPGRADE POINTS"); 
+		
 		loadstats();
 	//Setting up sprites for exp bar
 		expSprite[0].setTexture(expText[stats[0]]);
@@ -505,10 +508,7 @@ int screen_2::Run(sf::RenderWindow &App){
 	if (!bgmusic.openFromFile("sounds/GrimesOblivion.wav"))
 	return -1; // error
 	bgmusic.play();
-	bgmusic.setLoop(true); 
-	int hovcount = 0; 
-
-		
+	bgmusic.setLoop(true); 		
 		
 	  // start main loop
 	  while(App.isOpen())
@@ -551,7 +551,7 @@ int screen_2::Run(sf::RenderWindow &App){
 							upSprite[i].setTexture(uOn);
 							upString[i].setColor(ptcolorl);
 							}
-		}
+							}
 						
 					}
 				}
@@ -589,19 +589,25 @@ int screen_2::Run(sf::RenderWindow &App){
 
 
 
-	    // clear screen and fill with blue
+	    // clear screen and fill with white
 	    	App.clear(sf::Color::White);
 	    	App.draw(points);
 	  	pc.update();
+		
 		for (int i=0; i<10; i++) {
-			App.draw(expSprite[i]);
-			
-			if(stats[i] < 5)
-				App.draw(upSprite[i]);
-			int xo = stats[i];
-			upString[i].setString(costSTR[xo]);			
-			App.draw(upString[i]);
+				stats[i] += 1;
+		stats[i] -= 1; 
+		upString[i].setString(" " + costSTR[stats[i]]);
+		std::cout<<costSTR[stats[i]]<<std::endl; 
+		App.draw(upString[i]);
+		
+		App.draw(expSprite[i]);
+		if(stats[i] < 5)
+		App.draw(upSprite[i]);
+			//int xo = stats[i];
+
 		}
+		
 		App.draw(shipBG);
 		App.draw(missile);
 		App.draw(laser);
@@ -621,6 +627,9 @@ int screen_2::Run(sf::RenderWindow &App){
 		App.draw(shield);
 		App.draw(sMain);
 		App.draw(shipcolor);
+		
+	
+		
 		
 	    	App.display();
 	  }

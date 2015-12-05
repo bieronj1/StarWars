@@ -506,7 +506,7 @@ int screen_2::Run(sf::RenderWindow &App){
 		{
 			if(mouseOnSprite(sMain, App))
 			{
-				saveState(noseDict.at(menu.flippers.at(0).returnText()), bodyDict.at(menu.flippers.at(1).returnText()), 
+			saveState(noseDict.at(menu.flippers.at(0).returnText()), bodyDict.at(menu.flippers.at(1).returnText()), 
 						tailDict.at(menu.flippers.at(2).returnText()));
 					saveStats();
 					savePoints();
@@ -608,5 +608,5 @@ int screen_2::Run(sf::RenderWindow &App){
 	  }
 
 	  // Done.
-	  return 0;
+	  return (-1);
 }

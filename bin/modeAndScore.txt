@@ -1,2 +1,2 @@
-race
-72
+classic
+110

@@ -458,7 +458,7 @@ int screen_0::Run(sf::RenderWindow &App)
                     break;
 		case sf::Keyboard::S:
 			return(2);
-			break;
+			//break;
                 case sf::Keyboard::Return:
                     if (menu == 0)
                     {
