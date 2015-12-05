@@ -22,6 +22,8 @@ class screen_3 : public cScreen
 		std::string score;
 		void compareHighAndCurrent(std::string highScore, std::string current);
 		void loadModeAndScore();
+		void addUpgradePoints(std::string score);
+		int str2int(string &str);
 	private:
 		int alpha_max;
     int alpha_div;
@@ -29,10 +31,48 @@ class screen_3 : public cScreen
 		
 	};
 	
+	
+int screen_3::str2int (string &str) {
+
+  stringstream ss(str);
+  int num;
+  if((ss >> num).fail())
+  { 
+      //ERROR 
+  }
+  return num;
+}
+
+void screen_3::addUpgradePoints(std::string score){
+  int currentScore = str2int(score);
+  std::ifstream ifs("bin/upt.txt");
+  std::string line;
+  getline(ifs, line);
+  ifs.close();
+  int total = str2int(line);
+  total = total + currentScore;
+  std::ofstream ofs("bin/upt.txt", std::ofstream::out| std::ofstream::trunc);
+  ofs<<total;
+  
+}
+	
 
 void screen_3::compareHighAndCurrent(std::string highScore, std::string current){
-    
-  
+    int intHighScore = str2int(highScore);
+    int intCurrent = str2int(current);
+    if(intCurrent > intHighScore)
+    {
+      	std::ofstream ofs;
+	ofs.open("bin/championState.txt", std::ofstream::out| std::ofstream::trunc);
+	std::ifstream ifs("bin/shipState.txt");
+	std::string line;
+	while(getline(ifs, line)){
+	  ofs<<line<<"\n";
+	}
+	ofs<<current;
+	ofs.close();
+	ifs.close();
+    }
 }
 
 	
@@ -50,6 +90,8 @@ void screen_3::loadModeAndScore(){
   
   
 }
+
+
 
 
 screen_3::screen_3(void)
@@ -73,6 +115,9 @@ int screen_3::Run(sf::RenderWindow &App)
 	PlayerShip pc(450, 575,0.1,0.05,0.05);
 	pc.loadFromFileScored();
 	pc.setOrientation(3* M_PI / 2);
+	
+	compareHighAndCurrent(pc.score, score);
+	addUpgradePoints(score);
 
 	sf::Text pcscore; pcscore.setFont(font);
  	pcscore.setPosition(700, 575); pcscore.setString(pc.score);
