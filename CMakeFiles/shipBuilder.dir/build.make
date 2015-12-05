@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/f85/msnelsen/CS420/StarWars
+CMAKE_SOURCE_DIR = /home/f85/hyli/StarWars
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/f85/msnelsen/CS420/StarWars
+CMAKE_BINARY_DIR = /home/f85/hyli/StarWars
 
 # Include any dependencies generated for this target.
 include CMakeFiles/shipBuilder.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/shipBuilder.dir/flags.make
 
 CMakeFiles/shipBuilder.dir/src/Body.cpp.o: CMakeFiles/shipBuilder.dir/flags.make
 CMakeFiles/shipBuilder.dir/src/Body.cpp.o: src/Body.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/msnelsen/CS420/StarWars/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/shipBuilder.dir/src/Body.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shipBuilder.dir/src/Body.cpp.o -c /home/f85/msnelsen/CS420/StarWars/src/Body.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/hyli/StarWars/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/shipBuilder.dir/src/Body.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shipBuilder.dir/src/Body.cpp.o -c /home/f85/hyli/StarWars/src/Body.cpp
 
 CMakeFiles/shipBuilder.dir/src/Body.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shipBuilder.dir/src/Body.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/msnelsen/CS420/StarWars/src/Body.cpp > CMakeFiles/shipBuilder.dir/src/Body.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/hyli/StarWars/src/Body.cpp > CMakeFiles/shipBuilder.dir/src/Body.cpp.i
 
 CMakeFiles/shipBuilder.dir/src/Body.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shipBuilder.dir/src/Body.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/msnelsen/CS420/StarWars/src/Body.cpp -o CMakeFiles/shipBuilder.dir/src/Body.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/hyli/StarWars/src/Body.cpp -o CMakeFiles/shipBuilder.dir/src/Body.cpp.s
 
 CMakeFiles/shipBuilder.dir/src/Body.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/shipBuilder.dir/src/Body.cpp.o.provides.build: CMakeFiles/shipBuilder
 
 CMakeFiles/shipBuilder.dir/src/Flipper.cpp.o: CMakeFiles/shipBuilder.dir/flags.make
 CMakeFiles/shipBuilder.dir/src/Flipper.cpp.o: src/Flipper.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/msnelsen/CS420/StarWars/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/shipBuilder.dir/src/Flipper.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shipBuilder.dir/src/Flipper.cpp.o -c /home/f85/msnelsen/CS420/StarWars/src/Flipper.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/hyli/StarWars/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/shipBuilder.dir/src/Flipper.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shipBuilder.dir/src/Flipper.cpp.o -c /home/f85/hyli/StarWars/src/Flipper.cpp
 
 CMakeFiles/shipBuilder.dir/src/Flipper.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shipBuilder.dir/src/Flipper.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/msnelsen/CS420/StarWars/src/Flipper.cpp > CMakeFiles/shipBuilder.dir/src/Flipper.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/hyli/StarWars/src/Flipper.cpp > CMakeFiles/shipBuilder.dir/src/Flipper.cpp.i
 
 CMakeFiles/shipBuilder.dir/src/Flipper.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shipBuilder.dir/src/Flipper.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/msnelsen/CS420/StarWars/src/Flipper.cpp -o CMakeFiles/shipBuilder.dir/src/Flipper.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/hyli/StarWars/src/Flipper.cpp -o CMakeFiles/shipBuilder.dir/src/Flipper.cpp.s
 
 CMakeFiles/shipBuilder.dir/src/Flipper.cpp.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/shipBuilder.dir/src/Flipper.cpp.o.provides.build: CMakeFiles/shipBuil
 
 CMakeFiles/shipBuilder.dir/src/Menu.cpp.o: CMakeFiles/shipBuilder.dir/flags.make
 CMakeFiles/shipBuilder.dir/src/Menu.cpp.o: src/Menu.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/msnelsen/CS420/StarWars/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/shipBuilder.dir/src/Menu.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shipBuilder.dir/src/Menu.cpp.o -c /home/f85/msnelsen/CS420/StarWars/src/Menu.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/hyli/StarWars/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/shipBuilder.dir/src/Menu.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shipBuilder.dir/src/Menu.cpp.o -c /home/f85/hyli/StarWars/src/Menu.cpp
 
 CMakeFiles/shipBuilder.dir/src/Menu.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shipBuilder.dir/src/Menu.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/msnelsen/CS420/StarWars/src/Menu.cpp > CMakeFiles/shipBuilder.dir/src/Menu.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/hyli/StarWars/src/Menu.cpp > CMakeFiles/shipBuilder.dir/src/Menu.cpp.i
 
 CMakeFiles/shipBuilder.dir/src/Menu.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shipBuilder.dir/src/Menu.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/msnelsen/CS420/StarWars/src/Menu.cpp -o CMakeFiles/shipBuilder.dir/src/Menu.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/hyli/StarWars/src/Menu.cpp -o CMakeFiles/shipBuilder.dir/src/Menu.cpp.s
 
 CMakeFiles/shipBuilder.dir/src/Menu.cpp.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/shipBuilder.dir/src/Menu.cpp.o.provides.build: CMakeFiles/shipBuilder
 
 CMakeFiles/shipBuilder.dir/src/Nose.cpp.o: CMakeFiles/shipBuilder.dir/flags.make
 CMakeFiles/shipBuilder.dir/src/Nose.cpp.o: src/Nose.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/msnelsen/CS420/StarWars/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/shipBuilder.dir/src/Nose.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shipBuilder.dir/src/Nose.cpp.o -c /home/f85/msnelsen/CS420/StarWars/src/Nose.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/hyli/StarWars/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/shipBuilder.dir/src/Nose.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shipBuilder.dir/src/Nose.cpp.o -c /home/f85/hyli/StarWars/src/Nose.cpp
 
 CMakeFiles/shipBuilder.dir/src/Nose.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shipBuilder.dir/src/Nose.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/msnelsen/CS420/StarWars/src/Nose.cpp > CMakeFiles/shipBuilder.dir/src/Nose.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/hyli/StarWars/src/Nose.cpp > CMakeFiles/shipBuilder.dir/src/Nose.cpp.i
 
 CMakeFiles/shipBuilder.dir/src/Nose.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shipBuilder.dir/src/Nose.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/msnelsen/CS420/StarWars/src/Nose.cpp -o CMakeFiles/shipBuilder.dir/src/Nose.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/hyli/StarWars/src/Nose.cpp -o CMakeFiles/shipBuilder.dir/src/Nose.cpp.s
 
 CMakeFiles/shipBuilder.dir/src/Nose.cpp.o.requires:
 
@@ -155,16 +155,16 @@ CMakeFiles/shipBuilder.dir/src/Nose.cpp.o.provides.build: CMakeFiles/shipBuilder
 
 CMakeFiles/shipBuilder.dir/src/PlayerShip.cpp.o: CMakeFiles/shipBuilder.dir/flags.make
 CMakeFiles/shipBuilder.dir/src/PlayerShip.cpp.o: src/PlayerShip.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/msnelsen/CS420/StarWars/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/shipBuilder.dir/src/PlayerShip.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shipBuilder.dir/src/PlayerShip.cpp.o -c /home/f85/msnelsen/CS420/StarWars/src/PlayerShip.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/hyli/StarWars/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/shipBuilder.dir/src/PlayerShip.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shipBuilder.dir/src/PlayerShip.cpp.o -c /home/f85/hyli/StarWars/src/PlayerShip.cpp
 
 CMakeFiles/shipBuilder.dir/src/PlayerShip.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shipBuilder.dir/src/PlayerShip.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/msnelsen/CS420/StarWars/src/PlayerShip.cpp > CMakeFiles/shipBuilder.dir/src/PlayerShip.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/hyli/StarWars/src/PlayerShip.cpp > CMakeFiles/shipBuilder.dir/src/PlayerShip.cpp.i
 
 CMakeFiles/shipBuilder.dir/src/PlayerShip.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shipBuilder.dir/src/PlayerShip.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/msnelsen/CS420/StarWars/src/PlayerShip.cpp -o CMakeFiles/shipBuilder.dir/src/PlayerShip.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/hyli/StarWars/src/PlayerShip.cpp -o CMakeFiles/shipBuilder.dir/src/PlayerShip.cpp.s
 
 CMakeFiles/shipBuilder.dir/src/PlayerShip.cpp.o.requires:
 
@@ -179,16 +179,16 @@ CMakeFiles/shipBuilder.dir/src/PlayerShip.cpp.o.provides.build: CMakeFiles/shipB
 
 CMakeFiles/shipBuilder.dir/src/Tail.cpp.o: CMakeFiles/shipBuilder.dir/flags.make
 CMakeFiles/shipBuilder.dir/src/Tail.cpp.o: src/Tail.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/msnelsen/CS420/StarWars/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/shipBuilder.dir/src/Tail.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shipBuilder.dir/src/Tail.cpp.o -c /home/f85/msnelsen/CS420/StarWars/src/Tail.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/hyli/StarWars/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/shipBuilder.dir/src/Tail.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shipBuilder.dir/src/Tail.cpp.o -c /home/f85/hyli/StarWars/src/Tail.cpp
 
 CMakeFiles/shipBuilder.dir/src/Tail.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shipBuilder.dir/src/Tail.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/msnelsen/CS420/StarWars/src/Tail.cpp > CMakeFiles/shipBuilder.dir/src/Tail.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/hyli/StarWars/src/Tail.cpp > CMakeFiles/shipBuilder.dir/src/Tail.cpp.i
 
 CMakeFiles/shipBuilder.dir/src/Tail.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shipBuilder.dir/src/Tail.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/msnelsen/CS420/StarWars/src/Tail.cpp -o CMakeFiles/shipBuilder.dir/src/Tail.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/hyli/StarWars/src/Tail.cpp -o CMakeFiles/shipBuilder.dir/src/Tail.cpp.s
 
 CMakeFiles/shipBuilder.dir/src/Tail.cpp.o.requires:
 
@@ -203,16 +203,16 @@ CMakeFiles/shipBuilder.dir/src/Tail.cpp.o.provides.build: CMakeFiles/shipBuilder
 
 CMakeFiles/shipBuilder.dir/src/Weapon.cpp.o: CMakeFiles/shipBuilder.dir/flags.make
 CMakeFiles/shipBuilder.dir/src/Weapon.cpp.o: src/Weapon.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/msnelsen/CS420/StarWars/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/shipBuilder.dir/src/Weapon.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shipBuilder.dir/src/Weapon.cpp.o -c /home/f85/msnelsen/CS420/StarWars/src/Weapon.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/hyli/StarWars/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/shipBuilder.dir/src/Weapon.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shipBuilder.dir/src/Weapon.cpp.o -c /home/f85/hyli/StarWars/src/Weapon.cpp
 
 CMakeFiles/shipBuilder.dir/src/Weapon.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shipBuilder.dir/src/Weapon.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/msnelsen/CS420/StarWars/src/Weapon.cpp > CMakeFiles/shipBuilder.dir/src/Weapon.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/hyli/StarWars/src/Weapon.cpp > CMakeFiles/shipBuilder.dir/src/Weapon.cpp.i
 
 CMakeFiles/shipBuilder.dir/src/Weapon.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shipBuilder.dir/src/Weapon.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/msnelsen/CS420/StarWars/src/Weapon.cpp -o CMakeFiles/shipBuilder.dir/src/Weapon.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/hyli/StarWars/src/Weapon.cpp -o CMakeFiles/shipBuilder.dir/src/Weapon.cpp.s
 
 CMakeFiles/shipBuilder.dir/src/Weapon.cpp.o.requires:
 
@@ -227,16 +227,16 @@ CMakeFiles/shipBuilder.dir/src/Weapon.cpp.o.provides.build: CMakeFiles/shipBuild
 
 CMakeFiles/shipBuilder.dir/bin/shipBuilder.cpp.o: CMakeFiles/shipBuilder.dir/flags.make
 CMakeFiles/shipBuilder.dir/bin/shipBuilder.cpp.o: bin/shipBuilder.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/msnelsen/CS420/StarWars/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/shipBuilder.dir/bin/shipBuilder.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shipBuilder.dir/bin/shipBuilder.cpp.o -c /home/f85/msnelsen/CS420/StarWars/bin/shipBuilder.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/hyli/StarWars/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/shipBuilder.dir/bin/shipBuilder.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shipBuilder.dir/bin/shipBuilder.cpp.o -c /home/f85/hyli/StarWars/bin/shipBuilder.cpp
 
 CMakeFiles/shipBuilder.dir/bin/shipBuilder.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shipBuilder.dir/bin/shipBuilder.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/msnelsen/CS420/StarWars/bin/shipBuilder.cpp > CMakeFiles/shipBuilder.dir/bin/shipBuilder.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/hyli/StarWars/bin/shipBuilder.cpp > CMakeFiles/shipBuilder.dir/bin/shipBuilder.cpp.i
 
 CMakeFiles/shipBuilder.dir/bin/shipBuilder.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shipBuilder.dir/bin/shipBuilder.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/msnelsen/CS420/StarWars/bin/shipBuilder.cpp -o CMakeFiles/shipBuilder.dir/bin/shipBuilder.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/hyli/StarWars/bin/shipBuilder.cpp -o CMakeFiles/shipBuilder.dir/bin/shipBuilder.cpp.s
 
 CMakeFiles/shipBuilder.dir/bin/shipBuilder.cpp.o.requires:
 
@@ -272,13 +272,13 @@ shipBuilder: CMakeFiles/shipBuilder.dir/src/Tail.cpp.o
 shipBuilder: CMakeFiles/shipBuilder.dir/src/Weapon.cpp.o
 shipBuilder: CMakeFiles/shipBuilder.dir/bin/shipBuilder.cpp.o
 shipBuilder: CMakeFiles/shipBuilder.dir/build.make
-shipBuilder: /home/f85/msnelsen/SFML/lib/libsfml-graphics.so
-shipBuilder: /home/f85/msnelsen/SFML/lib/libsfml-window.so
-shipBuilder: /home/f85/msnelsen/SFML/lib/libsfml-system.so
-shipBuilder: /home/f85/msnelsen/SFML/lib/libsfml-audio.so
-shipBuilder: /home/f85/msnelsen/SFML/lib/libsfml-network.so
+shipBuilder: /home/f85/hyli/SFML/lib/libsfml-graphics.so
+shipBuilder: /home/f85/hyli/SFML/lib/libsfml-window.so
+shipBuilder: /home/f85/hyli/SFML/lib/libsfml-system.so
+shipBuilder: /home/f85/hyli/SFML/lib/libsfml-audio.so
+shipBuilder: /home/f85/hyli/SFML/lib/libsfml-network.so
 shipBuilder: CMakeFiles/shipBuilder.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/f85/msnelsen/CS420/StarWars/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable shipBuilder"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/f85/hyli/StarWars/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable shipBuilder"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/shipBuilder.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -302,6 +302,6 @@ CMakeFiles/shipBuilder.dir/clean:
 .PHONY : CMakeFiles/shipBuilder.dir/clean
 
 CMakeFiles/shipBuilder.dir/depend:
-	cd /home/f85/msnelsen/CS420/StarWars && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/f85/msnelsen/CS420/StarWars /home/f85/msnelsen/CS420/StarWars /home/f85/msnelsen/CS420/StarWars /home/f85/msnelsen/CS420/StarWars /home/f85/msnelsen/CS420/StarWars/CMakeFiles/shipBuilder.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/f85/hyli/StarWars && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/f85/hyli/StarWars /home/f85/hyli/StarWars /home/f85/hyli/StarWars /home/f85/hyli/StarWars /home/f85/hyli/StarWars/CMakeFiles/shipBuilder.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/shipBuilder.dir/depend
 

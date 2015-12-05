@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/f85/msnelsen/CS420/StarWars
+CMAKE_SOURCE_DIR = /home/f85/hyli/StarWars
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/f85/msnelsen/CS420/StarWars
+CMAKE_BINARY_DIR = /home/f85/hyli/StarWars
 
 # Include any dependencies generated for this target.
 include CMakeFiles/sandbox.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/sandbox.dir/flags.make
 
 CMakeFiles/sandbox.dir/src/Body.cpp.o: CMakeFiles/sandbox.dir/flags.make
 CMakeFiles/sandbox.dir/src/Body.cpp.o: src/Body.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/msnelsen/CS420/StarWars/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/sandbox.dir/src/Body.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sandbox.dir/src/Body.cpp.o -c /home/f85/msnelsen/CS420/StarWars/src/Body.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/hyli/StarWars/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/sandbox.dir/src/Body.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sandbox.dir/src/Body.cpp.o -c /home/f85/hyli/StarWars/src/Body.cpp
 
 CMakeFiles/sandbox.dir/src/Body.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sandbox.dir/src/Body.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/msnelsen/CS420/StarWars/src/Body.cpp > CMakeFiles/sandbox.dir/src/Body.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/hyli/StarWars/src/Body.cpp > CMakeFiles/sandbox.dir/src/Body.cpp.i
 
 CMakeFiles/sandbox.dir/src/Body.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sandbox.dir/src/Body.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/msnelsen/CS420/StarWars/src/Body.cpp -o CMakeFiles/sandbox.dir/src/Body.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/hyli/StarWars/src/Body.cpp -o CMakeFiles/sandbox.dir/src/Body.cpp.s
 
 CMakeFiles/sandbox.dir/src/Body.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/sandbox.dir/src/Body.cpp.o.provides.build: CMakeFiles/sandbox.dir/src
 
 CMakeFiles/sandbox.dir/src/Flipper.cpp.o: CMakeFiles/sandbox.dir/flags.make
 CMakeFiles/sandbox.dir/src/Flipper.cpp.o: src/Flipper.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/msnelsen/CS420/StarWars/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/sandbox.dir/src/Flipper.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sandbox.dir/src/Flipper.cpp.o -c /home/f85/msnelsen/CS420/StarWars/src/Flipper.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/hyli/StarWars/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/sandbox.dir/src/Flipper.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sandbox.dir/src/Flipper.cpp.o -c /home/f85/hyli/StarWars/src/Flipper.cpp
 
 CMakeFiles/sandbox.dir/src/Flipper.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sandbox.dir/src/Flipper.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/msnelsen/CS420/StarWars/src/Flipper.cpp > CMakeFiles/sandbox.dir/src/Flipper.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/hyli/StarWars/src/Flipper.cpp > CMakeFiles/sandbox.dir/src/Flipper.cpp.i
 
 CMakeFiles/sandbox.dir/src/Flipper.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sandbox.dir/src/Flipper.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/msnelsen/CS420/StarWars/src/Flipper.cpp -o CMakeFiles/sandbox.dir/src/Flipper.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/hyli/StarWars/src/Flipper.cpp -o CMakeFiles/sandbox.dir/src/Flipper.cpp.s
 
 CMakeFiles/sandbox.dir/src/Flipper.cpp.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/sandbox.dir/src/Flipper.cpp.o.provides.build: CMakeFiles/sandbox.dir/
 
 CMakeFiles/sandbox.dir/src/Menu.cpp.o: CMakeFiles/sandbox.dir/flags.make
 CMakeFiles/sandbox.dir/src/Menu.cpp.o: src/Menu.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/msnelsen/CS420/StarWars/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/sandbox.dir/src/Menu.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sandbox.dir/src/Menu.cpp.o -c /home/f85/msnelsen/CS420/StarWars/src/Menu.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/hyli/StarWars/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/sandbox.dir/src/Menu.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sandbox.dir/src/Menu.cpp.o -c /home/f85/hyli/StarWars/src/Menu.cpp
 
 CMakeFiles/sandbox.dir/src/Menu.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sandbox.dir/src/Menu.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/msnelsen/CS420/StarWars/src/Menu.cpp > CMakeFiles/sandbox.dir/src/Menu.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/hyli/StarWars/src/Menu.cpp > CMakeFiles/sandbox.dir/src/Menu.cpp.i
 
 CMakeFiles/sandbox.dir/src/Menu.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sandbox.dir/src/Menu.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/msnelsen/CS420/StarWars/src/Menu.cpp -o CMakeFiles/sandbox.dir/src/Menu.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/hyli/StarWars/src/Menu.cpp -o CMakeFiles/sandbox.dir/src/Menu.cpp.s
 
 CMakeFiles/sandbox.dir/src/Menu.cpp.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/sandbox.dir/src/Menu.cpp.o.provides.build: CMakeFiles/sandbox.dir/src
 
 CMakeFiles/sandbox.dir/src/Nose.cpp.o: CMakeFiles/sandbox.dir/flags.make
 CMakeFiles/sandbox.dir/src/Nose.cpp.o: src/Nose.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/msnelsen/CS420/StarWars/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/sandbox.dir/src/Nose.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sandbox.dir/src/Nose.cpp.o -c /home/f85/msnelsen/CS420/StarWars/src/Nose.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/hyli/StarWars/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/sandbox.dir/src/Nose.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sandbox.dir/src/Nose.cpp.o -c /home/f85/hyli/StarWars/src/Nose.cpp
 
 CMakeFiles/sandbox.dir/src/Nose.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sandbox.dir/src/Nose.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/msnelsen/CS420/StarWars/src/Nose.cpp > CMakeFiles/sandbox.dir/src/Nose.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/hyli/StarWars/src/Nose.cpp > CMakeFiles/sandbox.dir/src/Nose.cpp.i
 
 CMakeFiles/sandbox.dir/src/Nose.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sandbox.dir/src/Nose.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/msnelsen/CS420/StarWars/src/Nose.cpp -o CMakeFiles/sandbox.dir/src/Nose.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/hyli/StarWars/src/Nose.cpp -o CMakeFiles/sandbox.dir/src/Nose.cpp.s
 
 CMakeFiles/sandbox.dir/src/Nose.cpp.o.requires:
 
@@ -155,16 +155,16 @@ CMakeFiles/sandbox.dir/src/Nose.cpp.o.provides.build: CMakeFiles/sandbox.dir/src
 
 CMakeFiles/sandbox.dir/src/PlayerShip.cpp.o: CMakeFiles/sandbox.dir/flags.make
 CMakeFiles/sandbox.dir/src/PlayerShip.cpp.o: src/PlayerShip.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/msnelsen/CS420/StarWars/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/sandbox.dir/src/PlayerShip.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sandbox.dir/src/PlayerShip.cpp.o -c /home/f85/msnelsen/CS420/StarWars/src/PlayerShip.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/hyli/StarWars/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/sandbox.dir/src/PlayerShip.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sandbox.dir/src/PlayerShip.cpp.o -c /home/f85/hyli/StarWars/src/PlayerShip.cpp
 
 CMakeFiles/sandbox.dir/src/PlayerShip.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sandbox.dir/src/PlayerShip.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/msnelsen/CS420/StarWars/src/PlayerShip.cpp > CMakeFiles/sandbox.dir/src/PlayerShip.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/hyli/StarWars/src/PlayerShip.cpp > CMakeFiles/sandbox.dir/src/PlayerShip.cpp.i
 
 CMakeFiles/sandbox.dir/src/PlayerShip.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sandbox.dir/src/PlayerShip.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/msnelsen/CS420/StarWars/src/PlayerShip.cpp -o CMakeFiles/sandbox.dir/src/PlayerShip.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/hyli/StarWars/src/PlayerShip.cpp -o CMakeFiles/sandbox.dir/src/PlayerShip.cpp.s
 
 CMakeFiles/sandbox.dir/src/PlayerShip.cpp.o.requires:
 
@@ -179,16 +179,16 @@ CMakeFiles/sandbox.dir/src/PlayerShip.cpp.o.provides.build: CMakeFiles/sandbox.d
 
 CMakeFiles/sandbox.dir/src/Tail.cpp.o: CMakeFiles/sandbox.dir/flags.make
 CMakeFiles/sandbox.dir/src/Tail.cpp.o: src/Tail.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/msnelsen/CS420/StarWars/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/sandbox.dir/src/Tail.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sandbox.dir/src/Tail.cpp.o -c /home/f85/msnelsen/CS420/StarWars/src/Tail.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/hyli/StarWars/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/sandbox.dir/src/Tail.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sandbox.dir/src/Tail.cpp.o -c /home/f85/hyli/StarWars/src/Tail.cpp
 
 CMakeFiles/sandbox.dir/src/Tail.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sandbox.dir/src/Tail.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/msnelsen/CS420/StarWars/src/Tail.cpp > CMakeFiles/sandbox.dir/src/Tail.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/hyli/StarWars/src/Tail.cpp > CMakeFiles/sandbox.dir/src/Tail.cpp.i
 
 CMakeFiles/sandbox.dir/src/Tail.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sandbox.dir/src/Tail.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/msnelsen/CS420/StarWars/src/Tail.cpp -o CMakeFiles/sandbox.dir/src/Tail.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/hyli/StarWars/src/Tail.cpp -o CMakeFiles/sandbox.dir/src/Tail.cpp.s
 
 CMakeFiles/sandbox.dir/src/Tail.cpp.o.requires:
 
@@ -203,16 +203,16 @@ CMakeFiles/sandbox.dir/src/Tail.cpp.o.provides.build: CMakeFiles/sandbox.dir/src
 
 CMakeFiles/sandbox.dir/src/Weapon.cpp.o: CMakeFiles/sandbox.dir/flags.make
 CMakeFiles/sandbox.dir/src/Weapon.cpp.o: src/Weapon.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/msnelsen/CS420/StarWars/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/sandbox.dir/src/Weapon.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sandbox.dir/src/Weapon.cpp.o -c /home/f85/msnelsen/CS420/StarWars/src/Weapon.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/hyli/StarWars/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/sandbox.dir/src/Weapon.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sandbox.dir/src/Weapon.cpp.o -c /home/f85/hyli/StarWars/src/Weapon.cpp
 
 CMakeFiles/sandbox.dir/src/Weapon.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sandbox.dir/src/Weapon.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/msnelsen/CS420/StarWars/src/Weapon.cpp > CMakeFiles/sandbox.dir/src/Weapon.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/hyli/StarWars/src/Weapon.cpp > CMakeFiles/sandbox.dir/src/Weapon.cpp.i
 
 CMakeFiles/sandbox.dir/src/Weapon.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sandbox.dir/src/Weapon.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/msnelsen/CS420/StarWars/src/Weapon.cpp -o CMakeFiles/sandbox.dir/src/Weapon.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/hyli/StarWars/src/Weapon.cpp -o CMakeFiles/sandbox.dir/src/Weapon.cpp.s
 
 CMakeFiles/sandbox.dir/src/Weapon.cpp.o.requires:
 
@@ -227,16 +227,16 @@ CMakeFiles/sandbox.dir/src/Weapon.cpp.o.provides.build: CMakeFiles/sandbox.dir/s
 
 CMakeFiles/sandbox.dir/bin/sandbox.cpp.o: CMakeFiles/sandbox.dir/flags.make
 CMakeFiles/sandbox.dir/bin/sandbox.cpp.o: bin/sandbox.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/msnelsen/CS420/StarWars/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/sandbox.dir/bin/sandbox.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sandbox.dir/bin/sandbox.cpp.o -c /home/f85/msnelsen/CS420/StarWars/bin/sandbox.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/hyli/StarWars/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/sandbox.dir/bin/sandbox.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sandbox.dir/bin/sandbox.cpp.o -c /home/f85/hyli/StarWars/bin/sandbox.cpp
 
 CMakeFiles/sandbox.dir/bin/sandbox.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sandbox.dir/bin/sandbox.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/msnelsen/CS420/StarWars/bin/sandbox.cpp > CMakeFiles/sandbox.dir/bin/sandbox.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/hyli/StarWars/bin/sandbox.cpp > CMakeFiles/sandbox.dir/bin/sandbox.cpp.i
 
 CMakeFiles/sandbox.dir/bin/sandbox.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sandbox.dir/bin/sandbox.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/msnelsen/CS420/StarWars/bin/sandbox.cpp -o CMakeFiles/sandbox.dir/bin/sandbox.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/hyli/StarWars/bin/sandbox.cpp -o CMakeFiles/sandbox.dir/bin/sandbox.cpp.s
 
 CMakeFiles/sandbox.dir/bin/sandbox.cpp.o.requires:
 
@@ -272,13 +272,13 @@ sandbox: CMakeFiles/sandbox.dir/src/Tail.cpp.o
 sandbox: CMakeFiles/sandbox.dir/src/Weapon.cpp.o
 sandbox: CMakeFiles/sandbox.dir/bin/sandbox.cpp.o
 sandbox: CMakeFiles/sandbox.dir/build.make
-sandbox: /home/f85/msnelsen/SFML/lib/libsfml-graphics.so
-sandbox: /home/f85/msnelsen/SFML/lib/libsfml-window.so
-sandbox: /home/f85/msnelsen/SFML/lib/libsfml-system.so
-sandbox: /home/f85/msnelsen/SFML/lib/libsfml-audio.so
-sandbox: /home/f85/msnelsen/SFML/lib/libsfml-network.so
+sandbox: /home/f85/hyli/SFML/lib/libsfml-graphics.so
+sandbox: /home/f85/hyli/SFML/lib/libsfml-window.so
+sandbox: /home/f85/hyli/SFML/lib/libsfml-system.so
+sandbox: /home/f85/hyli/SFML/lib/libsfml-audio.so
+sandbox: /home/f85/hyli/SFML/lib/libsfml-network.so
 sandbox: CMakeFiles/sandbox.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/f85/msnelsen/CS420/StarWars/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable sandbox"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/f85/hyli/StarWars/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable sandbox"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/sandbox.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -302,6 +302,6 @@ CMakeFiles/sandbox.dir/clean:
 .PHONY : CMakeFiles/sandbox.dir/clean
 
 CMakeFiles/sandbox.dir/depend:
-	cd /home/f85/msnelsen/CS420/StarWars && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/f85/msnelsen/CS420/StarWars /home/f85/msnelsen/CS420/StarWars /home/f85/msnelsen/CS420/StarWars /home/f85/msnelsen/CS420/StarWars /home/f85/msnelsen/CS420/StarWars/CMakeFiles/sandbox.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/f85/hyli/StarWars && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/f85/hyli/StarWars /home/f85/hyli/StarWars /home/f85/hyli/StarWars /home/f85/hyli/StarWars /home/f85/hyli/StarWars/CMakeFiles/sandbox.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/sandbox.dir/depend
 

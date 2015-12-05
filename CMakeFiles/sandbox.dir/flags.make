@@ -6,5 +6,5 @@ CXX_FLAGS =
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/f85/msnelsen/SFML/include -I/home/f85/msnelsen/CS420/StarWars/include 
+CXX_INCLUDES = -I/home/f85/hyli/SFML/include -I/home/f85/hyli/StarWars/include 
 

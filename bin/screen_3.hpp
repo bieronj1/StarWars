@@ -144,12 +144,16 @@ int screen_3::Run(sf::RenderWindow &App)
 	while(App.isOpen())
 	{
 		sf::Event Event;
-    while(App.pollEvent(Event))
-    {
+	 while(App.pollEvent(Event))
+	 {
 		if((Event.type == sf::Event::KeyPressed) && (Event.key.code == sf::Keyboard::Return)){
 			return(0);
 		}
+		if(Event.type == sf::Event::Closed)
+	  {App.close();exit(0);}
+		
 	  }
+	  
 	  
 
 	 App.clear(sf::Color::White);
@@ -162,8 +166,7 @@ int screen_3::Run(sf::RenderWindow &App)
 	App.draw(pcscore);
 	App.display();
 	}
-	return(-1);
 	
 	
-
+	return (-1);
 }
