@@ -251,7 +251,7 @@ int screen_0::Run(sf::RenderWindow &App)
     hoversound.setPitch(.8); 
     //background music
     sf::Music bgmusic;
-    if (!bgmusic.openFromFile("sounds/GrimesOblivion.wav"))
+    if (!bgmusic.openFromFile("sounds/GrimesOblivion.wav")) //grimes oblivion instrumental
     return -1; // error
     bgmusic.play();
     bgmusic.setLoop(true); 

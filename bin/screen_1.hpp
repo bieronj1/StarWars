@@ -355,7 +355,7 @@ int screen_1::Run(sf::RenderWindow &App)
 	else
 		timeCounter.setString(IntToString(min)+":0"+IntToString(sec)); 
 
-	if(sec == 5)
+	if(min == 0 && sec == 5)
 	  timersound.play(); 
 	
 //Update Score

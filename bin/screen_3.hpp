@@ -111,8 +111,9 @@ int screen_3::Run(sf::RenderWindow &App)
 	int FPS=60;
 //sound 
       sf::Music bgmusic;
-      if (!bgmusic.openFromFile("sounds/jabba.wav"))
+      if (!bgmusic.openFromFile("sounds/applause2_x.wav"))//steven universe giant woman chiptune remix  
       return -1; // error
+      bgmusic.setVolume(20); 
       bgmusic.play();
       bgmusic.setLoop(false); 
     

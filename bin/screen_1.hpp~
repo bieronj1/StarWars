@@ -218,7 +218,7 @@ int screen_1::Run(sf::RenderWindow &App)
     
     //background music
     sf::Music bgmusic;
-    if (!bgmusic.openFromFile("sounds/JBSorry.wav"))
+    if (!bgmusic.openFromFile("sounds/JBSorry.wav"))//justin bieber sorry instrumental lol
     return -1; // error
     bgmusic.play();
     bgmusic.setLoop(true); 
