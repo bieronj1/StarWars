@@ -1,3 +1,15 @@
+AstroLoot Controls
+
+w - forward thrust
+a,d - turn
+s - reverse thrust
+q,e - lateral thrust
+ctrl+s - brake
+space - shield
+mouse buttons - weapons
+
+
+
 **PREREQUISITES**
 
 - CMAKE (www.cmake.org)
